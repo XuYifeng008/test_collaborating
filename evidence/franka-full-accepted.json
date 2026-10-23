@@ -1,0 +1,23 @@
+{
+  "archive_sha256": "5e1274ce60f5696edd1b6c47ac5e68bcaed6f33fc1fb2e743630d90312607ba4",
+  "benchmark_id": "lab-agent-v0.4-five-tasks-dev",
+  "competition_ready": false,
+  "created_at": "2026-10-23T14:34:06.818865+00:00",
+  "evaluation_id": "eval-309fb00bad1741c98c35d430dda393fc",
+  "planned_count": 20,
+  "robot": "franka",
+  "schema": "lab-eval-pilot-status/v1",
+  "scope": "full",
+  "scoreIsFinal": false,
+  "source_sha256": "3627ba432680e7cf0930629840e6197a163db0082732ff75af531b8d7ca1599f",
+  "state": "queued",
+  "submission_id": "idle-example",
+  "task_ids": [
+    "bottle_transfer",
+    "beaker_place",
+    "balance_load",
+    "stirrer_knob",
+    "tube_insert"
+  ],
+  "updated_at": "2026-10-23T14:34:06.818877+00:00"
+}

@@ -1,0 +1,70 @@
+{
+  "result": {
+    "archive_sha256": "5e1274ce60f5696edd1b6c47ac5e68bcaed6f33fc1fb2e743630d90312607ba4",
+    "backend_source_sha256": "a5bf914d0a721b3cee6a5d5931e8ed62320c7f01738798b0b9992084bc73ff33",
+    "benchmark_id": "lab-agent-v0.4-five-tasks-dev",
+    "competition_ready": false,
+    "evaluation_id": "eval-b90601645e814f1d8bc79931ebcf6ebc",
+    "finished_at": "2026-10-23T14:33:44.027497+00:00",
+    "mean_reward": 0.0,
+    "physical_evaluation": true,
+    "planned_count": 4,
+    "robot": "franka",
+    "schema": "lab-eval-pilot-result/v1",
+    "scope": "smoke",
+    "scoreIsFinal": true,
+    "score_100": 0.0,
+    "score_scope": "single_task_smoke",
+    "scored": true,
+    "scored_count": 4,
+    "seed": 0,
+    "seed_randomizes_layout": false,
+    "source_sha256": "3627ba432680e7cf0930629840e6197a163db0082732ff75af531b8d7ca1599f",
+    "state": "scored",
+    "submission_id": "idle-example",
+    "tasks": [
+      {
+        "mean_reward": 0.0,
+        "planned_count": 4,
+        "scored_count": 4,
+        "state": "complete",
+        "task_id": "bottle_transfer",
+        "trials": [
+          {
+            "envelope_sha256": "966edb522a5fdbe5cebd3af100e98712ac7ce65429cec0cf5f64ef2e871de987",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-be3a15965014c9701c17026a"
+          },
+          {
+            "envelope_sha256": "a5e886e90b4068b3e18a6025cb474d74c4d9cfaab6d70234b8097701cd4bfc68",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-952109829c9d0c9c67147262"
+          },
+          {
+            "envelope_sha256": "e9f4e5eb76040f507f4d0ae77fd9ca3f86202b68fdada727284656e7415839c1",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-d950341b413ba09962025c16"
+          },
+          {
+            "envelope_sha256": "157f5fe958a36e42f647fef59faddc4c425641be9c7d26d3bb10fce3f224426a",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-78f6dc7e5855a0bdb37f0dd6"
+          }
+        ]
+      }
+    ]
+  },
+  "result_sha256": "0f7a9d3a0fd82e638f4d01c9fea57e106f654b4e4b1b072a2e00d7c5c13eea86"
+}

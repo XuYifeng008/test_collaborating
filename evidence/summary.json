@@ -1,0 +1,209 @@
+{
+  "run": "20261023-colleague-test-01",
+  "benchmark_id": "lab-agent-v0.4-five-tasks-dev",
+  "archive": {
+    "file": "idle.zip",
+    "archive_sha256": "5e1274ce60f5696edd1b6c47ac5e68bcaed6f33fc1fb2e743630d90312607ba4"
+  },
+  "evaluations": [
+    {
+      "receipt_file": "franka-smoke-accepted.json",
+      "result_file": "franka-smoke-result.json",
+      "evaluation_id": "eval-b90601645e814f1d8bc79931ebcf6ebc",
+      "robot": "franka",
+      "scope": "smoke",
+      "created_at": "2026-10-23T14:29:02.967270+00:00",
+      "finished_at": "2026-10-23T14:33:44.027497+00:00",
+      "state": "scored",
+      "scoreIsFinal": true,
+      "scored": true,
+      "physical_evaluation": true,
+      "planned_count": 4,
+      "scored_count": 4,
+      "score_scope": "single_task_smoke",
+      "mean_reward": 0.0,
+      "score_100": 0.0,
+      "source_sha256": "3627ba432680e7cf0930629840e6197a163db0082732ff75af531b8d7ca1599f",
+      "result_sha256": "0f7a9d3a0fd82e638f4d01c9fea57e106f654b4e4b1b072a2e00d7c5c13eea86",
+      "tasks": [
+        {
+          "task_id": "bottle_transfer",
+          "mean_reward": 0.0,
+          "planned_count": 4,
+          "scored_count": 4,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "receipt_file": "franka-full-accepted.json",
+      "result_file": "franka-full-result.json",
+      "evaluation_id": "eval-309fb00bad1741c98c35d430dda393fc",
+      "robot": "franka",
+      "scope": "full",
+      "created_at": "2026-10-23T14:34:06.818865+00:00",
+      "finished_at": "2026-10-23T14:57:50.377081+00:00",
+      "state": "scored",
+      "scoreIsFinal": true,
+      "scored": true,
+      "physical_evaluation": true,
+      "planned_count": 20,
+      "scored_count": 20,
+      "score_scope": "five_task_track",
+      "mean_reward": 0.0,
+      "score_100": 0.0,
+      "source_sha256": "3627ba432680e7cf0930629840e6197a163db0082732ff75af531b8d7ca1599f",
+      "result_sha256": "132a96764fbbd5d04d4ede08d29fb3326f051d6a32b22d7277c594af1f729db8",
+      "tasks": [
+        {
+          "task_id": "bottle_transfer",
+          "mean_reward": 0.0,
+          "planned_count": 4,
+          "scored_count": 4,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "task_id": "beaker_place",
+          "mean_reward": 0.0,
+          "planned_count": 4,
+          "scored_count": 4,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "task_id": "balance_load",
+          "mean_reward": 0.0,
+          "planned_count": 4,
+          "scored_count": 4,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "task_id": "stirrer_knob",
+          "mean_reward": 0.0,
+          "planned_count": 4,
+          "scored_count": 4,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "task_id": "tube_insert",
+          "mean_reward": 0.0,
+          "planned_count": 4,
+          "scored_count": 4,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "receipt_file": "dual_piper-full-accepted.json",
+      "result_file": "dual_piper-full-result.json",
+      "evaluation_id": "eval-3261364aea8245e18f06379e30b34611",
+      "robot": "dual_piper",
+      "scope": "full",
+      "created_at": "2026-10-23T14:34:25.838924+00:00",
+      "finished_at": "2026-10-23T14:58:28.537033+00:00",
+      "state": "scored",
+      "scoreIsFinal": true,
+      "scored": true,
+      "physical_evaluation": true,
+      "planned_count": 20,
+      "scored_count": 20,
+      "score_scope": "five_task_track",
+      "mean_reward": 0.0,
+      "score_100": 0.0,
+      "source_sha256": "3627ba432680e7cf0930629840e6197a163db0082732ff75af531b8d7ca1599f",
+      "result_sha256": "0e27d097535b2c0d0d0aa6b149007b1d2e5e4d72b1b06efda7be5009b0ece4cc",
+      "tasks": [
+        {
+          "task_id": "bottle_transfer",
+          "mean_reward": 0.0,
+          "planned_count": 4,
+          "scored_count": 4,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "task_id": "beaker_place",
+          "mean_reward": 0.0,
+          "planned_count": 4,
+          "scored_count": 4,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "task_id": "balance_load",
+          "mean_reward": 0.0,
+          "planned_count": 4,
+          "scored_count": 4,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "task_id": "stirrer_knob",
+          "mean_reward": 0.0,
+          "planned_count": 4,
+          "scored_count": 4,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "task_id": "tube_insert",
+          "mean_reward": 0.0,
+          "planned_count": 4,
+          "scored_count": 4,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    }
+  ],
+  "source_sha256": "3627ba432680e7cf0930629840e6197a163db0082732ff75af531b8d7ca1599f"
+}
