@@ -28,6 +28,7 @@ CASES = [
     ("franka-probe2", "franka", "smoke", "final"),
     ("franka-probe3", "franka", "smoke", "final"),
     ("franka-probe4", "franka", "smoke", "final"),
+    ("franka-probe5", "franka", "smoke", "review"),
     ("franka-stirrer-smoke", "franka", "smoke", "final"),
     ("franka-full", "franka", "full", "final"),
 ]

@@ -38,9 +38,10 @@
 | 接近位（11 actions） | franka | 走到抓取点上方后停 | `eval-ac56207215284d5fa5c76423d511d056` | scored 0/4（正常） |
 | 抓取（17 actions） | franka | 下降并夹住瓶后停 | `eval-c1b6f6b1826747e1916b408eef8f543f` | scored 0/4（正常） |
 | 搬运到目标上方（34 actions） | franka | 抬升+移出+旋转+搬到蓝框上方后停 | `eval-32bbca5f023c458bb9ecbcb84b275511` | scored 0/4（正常） |
+| 下降入框（38 actions） | franka | 再垂直下降把瓶放进蓝框（未释放） | `eval-d6fe299d817442ff8df85f9918f0a77e` | **requires_review**（触发点） |
 | 完整 bottle 轨迹（51 actions） | franka | 全部动作（含放入蓝框/释放/撤离） | 1.2 表两条 | **requires_review**（可复现） |
 
-> 说明：Franka 的复核错误与"机器人是否运动/是否接触物体"无关（抓取探针正常），只在完整轨迹的**最后阶段（放入蓝框→释放→撤离）**触发；两次独立提交、8/8 trial 均可复现。按文档要求保留 ID 与错误码，不把它当 0 分，交组织者处理。
+> 说明：对照探针把触发点缩小到**把瓶子垂直下降放入蓝色收集框**这一步（34 actions 搬运到框上方正常；38 actions 完成下降即触发 requires_review；两次完整轨迹评测 8/8 trial 均可复现）。Franka 的复核错误与"机器人是否运动/是否接触物体"无关（抓取/搬运探针正常）。按文档要求保留 ID 与错误码，不把它当 0 分，交组织者处理。
 
 ## 2. 方法：离线规划 + 在线回放/反馈（纯标准库策略）
 
@@ -109,7 +110,7 @@
 旋钮 `knob_angular_damping_per_s=20`。v1 以 ≈0.57 rad/s 旋转（估算需要 ≈11 N·m），指爪摩擦传不动、打滑；改成 ≈0.05 rad/s（≈1 N·m）后成功。**接触类任务需要按被测对象的动力学选速度**。
 
 ### 4.6 Franka 的原生复核错误（待组织者处理）
-完整 bottle 轨迹在 franka 上稳定触发 `NATIVE_REQUIRES_REVIEW`（2 次评测 8/8 trial），而空策略、最小运动、接近、抓取、搬运到目标上方这 5 个对照探针均正常返回 scored。问题集中在**最后放入蓝框/释放/撤离阶段**，且只出现在 franka。按文档要求保留 evaluation_id 与公共错误码，交组织者排查（不能用 0 分掩盖基础设施错误）。
+完整 bottle 轨迹在 franka 上稳定触发 `NATIVE_REQUIRES_REVIEW`（2 次评测 8/8 trial），而空策略、最小运动、接近、抓取、搬运到目标上方这 5 个对照探针均正常返回 scored。对照探针进一步把问题缩小到**把瓶子垂直下降放入蓝色收集框**这一步（34 actions 搬运到框上方仍正常；38 actions 完成下降即触发），且只出现在 franka。按文档要求保留 evaluation_id 与公共错误码，交组织者排查（不能用 0 分掩盖基础设施错误）。
 
 ### 4.7 其它工程坑
 - Windows 下 `python3` 是 Microsoft Store 占位符，用 `python`/`py -3`；

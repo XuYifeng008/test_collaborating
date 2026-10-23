@@ -711,6 +711,47 @@
       ]
     },
     {
+      "stem": "franka-probe5",
+      "kind": "review",
+      "evaluation_id": "eval-d6fe299d817442ff8df85f9918f0a77e",
+      "robot": "franka",
+      "scope": "smoke",
+      "state": "requires_review",
+      "scoreIsFinal": false,
+      "scored_count": 0,
+      "planned_count": 4,
+      "score_scope": "single_task_smoke",
+      "mean_reward": null,
+      "score_100": null,
+      "source_sha256": "5e09631478597f253214bf5425f11d9a2fd1b38e191fe9f219358df877ae0b3c",
+      "archive_sha256": "615a59c5a4caee68687ebe75d9f3ef3fae836959ccd5df7f92732815ca8b9d80",
+      "result_sha256": "2b7ae62ece97cbbc1b9bb3cfd58ef883a9d1e588c82ef2629a2367c6fe0417be",
+      "tasks": [
+        {
+          "task_id": "bottle_transfer",
+          "mean_reward": null,
+          "rewards": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "error_codes": [
+            "NATIVE_REQUIRES_REVIEW",
+            "NATIVE_REQUIRES_REVIEW",
+            "NATIVE_REQUIRES_REVIEW",
+            "NATIVE_REQUIRES_REVIEW"
+          ],
+          "outcomes": [
+            "infrastructure_error",
+            "infrastructure_error",
+            "infrastructure_error",
+            "infrastructure_error"
+          ]
+        }
+      ]
+    },
+    {
       "stem": "franka-stirrer-smoke",
       "kind": "final",
       "evaluation_id": "eval-da944b9ee6284f288497db101e4b1f45",
