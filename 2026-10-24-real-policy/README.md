@@ -40,6 +40,7 @@
 | 搬运到目标上方（34 actions） | franka | 抬升+移出+旋转+搬到蓝框上方后停 | `eval-32bbca5f023c458bb9ecbcb84b275511` | scored 0/4（正常） |
 | 下降入框（38 actions） | franka | 再垂直下降把瓶放进蓝框（未释放） | `eval-d6fe299d817442ff8df85f9918f0a77e` | **requires_review**（触发点） |
 | 完整 bottle 轨迹（51 actions） | franka | 全部动作（含放入蓝框/释放/撤离） | 1.2 表两条 | **requires_review**（可复现） |
+| 抓取偏移变体 0.045（55 actions） | franka | 把 franka 抓取中心从 0.060 降到 0.045 重新规划 | `eval-fef9f8cbf1f34e5a82aab59b81a5f0bf` | requires_review，4/4 `POLICY_EXIT_NONZERO`（未解决） |
 
 > 说明：对照探针把触发点缩小到**把瓶子垂直下降放入蓝色收集框**这一步（34 actions 搬运到框上方正常；38 actions 完成下降即触发 requires_review；两次完整轨迹评测 8/8 trial 均可复现）。Franka 的复核错误与"机器人是否运动/是否接触物体"无关（抓取/搬运探针正常）。按文档要求保留 ID 与错误码，不把它当 0 分，交组织者处理。
 

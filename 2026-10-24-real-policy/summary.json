@@ -752,6 +752,47 @@
       ]
     },
     {
+      "stem": "franka-bottle-g045-smoke",
+      "kind": "review_mixed",
+      "evaluation_id": "eval-fef9f8cbf1f34e5a82aab59b81a5f0bf",
+      "robot": "franka",
+      "scope": "smoke",
+      "state": "requires_review",
+      "scoreIsFinal": false,
+      "scored_count": 4,
+      "planned_count": 4,
+      "score_scope": "single_task_smoke",
+      "mean_reward": null,
+      "score_100": null,
+      "source_sha256": "fd8520e46622ae5f61ecfab1a5954bff8fb2b3e835b077bb43f0ab3e2c7c947b",
+      "archive_sha256": "aecc983a474d7e23ccc208ca830116e6b2888f4d9915d368512b0630d84a866f",
+      "result_sha256": "d90d3cf054e5cb891a89e0dc67bef09ca85e2fb57999ae3e1d16d4bd6db2531c",
+      "tasks": [
+        {
+          "task_id": "bottle_transfer",
+          "mean_reward": null,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "error_codes": [
+            "POLICY_EXIT_NONZERO",
+            "POLICY_EXIT_NONZERO",
+            "POLICY_EXIT_NONZERO",
+            "POLICY_EXIT_NONZERO"
+          ],
+          "outcomes": [
+            "policy_failure",
+            "policy_failure",
+            "policy_failure",
+            "policy_failure"
+          ]
+        }
+      ]
+    },
+    {
       "stem": "franka-stirrer-smoke",
       "kind": "final",
       "evaluation_id": "eval-da944b9ee6284f288497db101e4b1f45",

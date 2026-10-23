@@ -1,0 +1,70 @@
+{
+  "result": {
+    "archive_sha256": "aecc983a474d7e23ccc208ca830116e6b2888f4d9915d368512b0630d84a866f",
+    "backend_source_sha256": "a5bf914d0a721b3cee6a5d5931e8ed62320c7f01738798b0b9992084bc73ff33",
+    "benchmark_id": "lab-agent-v0.4-five-tasks-dev",
+    "competition_ready": false,
+    "evaluation_id": "eval-fef9f8cbf1f34e5a82aab59b81a5f0bf",
+    "finished_at": "2026-10-23T18:47:55.711538+00:00",
+    "mean_reward": null,
+    "physical_evaluation": false,
+    "planned_count": 4,
+    "robot": "franka",
+    "schema": "lab-eval-pilot-result/v1",
+    "scope": "smoke",
+    "scoreIsFinal": false,
+    "score_100": null,
+    "score_scope": "single_task_smoke",
+    "scored": false,
+    "scored_count": 4,
+    "seed": 0,
+    "seed_randomizes_layout": false,
+    "source_sha256": "fd8520e46622ae5f61ecfab1a5954bff8fb2b3e835b077bb43f0ab3e2c7c947b",
+    "state": "requires_review",
+    "submission_id": "ct01-franka-bottle-g045-v1",
+    "tasks": [
+      {
+        "mean_reward": null,
+        "planned_count": 4,
+        "scored_count": 4,
+        "state": "requires_review",
+        "task_id": "bottle_transfer",
+        "trials": [
+          {
+            "envelope_sha256": "06a93cc5ef2d78fa5d2de6371dd3542a8f08d647a58e9d4d537efc9dcbe3a006",
+            "error_code": "POLICY_EXIT_NONZERO",
+            "outcome": "policy_failure",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-b2d85215e9760705828f2a2c"
+          },
+          {
+            "envelope_sha256": "58d9a4160d252246674dda55a6b86878ec514d679c002615fbb57cdf141736ad",
+            "error_code": "POLICY_EXIT_NONZERO",
+            "outcome": "policy_failure",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-235fd1478c21e9b106db7776"
+          },
+          {
+            "envelope_sha256": "23a5b2bdba59ebfad245c5257d9bfdeea85ea50eea0d8ff7e84c8285c925d1d8",
+            "error_code": "POLICY_EXIT_NONZERO",
+            "outcome": "policy_failure",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-9f325f978bb329d4f6607976"
+          },
+          {
+            "envelope_sha256": "500abbc6fcb4e955896354a0ec24d2dd84a230c7a9a7d96acae0a62a8a4c3011",
+            "error_code": "POLICY_EXIT_NONZERO",
+            "outcome": "policy_failure",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-50452e681cee7cc3931def67"
+          }
+        ]
+      }
+    ]
+  },
+  "result_sha256": "d90d3cf054e5cb891a89e0dc67bef09ca85e2fb57999ae3e1d16d4bd6db2531c"
+}

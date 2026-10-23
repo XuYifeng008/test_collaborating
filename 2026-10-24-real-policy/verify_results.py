@@ -29,6 +29,7 @@ CASES = [
     ("franka-probe3", "franka", "smoke", "final"),
     ("franka-probe4", "franka", "smoke", "final"),
     ("franka-probe5", "franka", "smoke", "review"),
+    ("franka-bottle-g045-smoke", "franka", "smoke", "review_mixed"),
     ("franka-stirrer-smoke", "franka", "smoke", "final"),
     ("franka-full", "franka", "full", "final"),
 ]
@@ -78,20 +79,25 @@ def verify_final(receipt, envelope):
     return result
 
 
-def verify_review(receipt, envelope):
+def verify_review(receipt, envelope, mixed=False):
     result = verify_envelope(receipt, envelope)
     assert result["state"] == "requires_review"
     assert result["scoreIsFinal"] is False and result["scored"] is False
     assert result["physical_evaluation"] is False
-    assert result["scored_count"] == 0
     codes = set()
     for task in result["tasks"]:
-        assert task["scored_count"] == 0
         for trial in task["trials"]:
-            assert trial["state"] == "pending" and trial["reward"] is None
-            assert trial["outcome"] == "infrastructure_error"
+            assert trial["reward"] in (None, 0, 1)
             codes.add(trial["error_code"])
-    assert codes == {"NATIVE_REQUIRES_REVIEW"}, codes
+            if not mixed:
+                assert trial["state"] == "pending" and trial["reward"] is None
+                assert trial["outcome"] == "infrastructure_error"
+                assert task["scored_count"] == 0
+        if mixed:
+            assert any(t["outcome"] == "policy_failure" for t in task["trials"])
+    if not mixed:
+        assert codes == {"NATIVE_REQUIRES_REVIEW"}, codes
+        assert result["scored_count"] == 0
     return result
 
 
@@ -105,7 +111,7 @@ def main():
             continue
         receipt = load(f"{stem}-accepted.json")
         envelope = load(f"{stem}-result.json")
-        result = (verify_final if kind == "final" else verify_review)(receipt, envelope)
+        result = (verify_final if kind == "final" else (lambda r, e: verify_review(r, e, mixed=True) if kind == "review_mixed" else verify_review(r, e)))(receipt, envelope)
         entry = {
             "stem": stem,
             "kind": kind,
