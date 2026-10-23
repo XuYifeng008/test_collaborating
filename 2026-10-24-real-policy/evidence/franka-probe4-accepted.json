@@ -1,0 +1,19 @@
+{
+  "archive_sha256": "cf14e540f802e0f1b3cf5bc7e3a174056a8a244531b316d7499a50e44852e65a",
+  "benchmark_id": "lab-agent-v0.4-five-tasks-dev",
+  "competition_ready": false,
+  "created_at": "2026-10-23T17:37:16.911537+00:00",
+  "evaluation_id": "eval-32bbca5f023c458bb9ecbcb84b275511",
+  "planned_count": 4,
+  "robot": "franka",
+  "schema": "lab-eval-pilot-status/v1",
+  "scope": "smoke",
+  "scoreIsFinal": false,
+  "source_sha256": "c649988ea5a4bd8bda5925182225e8fee2f2b3f8c869c35ff30439988d4ec7fa",
+  "state": "queued",
+  "submission_id": "ct01-franka-probe4-v1",
+  "task_ids": [
+    "bottle_transfer"
+  ],
+  "updated_at": "2026-10-23T17:37:16.911544+00:00"
+}

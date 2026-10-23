@@ -1,0 +1,70 @@
+{
+  "result": {
+    "archive_sha256": "ad2140ffa816668455f853c8fcdce4b076e84a608ee323ed8651f89b21f7d91b",
+    "backend_source_sha256": "a5bf914d0a721b3cee6a5d5931e8ed62320c7f01738798b0b9992084bc73ff33",
+    "benchmark_id": "lab-agent-v0.4-five-tasks-dev",
+    "competition_ready": false,
+    "evaluation_id": "eval-9ac95daee96e498da2382396dddbfe97",
+    "finished_at": "2026-10-23T16:54:05.090410+00:00",
+    "mean_reward": 0.0,
+    "physical_evaluation": true,
+    "planned_count": 4,
+    "robot": "dual_piper",
+    "schema": "lab-eval-pilot-result/v1",
+    "scope": "smoke",
+    "scoreIsFinal": true,
+    "score_100": 0.0,
+    "score_scope": "single_task_smoke",
+    "scored": true,
+    "scored_count": 4,
+    "seed": 0,
+    "seed_randomizes_layout": false,
+    "source_sha256": "4f46339e9b7b57e708b8addf10f9df9e4e33d9a5a08e7c9a7bf460ba48c8a490",
+    "state": "scored",
+    "submission_id": "ct01-stirrer-v1",
+    "tasks": [
+      {
+        "mean_reward": 0.0,
+        "planned_count": 4,
+        "scored_count": 4,
+        "state": "complete",
+        "task_id": "stirrer_knob",
+        "trials": [
+          {
+            "envelope_sha256": "378dfa4fbb5ea7fdbb08478c891cecf293ff2eb3b509fccf19cdd225b5483312",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-0d867c5c7ac7ab54d01fd912"
+          },
+          {
+            "envelope_sha256": "26b4accfe062daf78a5e795b3373cf1fad6ed765569bdaa21eb3adafbb552588",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-340eb9a8caf800957ab8c908"
+          },
+          {
+            "envelope_sha256": "adfe9ef84867ad5422e8624f6daec814a32a001ad815934e33f02db2bf72de54",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-883ddfc4f39046fa71f45fdd"
+          },
+          {
+            "envelope_sha256": "11275ed909e1e6c371ccda6cf5db304fd929b0f078c169c25840089e94fc6997",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-43cfda56c500beee7fe12833"
+          }
+        ]
+      }
+    ]
+  },
+  "result_sha256": "e17c734321d54c3b17571e8b9b53da1b561155474cf3be4edac90b22861e0958"
+}

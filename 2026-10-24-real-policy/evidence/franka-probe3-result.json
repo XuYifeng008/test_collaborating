@@ -1,0 +1,70 @@
+{
+  "result": {
+    "archive_sha256": "6b6fe94718d6c0f0a5c210bfde0d6b5cc678b86836be2f96a104190bf869d8d1",
+    "backend_source_sha256": "a5bf914d0a721b3cee6a5d5931e8ed62320c7f01738798b0b9992084bc73ff33",
+    "benchmark_id": "lab-agent-v0.4-five-tasks-dev",
+    "competition_ready": false,
+    "evaluation_id": "eval-c1b6f6b1826747e1916b408eef8f543f",
+    "finished_at": "2026-10-23T17:36:50.517509+00:00",
+    "mean_reward": 0.0,
+    "physical_evaluation": true,
+    "planned_count": 4,
+    "robot": "franka",
+    "schema": "lab-eval-pilot-result/v1",
+    "scope": "smoke",
+    "scoreIsFinal": true,
+    "score_100": 0.0,
+    "score_scope": "single_task_smoke",
+    "scored": true,
+    "scored_count": 4,
+    "seed": 0,
+    "seed_randomizes_layout": false,
+    "source_sha256": "02c84d7a288aaf611118d0af52867d5f0aaebefab531c173cfad8dbaa8d7aa59",
+    "state": "scored",
+    "submission_id": "ct01-franka-probe3-v1",
+    "tasks": [
+      {
+        "mean_reward": 0.0,
+        "planned_count": 4,
+        "scored_count": 4,
+        "state": "complete",
+        "task_id": "bottle_transfer",
+        "trials": [
+          {
+            "envelope_sha256": "9d706756fe042eb1d9ab5faa43bfdd24d21574ff97d512906e44ff4c0dfd4f8c",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-b5334bd1c06a1cbc7128920e"
+          },
+          {
+            "envelope_sha256": "841c3786f292ffa112416ed5c1679712c2f3112635ed2084229b54bbebc2cd08",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-5e19c53f40f1a43ac693aaf4"
+          },
+          {
+            "envelope_sha256": "db06a21c0f52f967e8fb674f84bcc13ed6a06e9e7d99d6bc584e818ab2b0be64",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-fd2f514c6999aa8cc160af5d"
+          },
+          {
+            "envelope_sha256": "1f15e0324a91f901bcc753d1798b4da367bb71595a07315d70c0bb17125548a8",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-4c9e26739f88fa7a86466d18"
+          }
+        ]
+      }
+    ]
+  },
+  "result_sha256": "c45f47bf4a874945a26481f40fef0bded6ccd271d5c0e873495a8a021b779a5a"
+}

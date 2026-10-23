@@ -1,0 +1,70 @@
+{
+  "result": {
+    "archive_sha256": "4d9b3465c2663300ef2bdd7e5627e94ebe0c62c44347fe6e8b56462e170af64c",
+    "backend_source_sha256": "a5bf914d0a721b3cee6a5d5931e8ed62320c7f01738798b0b9992084bc73ff33",
+    "benchmark_id": "lab-agent-v0.4-five-tasks-dev",
+    "competition_ready": false,
+    "evaluation_id": "eval-2a587ccbe650491f85eec4b4bdfbeacb",
+    "finished_at": "2026-10-23T17:21:09.757727+00:00",
+    "mean_reward": 0.0,
+    "physical_evaluation": true,
+    "planned_count": 4,
+    "robot": "dual_piper",
+    "schema": "lab-eval-pilot-result/v1",
+    "scope": "smoke",
+    "scoreIsFinal": true,
+    "score_100": 0.0,
+    "score_scope": "single_task_smoke",
+    "scored": true,
+    "scored_count": 4,
+    "seed": 0,
+    "seed_randomizes_layout": false,
+    "source_sha256": "d41eb4750cf65465045dd20daf05a86d29ec9b6a9b12b46cd170a4c37d936323",
+    "state": "scored",
+    "submission_id": "ct01-stirrer-v2",
+    "tasks": [
+      {
+        "mean_reward": 0.0,
+        "planned_count": 4,
+        "scored_count": 4,
+        "state": "complete",
+        "task_id": "stirrer_knob",
+        "trials": [
+          {
+            "envelope_sha256": "02b8794254a2d93264580309dc5b911285af9f7d78acfeeadd308136674b7b1c",
+            "error_code": "POLICY_TIMEOUT",
+            "outcome": "policy_failure",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-87ff8b8a682241a3e7b771d2"
+          },
+          {
+            "envelope_sha256": "f523cbcaa4fc5a81229503090e6f1e80e52dc0eb58a1ec9d24a0f2f96fe5321a",
+            "error_code": "POLICY_TIMEOUT",
+            "outcome": "policy_failure",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-56affd0d8fd9a0d3ae685136"
+          },
+          {
+            "envelope_sha256": "9a60b8c6f9c1fe1cb477b3d3c8a51a0fc7111e296ecd19b61180ded5e537ef9a",
+            "error_code": "POLICY_TIMEOUT",
+            "outcome": "policy_failure",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-0d69c451dcbc5d439b044976"
+          },
+          {
+            "envelope_sha256": "62531414f0c8bde4ccbd0456a6611ed712e574c3a9174dcf0ae9c825a63684e0",
+            "error_code": "POLICY_TIMEOUT",
+            "outcome": "policy_failure",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-91f5f379042183f9846419a9"
+          }
+        ]
+      }
+    ]
+  },
+  "result_sha256": "577fef7a8187eb41d5e9b33256f8a2c47d98eeeb010430f75b241f72304020cd"
+}

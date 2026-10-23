@@ -1,0 +1,884 @@
+{
+  "campaign": "2026-10-24 real-policy (colleague-test-01)",
+  "evaluations": [
+    {
+      "stem": "bottle-smoke",
+      "kind": "final",
+      "evaluation_id": "eval-f9270d2f6006448cb0e52ea7781f5350",
+      "robot": "dual_piper",
+      "scope": "smoke",
+      "state": "scored",
+      "scoreIsFinal": true,
+      "scored_count": 4,
+      "planned_count": 4,
+      "score_scope": "single_task_smoke",
+      "mean_reward": 1.0,
+      "score_100": 100.0,
+      "source_sha256": "f71b65e70ae90bfe84b44419e5d10a63dab306b79dbf4abd17e36cd6892d0798",
+      "archive_sha256": "ebe84be9b3e5217cf7263aa456ee0a81bd10cabe94c33c282db8a6c242894353",
+      "result_sha256": "3af3b8675b610e6814c03a1ebc09a3bbe3883a60ea93bca0376c589f8d866cc4",
+      "tasks": [
+        {
+          "task_id": "bottle_transfer",
+          "mean_reward": 1.0,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "bottle-full",
+      "kind": "final",
+      "evaluation_id": "eval-59a61892b7b34eff98fc80daffd676af",
+      "robot": "dual_piper",
+      "scope": "full",
+      "state": "scored",
+      "scoreIsFinal": true,
+      "scored_count": 20,
+      "planned_count": 20,
+      "score_scope": "five_task_track",
+      "mean_reward": 0.2,
+      "score_100": 20.0,
+      "source_sha256": "f71b65e70ae90bfe84b44419e5d10a63dab306b79dbf4abd17e36cd6892d0798",
+      "archive_sha256": "ebe84be9b3e5217cf7263aa456ee0a81bd10cabe94c33c282db8a6c242894353",
+      "result_sha256": "3d533c4a9050115c3156ab99f25f0f4b8eb44346e4594f1a71f568a2fbe5914a",
+      "tasks": [
+        {
+          "task_id": "bottle_transfer",
+          "mean_reward": 1.0,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        },
+        {
+          "task_id": "beaker_place",
+          "mean_reward": 0.0,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        },
+        {
+          "task_id": "balance_load",
+          "mean_reward": 0.0,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        },
+        {
+          "task_id": "stirrer_knob",
+          "mean_reward": 0.0,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        },
+        {
+          "task_id": "tube_insert",
+          "mean_reward": 0.0,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "stirrer-smoke",
+      "kind": "final",
+      "evaluation_id": "eval-9ac95daee96e498da2382396dddbfe97",
+      "robot": "dual_piper",
+      "scope": "smoke",
+      "state": "scored",
+      "scoreIsFinal": true,
+      "scored_count": 4,
+      "planned_count": 4,
+      "score_scope": "single_task_smoke",
+      "mean_reward": 0.0,
+      "score_100": 0.0,
+      "source_sha256": "4f46339e9b7b57e708b8addf10f9df9e4e33d9a5a08e7c9a7bf460ba48c8a490",
+      "archive_sha256": "ad2140ffa816668455f853c8fcdce4b076e84a608ee323ed8651f89b21f7d91b",
+      "result_sha256": "e17c734321d54c3b17571e8b9b53da1b561155474cf3be4edac90b22861e0958",
+      "tasks": [
+        {
+          "task_id": "stirrer_knob",
+          "mean_reward": 0.0,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "stirrer2-smoke",
+      "kind": "final",
+      "evaluation_id": "eval-2a587ccbe650491f85eec4b4bdfbeacb",
+      "robot": "dual_piper",
+      "scope": "smoke",
+      "state": "scored",
+      "scoreIsFinal": true,
+      "scored_count": 4,
+      "planned_count": 4,
+      "score_scope": "single_task_smoke",
+      "mean_reward": 0.0,
+      "score_100": 0.0,
+      "source_sha256": "d41eb4750cf65465045dd20daf05a86d29ec9b6a9b12b46cd170a4c37d936323",
+      "archive_sha256": "4d9b3465c2663300ef2bdd7e5627e94ebe0c62c44347fe6e8b56462e170af64c",
+      "result_sha256": "577fef7a8187eb41d5e9b33256f8a2c47d98eeeb010430f75b241f72304020cd",
+      "tasks": [
+        {
+          "task_id": "stirrer_knob",
+          "mean_reward": 0.0,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "error_codes": [
+            "POLICY_TIMEOUT",
+            "POLICY_TIMEOUT",
+            "POLICY_TIMEOUT",
+            "POLICY_TIMEOUT"
+          ],
+          "outcomes": [
+            "policy_failure",
+            "policy_failure",
+            "policy_failure",
+            "policy_failure"
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "stirrer3-smoke",
+      "kind": "final",
+      "evaluation_id": "eval-c4de120672614d96bca14ceb5d3b1eef",
+      "robot": "dual_piper",
+      "scope": "smoke",
+      "state": "scored",
+      "scoreIsFinal": true,
+      "scored_count": 4,
+      "planned_count": 4,
+      "score_scope": "single_task_smoke",
+      "mean_reward": 1.0,
+      "score_100": 100.0,
+      "source_sha256": "b25535aa3a88d51d715fa67a13761453f46c309d4d7fb1f3c18b9ca408f07cd4",
+      "archive_sha256": "869284670a30ad18a1f50937b81a005b03a10801d74557b431ecefd0c4b35ecb",
+      "result_sha256": "0137836dd138fd2696bc86afed72657e5f62f5b8e024fbbfc42557a17e40740b",
+      "tasks": [
+        {
+          "task_id": "stirrer_knob",
+          "mean_reward": 1.0,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "combined-full",
+      "kind": "final",
+      "evaluation_id": "eval-1c51581d0df946bea341bec16c914a19",
+      "robot": "dual_piper",
+      "scope": "full",
+      "state": "scored",
+      "scoreIsFinal": true,
+      "scored_count": 20,
+      "planned_count": 20,
+      "score_scope": "five_task_track",
+      "mean_reward": 0.4,
+      "score_100": 40.0,
+      "source_sha256": "1d5d326790353e2f50621f93e7a2fef0ef1e475c7c9a6f461d02f45def6bd8ec",
+      "archive_sha256": "2d38a3d49cd3666d6bc22dc9bc751a5bce81326ad03a4e883d5d0c6dc0f6cf6a",
+      "result_sha256": "7ec621c2c9ffd683aa921ae66973d5795d6a660df3cd3b0df879810a69fc01c5",
+      "tasks": [
+        {
+          "task_id": "bottle_transfer",
+          "mean_reward": 1.0,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        },
+        {
+          "task_id": "beaker_place",
+          "mean_reward": 0.0,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        },
+        {
+          "task_id": "balance_load",
+          "mean_reward": 0.0,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        },
+        {
+          "task_id": "stirrer_knob",
+          "mean_reward": 1.0,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        },
+        {
+          "task_id": "tube_insert",
+          "mean_reward": 0.0,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "franka-bottle-smoke",
+      "kind": "review",
+      "evaluation_id": "eval-0ce2eb4b2fef4caab215713fea5fe5ad",
+      "robot": "franka",
+      "scope": "smoke",
+      "state": "requires_review",
+      "scoreIsFinal": false,
+      "scored_count": 0,
+      "planned_count": 4,
+      "score_scope": "single_task_smoke",
+      "mean_reward": null,
+      "score_100": null,
+      "source_sha256": "88da7224fc6de0eb7a67a6ab126da06985d17eace7d5f4e3a8e774f396a1dfc6",
+      "archive_sha256": "6abf29a39b384aef109525366df8695afbd0ed10e193b0e3fd909268975197f2",
+      "result_sha256": "b7f3a4e090d6eac3f1ae308de9bef1e9db7ec569bfed6bed3adb4bd4f8803053",
+      "tasks": [
+        {
+          "task_id": "bottle_transfer",
+          "mean_reward": null,
+          "rewards": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "error_codes": [
+            "NATIVE_REQUIRES_REVIEW",
+            "NATIVE_REQUIRES_REVIEW",
+            "NATIVE_REQUIRES_REVIEW",
+            "NATIVE_REQUIRES_REVIEW"
+          ],
+          "outcomes": [
+            "infrastructure_error",
+            "infrastructure_error",
+            "infrastructure_error",
+            "infrastructure_error"
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "franka-bottle-smoke2",
+      "kind": "review",
+      "evaluation_id": "eval-ff22f0b9945e4ab9b821dab9658c3224",
+      "robot": "franka",
+      "scope": "smoke",
+      "state": "requires_review",
+      "scoreIsFinal": false,
+      "scored_count": 0,
+      "planned_count": 4,
+      "score_scope": "single_task_smoke",
+      "mean_reward": null,
+      "score_100": null,
+      "source_sha256": "88da7224fc6de0eb7a67a6ab126da06985d17eace7d5f4e3a8e774f396a1dfc6",
+      "archive_sha256": "6abf29a39b384aef109525366df8695afbd0ed10e193b0e3fd909268975197f2",
+      "result_sha256": "2612e326b8dc78b65ebbbd35f4ec7cf984becd3a3cd333b14ff119da4a1a79be",
+      "tasks": [
+        {
+          "task_id": "bottle_transfer",
+          "mean_reward": null,
+          "rewards": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "error_codes": [
+            "NATIVE_REQUIRES_REVIEW",
+            "NATIVE_REQUIRES_REVIEW",
+            "NATIVE_REQUIRES_REVIEW",
+            "NATIVE_REQUIRES_REVIEW"
+          ],
+          "outcomes": [
+            "infrastructure_error",
+            "infrastructure_error",
+            "infrastructure_error",
+            "infrastructure_error"
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "franka-idle2",
+      "kind": "final",
+      "evaluation_id": "eval-2a5b6098536b4a53974c267687f13ce7",
+      "robot": "franka",
+      "scope": "smoke",
+      "state": "scored",
+      "scoreIsFinal": true,
+      "scored_count": 4,
+      "planned_count": 4,
+      "score_scope": "single_task_smoke",
+      "mean_reward": 0.0,
+      "score_100": 0.0,
+      "source_sha256": "3627ba432680e7cf0930629840e6197a163db0082732ff75af531b8d7ca1599f",
+      "archive_sha256": "5e1274ce60f5696edd1b6c47ac5e68bcaed6f33fc1fb2e743630d90312607ba4",
+      "result_sha256": "42b2efeccc638082eac7c4d5c0a95001db7caa57e41e01af55d83a032d120f69",
+      "tasks": [
+        {
+          "task_id": "bottle_transfer",
+          "mean_reward": 0.0,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "franka-probe",
+      "kind": "final",
+      "evaluation_id": "eval-e534173a21d343d9a7cbed573307412a",
+      "robot": "franka",
+      "scope": "smoke",
+      "state": "scored",
+      "scoreIsFinal": true,
+      "scored_count": 4,
+      "planned_count": 4,
+      "score_scope": "single_task_smoke",
+      "mean_reward": 0.0,
+      "score_100": 0.0,
+      "source_sha256": "f315a2bfd3a68196ecad363f2d0ef2d3a3298099f1482020e6e5746ed9870e4c",
+      "archive_sha256": "8fcfd202c959038fbc8a253725e327f293f08c8d192323e17c88733d70cd0550",
+      "result_sha256": "a2cdd392d9793b68d06a39a6367dbed0ebd8f1cc5e0483e02ee4425e0b32a5af",
+      "tasks": [
+        {
+          "task_id": "bottle_transfer",
+          "mean_reward": 0.0,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "franka-probe2",
+      "kind": "final",
+      "evaluation_id": "eval-ac56207215284d5fa5c76423d511d056",
+      "robot": "franka",
+      "scope": "smoke",
+      "state": "scored",
+      "scoreIsFinal": true,
+      "scored_count": 4,
+      "planned_count": 4,
+      "score_scope": "single_task_smoke",
+      "mean_reward": 0.0,
+      "score_100": 0.0,
+      "source_sha256": "69e50347a23661c0e9fdbd3f85a8edbf1b61866d9e64462f19a1d45aed79b105",
+      "archive_sha256": "7de5cc4e439c25869e4005ebf703f69db44de060c0bc3c8cd36b5976f3703c0e",
+      "result_sha256": "262e8ed0a10e5adeac163e010b5d34816ed814fa4eb211d6db03c86616a3ea9b",
+      "tasks": [
+        {
+          "task_id": "bottle_transfer",
+          "mean_reward": 0.0,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "franka-probe3",
+      "kind": "final",
+      "evaluation_id": "eval-c1b6f6b1826747e1916b408eef8f543f",
+      "robot": "franka",
+      "scope": "smoke",
+      "state": "scored",
+      "scoreIsFinal": true,
+      "scored_count": 4,
+      "planned_count": 4,
+      "score_scope": "single_task_smoke",
+      "mean_reward": 0.0,
+      "score_100": 0.0,
+      "source_sha256": "02c84d7a288aaf611118d0af52867d5f0aaebefab531c173cfad8dbaa8d7aa59",
+      "archive_sha256": "6b6fe94718d6c0f0a5c210bfde0d6b5cc678b86836be2f96a104190bf869d8d1",
+      "result_sha256": "c45f47bf4a874945a26481f40fef0bded6ccd271d5c0e873495a8a021b779a5a",
+      "tasks": [
+        {
+          "task_id": "bottle_transfer",
+          "mean_reward": 0.0,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "franka-probe4",
+      "kind": "final",
+      "evaluation_id": "eval-32bbca5f023c458bb9ecbcb84b275511",
+      "robot": "franka",
+      "scope": "smoke",
+      "state": "scored",
+      "scoreIsFinal": true,
+      "scored_count": 4,
+      "planned_count": 4,
+      "score_scope": "single_task_smoke",
+      "mean_reward": 0.0,
+      "score_100": 0.0,
+      "source_sha256": "c649988ea5a4bd8bda5925182225e8fee2f2b3f8c869c35ff30439988d4ec7fa",
+      "archive_sha256": "cf14e540f802e0f1b3cf5bc7e3a174056a8a244531b316d7499a50e44852e65a",
+      "result_sha256": "143807d453e63fa45d3783efbfd9bb70c78b24ad07283d6ead8497298c75485c",
+      "tasks": [
+        {
+          "task_id": "bottle_transfer",
+          "mean_reward": 0.0,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "franka-stirrer-smoke",
+      "kind": "final",
+      "evaluation_id": "eval-da944b9ee6284f288497db101e4b1f45",
+      "robot": "franka",
+      "scope": "smoke",
+      "state": "scored",
+      "scoreIsFinal": true,
+      "scored_count": 4,
+      "planned_count": 4,
+      "score_scope": "single_task_smoke",
+      "mean_reward": 1.0,
+      "score_100": 100.0,
+      "source_sha256": "906039ea86f3f5ee5232ce4d1b1c2beaef41f20b6c24693846d582bd3504bf17",
+      "archive_sha256": "cca008f6048fb9d522718bdeea99e6e4e2b2f2d341669f047b4fc5eee0c8d50c",
+      "result_sha256": "0adf915e2233da82468976d71ea0cbb769dd9a511cea2b313b82bcb08db9494b",
+      "tasks": [
+        {
+          "task_id": "stirrer_knob",
+          "mean_reward": 1.0,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "franka-full",
+      "kind": "final",
+      "evaluation_id": "eval-5963078e05da469c83e47e6f921d1176",
+      "robot": "franka",
+      "scope": "full",
+      "state": "scored",
+      "scoreIsFinal": true,
+      "scored_count": 20,
+      "planned_count": 20,
+      "score_scope": "five_task_track",
+      "mean_reward": 0.2,
+      "score_100": 20.0,
+      "source_sha256": "906039ea86f3f5ee5232ce4d1b1c2beaef41f20b6c24693846d582bd3504bf17",
+      "archive_sha256": "cca008f6048fb9d522718bdeea99e6e4e2b2f2d341669f047b4fc5eee0c8d50c",
+      "result_sha256": "c013d328c60bf50cbd3ab37552a8438d67b369fcd04fde5a58ad40f7a9425750",
+      "tasks": [
+        {
+          "task_id": "bottle_transfer",
+          "mean_reward": 0.0,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        },
+        {
+          "task_id": "beaker_place",
+          "mean_reward": 0.0,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        },
+        {
+          "task_id": "balance_load",
+          "mean_reward": 0.0,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        },
+        {
+          "task_id": "stirrer_knob",
+          "mean_reward": 1.0,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        },
+        {
+          "task_id": "tube_insert",
+          "mean_reward": 0.0,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "error_codes": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "outcomes": [
+            "completed",
+            "completed",
+            "completed",
+            "completed"
+          ]
+        }
+      ]
+    }
+  ]
+}

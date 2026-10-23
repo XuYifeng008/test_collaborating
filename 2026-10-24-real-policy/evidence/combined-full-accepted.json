@@ -1,0 +1,23 @@
+{
+  "archive_sha256": "2d38a3d49cd3666d6bc22dc9bc751a5bce81326ad03a4e883d5d0c6dc0f6cf6a",
+  "benchmark_id": "lab-agent-v0.4-five-tasks-dev",
+  "competition_ready": false,
+  "created_at": "2026-10-23T17:34:34.234517+00:00",
+  "evaluation_id": "eval-1c51581d0df946bea341bec16c914a19",
+  "planned_count": 20,
+  "robot": "dual_piper",
+  "schema": "lab-eval-pilot-status/v1",
+  "scope": "full",
+  "scoreIsFinal": false,
+  "source_sha256": "1d5d326790353e2f50621f93e7a2fef0ef1e475c7c9a6f461d02f45def6bd8ec",
+  "state": "queued",
+  "submission_id": "ct01-dualpiper-combined-v2",
+  "task_ids": [
+    "bottle_transfer",
+    "beaker_place",
+    "balance_load",
+    "stirrer_knob",
+    "tube_insert"
+  ],
+  "updated_at": "2026-10-23T17:34:34.234526+00:00"
+}

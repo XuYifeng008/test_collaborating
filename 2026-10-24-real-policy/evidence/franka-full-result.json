@@ -1,0 +1,234 @@
+{
+  "result": {
+    "archive_sha256": "cca008f6048fb9d522718bdeea99e6e4e2b2f2d341669f047b4fc5eee0c8d50c",
+    "backend_source_sha256": "a5bf914d0a721b3cee6a5d5931e8ed62320c7f01738798b0b9992084bc73ff33",
+    "benchmark_id": "lab-agent-v0.4-five-tasks-dev",
+    "competition_ready": false,
+    "evaluation_id": "eval-5963078e05da469c83e47e6f921d1176",
+    "finished_at": "2026-10-23T18:28:44.473997+00:00",
+    "mean_reward": 0.2,
+    "physical_evaluation": true,
+    "planned_count": 20,
+    "robot": "franka",
+    "schema": "lab-eval-pilot-result/v1",
+    "scope": "full",
+    "scoreIsFinal": true,
+    "score_100": 20.0,
+    "score_scope": "five_task_track",
+    "scored": true,
+    "scored_count": 20,
+    "seed": 0,
+    "seed_randomizes_layout": false,
+    "source_sha256": "906039ea86f3f5ee5232ce4d1b1c2beaef41f20b6c24693846d582bd3504bf17",
+    "state": "scored",
+    "submission_id": "ct01-franka-stirrer-v1",
+    "tasks": [
+      {
+        "mean_reward": 0.0,
+        "planned_count": 4,
+        "scored_count": 4,
+        "state": "complete",
+        "task_id": "bottle_transfer",
+        "trials": [
+          {
+            "envelope_sha256": "3aa81d746eeb54452260d69ecc7d402ca9ee0bd2aa6a6ed207316f07beb6d981",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-2dd9dfcda2f96f2ffdb2d239"
+          },
+          {
+            "envelope_sha256": "d85ec51c3b3485de3c76c162d91a312e8dfd93fa3e3b9f396634bbab9b8343ae",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-751b15f8379d6de60e63a894"
+          },
+          {
+            "envelope_sha256": "6fac30e41be6ce248fc81179592afa91dc33f6e8af713bd8d59cc1562b79c5c0",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-5ec2e8a2a9b4f0622db697b4"
+          },
+          {
+            "envelope_sha256": "125ce6502d4fa6e7174d8b5966b5ad972d979f09a182a63c2a62622fff4558d3",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-2d345fd2ede3fee44312f690"
+          }
+        ]
+      },
+      {
+        "mean_reward": 0.0,
+        "planned_count": 4,
+        "scored_count": 4,
+        "state": "complete",
+        "task_id": "beaker_place",
+        "trials": [
+          {
+            "envelope_sha256": "0bfe20aa7d91f061f33c8b0be161e63f81bf86ff200686e584df94c106c5ac08",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-dbeea24f46be6f900c63f182"
+          },
+          {
+            "envelope_sha256": "f1d405f483e255803a2ca55bf859a0cc15eb27fc1a05fff41b7b5341156f6b34",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-562ce7a29e992cc8ee6e05e8"
+          },
+          {
+            "envelope_sha256": "49775a4fd9b79ff3cb2c8a789f017194873c075b9f7521e51accd3c094d1493d",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-b07f56bb14e117ec2e959b43"
+          },
+          {
+            "envelope_sha256": "9008318633f33014597861a623937e91174e0cad53bad120cac4b89898c595d5",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-e22a2ad52ace5e9f18a83b10"
+          }
+        ]
+      },
+      {
+        "mean_reward": 0.0,
+        "planned_count": 4,
+        "scored_count": 4,
+        "state": "complete",
+        "task_id": "balance_load",
+        "trials": [
+          {
+            "envelope_sha256": "d84be09bf9b99450423d6ab1d122465adc75e90525cd2b42de8cdd639023ba51",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-2423ef4e98537e789caa30d9"
+          },
+          {
+            "envelope_sha256": "3b256f8563edf8cbb7273e16f49153789f909dbf7f888da61df2b56b695b7f75",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-f158ce85e71c09666c6a48c8"
+          },
+          {
+            "envelope_sha256": "5fc4c88aa3a32c06c18ed8adda57b605656d88c6cedfe5cb2e371ee0a6cbdde4",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-e0764bb50df0e84dca957e29"
+          },
+          {
+            "envelope_sha256": "0742365a22797a7d351d1ac548ddd7c9f89c75ae343d82b1a337eda27bdfb8bb",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-3a8f0ea6b928546096da8e43"
+          }
+        ]
+      },
+      {
+        "mean_reward": 1.0,
+        "planned_count": 4,
+        "scored_count": 4,
+        "state": "complete",
+        "task_id": "stirrer_knob",
+        "trials": [
+          {
+            "envelope_sha256": "706ac073b2765e6344a3d133a679ea2b126510c680bb338df53616515edba2a6",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 1.0,
+            "state": "scored",
+            "trial_id": "trial-f2d580a6e6a6d7b8a5714f15"
+          },
+          {
+            "envelope_sha256": "a94723c0587d88c1c355b58ca3a7ca13658c2ba15216abc4bed87f3e536809dd",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 1.0,
+            "state": "scored",
+            "trial_id": "trial-0c0daffc8ceb3dbcac33426c"
+          },
+          {
+            "envelope_sha256": "d3346df1c9385b11a8421580ddf638583330fa7327c1a568b466a05faeb6729c",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 1.0,
+            "state": "scored",
+            "trial_id": "trial-3b5324e547a796ae24db8f60"
+          },
+          {
+            "envelope_sha256": "8ccaa0334a3d82e1833542db2ec0c2648bf6f91485f5d69bf6b8f47fa31ac9bf",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 1.0,
+            "state": "scored",
+            "trial_id": "trial-f05595b78b1711baeb8e20ce"
+          }
+        ]
+      },
+      {
+        "mean_reward": 0.0,
+        "planned_count": 4,
+        "scored_count": 4,
+        "state": "complete",
+        "task_id": "tube_insert",
+        "trials": [
+          {
+            "envelope_sha256": "44544bdda01853bcd1609338ac962d7f1c16941208b6e64ad7266527cc8421c6",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-30503a530318f9cd1f9f947e"
+          },
+          {
+            "envelope_sha256": "7db54ee7563a9f5a7409594f92e67f0c4ce53e946cec7a210487c18bb2a1d57b",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-a071cf3f342303319d67acb9"
+          },
+          {
+            "envelope_sha256": "292144e4ed8b25ac158d634c58c1e8739206f5f93472fdd95135bfcedda6adc9",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-24573d5f123276fa8dca41d3"
+          },
+          {
+            "envelope_sha256": "11a96550763c0ea699d261ee874277a806f9bc3dafc6d8e430e575a8db6a93c1",
+            "error_code": null,
+            "outcome": "completed",
+            "reward": 0.0,
+            "state": "scored",
+            "trial_id": "trial-b81a9c191e03df89d02e7e19"
+          }
+        ]
+      }
+    ]
+  },
+  "result_sha256": "c013d328c60bf50cbd3ab37552a8438d67b369fcd04fde5a58ad40f7a9425750"
+}

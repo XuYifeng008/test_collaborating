@@ -1,0 +1,11 @@
+{
+  "schema": "lab-submission/v1",
+  "interface": "lab-policy-v1",
+  "submission_id": "ct01-bottle-transfer-v1",
+  "entrypoint": "policy.py",
+  "name": "Bottle transfer scripted replay v1 (colleague-test-01)",
+  "model": {
+    "kind": "none",
+    "description": "Offline planned joint replay; no model at run time"
+  }
+}

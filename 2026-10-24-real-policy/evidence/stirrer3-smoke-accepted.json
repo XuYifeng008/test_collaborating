@@ -1,0 +1,19 @@
+{
+  "archive_sha256": "869284670a30ad18a1f50937b81a005b03a10801d74557b431ecefd0c4b35ecb",
+  "benchmark_id": "lab-agent-v0.4-five-tasks-dev",
+  "competition_ready": false,
+  "created_at": "2026-10-23T17:22:52.589427+00:00",
+  "evaluation_id": "eval-c4de120672614d96bca14ceb5d3b1eef",
+  "planned_count": 4,
+  "robot": "dual_piper",
+  "schema": "lab-eval-pilot-status/v1",
+  "scope": "smoke",
+  "scoreIsFinal": false,
+  "source_sha256": "b25535aa3a88d51d715fa67a13761453f46c309d4d7fb1f3c18b9ca408f07cd4",
+  "state": "queued",
+  "submission_id": "ct01-stirrer-v3",
+  "task_ids": [
+    "stirrer_knob"
+  ],
+  "updated_at": "2026-10-23T17:22:52.589431+00:00"
+}

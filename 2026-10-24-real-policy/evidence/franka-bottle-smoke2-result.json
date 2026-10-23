@@ -1,0 +1,70 @@
+{
+  "result": {
+    "archive_sha256": "6abf29a39b384aef109525366df8695afbd0ed10e193b0e3fd909268975197f2",
+    "backend_source_sha256": "a5bf914d0a721b3cee6a5d5931e8ed62320c7f01738798b0b9992084bc73ff33",
+    "benchmark_id": "lab-agent-v0.4-five-tasks-dev",
+    "competition_ready": false,
+    "evaluation_id": "eval-ff22f0b9945e4ab9b821dab9658c3224",
+    "finished_at": "2026-10-23T17:01:42.805751+00:00",
+    "mean_reward": null,
+    "physical_evaluation": false,
+    "planned_count": 4,
+    "robot": "franka",
+    "schema": "lab-eval-pilot-result/v1",
+    "scope": "smoke",
+    "scoreIsFinal": false,
+    "score_100": null,
+    "score_scope": "single_task_smoke",
+    "scored": false,
+    "scored_count": 0,
+    "seed": 0,
+    "seed_randomizes_layout": false,
+    "source_sha256": "88da7224fc6de0eb7a67a6ab126da06985d17eace7d5f4e3a8e774f396a1dfc6",
+    "state": "requires_review",
+    "submission_id": "ct01-franka-bottle-v1",
+    "tasks": [
+      {
+        "mean_reward": null,
+        "planned_count": 4,
+        "scored_count": 0,
+        "state": "requires_review",
+        "task_id": "bottle_transfer",
+        "trials": [
+          {
+            "envelope_sha256": "988c04ffbfa93b0652cc5ae201a0382c066f603a2e8b667851137c3226381165",
+            "error_code": "NATIVE_REQUIRES_REVIEW",
+            "outcome": "infrastructure_error",
+            "reward": null,
+            "state": "pending",
+            "trial_id": "trial-f104c52ff53de7565685af82"
+          },
+          {
+            "envelope_sha256": "94cfea9778d494c5165664746034fd64d038ef58a153d5e1f9c3c9386b80f9e7",
+            "error_code": "NATIVE_REQUIRES_REVIEW",
+            "outcome": "infrastructure_error",
+            "reward": null,
+            "state": "pending",
+            "trial_id": "trial-d223715972fbd3f5002d17d7"
+          },
+          {
+            "envelope_sha256": "6900e355dff9316591eee300800cd75eb13117d25740383ca6e15ad4656e1f6b",
+            "error_code": "NATIVE_REQUIRES_REVIEW",
+            "outcome": "infrastructure_error",
+            "reward": null,
+            "state": "pending",
+            "trial_id": "trial-d691da0553a3183d2a9f6236"
+          },
+          {
+            "envelope_sha256": "53c4b7340ed03e5fccdf4aa7a392112f99b4252d333628e3da9775b19104c827",
+            "error_code": "NATIVE_REQUIRES_REVIEW",
+            "outcome": "infrastructure_error",
+            "reward": null,
+            "state": "pending",
+            "trial_id": "trial-b907fc2b97a5b9177922253c"
+          }
+        ]
+      }
+    ]
+  },
+  "result_sha256": "2612e326b8dc78b65ebbbd35f4ec7cf984becd3a3cd333b14ff119da4a1a79be"
+}

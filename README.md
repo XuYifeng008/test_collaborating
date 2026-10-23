@@ -1,4 +1,8 @@
-# 实验室具身操作邀请联调 · 选手侧评测报告
+﻿# 实验室具身操作邀请联调 · 选手侧评测报告
+
+> **2026-10-24 新增：真实策略联调结果** —— [2026-10-24-real-policy/README.md](2026-10-24-real-policy/README.md)：dual_piper 赛道 score_100=40.0（bottle_transfer 4/4 + stirrer_knob 4/4）、franka 赛道 score_100=20.0（stirrer_knob 4/4）；franka bottle_transfer 触发可复现的服务端原生复核错误（NATIVE_REQUIRES_REVIEW），详见该报告。
+
+---
 
 > 运行标识：`20261023-colleague-test-01`
 > 执行时间：2026-10-23 22:27–23:05（Asia/Shanghai）

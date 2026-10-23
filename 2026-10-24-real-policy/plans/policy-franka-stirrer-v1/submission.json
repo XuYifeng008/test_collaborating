@@ -1,0 +1,11 @@
+{
+  "schema": "lab-submission/v1",
+  "interface": "lab-policy-v1",
+  "submission_id": "ct01-franka-stirrer-v1",
+  "entrypoint": "policy.py",
+  "name": "Franka stirrer knob adaptive slow rotation (colleague-test-01)",
+  "model": {
+    "kind": "none",
+    "description": "Offline IK plan + encoder feedback; no model at run time"
+  }
+}

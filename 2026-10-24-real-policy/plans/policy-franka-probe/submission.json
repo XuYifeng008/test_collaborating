@@ -1,0 +1,8 @@
+{
+  "schema": "lab-submission/v1",
+  "interface": "lab-policy-v1",
+  "submission_id": "ct01-franka-probe-v1",
+  "entrypoint": "policy.py",
+  "name": "Franka minimal motion probe (colleague-test-01)",
+  "model": {"kind": "none", "description": "Nudge one joint, hold, finish"}
+}
