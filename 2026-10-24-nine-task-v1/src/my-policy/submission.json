@@ -1,0 +1,8 @@
+{
+  "schema": "lab-submission/v2",
+  "interface": "lab-policy-v2",
+  "submission_id": "nine-task-policy-001",
+  "entrypoint": "policy.py",
+  "name": "Nine-task public-observation policy",
+  "model_source": "No model inference is requested by this policy. The only authorised model for this runtime profile is rynnbrain-1.1-2b-local (see runtime/model-registry.json); this submission deliberately does not depend on it so that the deterministic controller and the image dependencies can be audited independently."
+}

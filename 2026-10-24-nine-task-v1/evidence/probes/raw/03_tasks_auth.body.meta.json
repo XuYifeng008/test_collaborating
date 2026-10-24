@@ -1,0 +1,32 @@
+{
+  "seq": 3,
+  "label": "tasks_auth",
+  "utc_started": "2026-10-24T09:29:19.652Z",
+  "utc_finished": "2026-10-24T09:29:20.060Z",
+  "method": "GET",
+  "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/tasks",
+  "auth": "bearer_token_from_file",
+  "request_headers_redacted": {
+    "User-Agent": "lab-nine-entry-probe/1.0 (non-destructive GET only)",
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "<redacted>"
+  },
+  "tls": "default_verified",
+  "status": 200,
+  "reason": "OK",
+  "content_type": "application/json",
+  "response_headers_redacted": {
+    "Date": "Sat, 24 Oct 2026 09:29:20 GMT",
+    "Content-Type": "application/json",
+    "Content-Length": "2444",
+    "Connection": "close",
+    "Vary": "Accept-Encoding",
+    "cache-control": "no-store",
+    "x-envoy-upstream-service-time": "2"
+  },
+  "body_bytes": 2444,
+  "body_sha256": "0f6a8ead3d5c83641c95c334f8895e89b3af38997ff58104c22807c1f6f05219",
+  "body_file": "raw/03_tasks_auth.body.json",
+  "error": null,
+  "elapsed_ms": 407
+}

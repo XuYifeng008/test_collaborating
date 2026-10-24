@@ -1,0 +1,80 @@
+﻿{
+ "ok": true,
+ "checks": {
+  "runtime_profile_sha256": "b32b478e6b0051e53fb774fc3b52b666352c8c427d3e6ec3e1994d7b41341639",
+  "release_runtime_profile_sha256": "b32b478e6b0051e53fb774fc3b52b666352c8c427d3e6ec3e1994d7b41341639",
+  "runtime_sha_matches_release": true,
+  "configuration_sha256": "0e50177954035a578741140edf0bd68a7ac254e807b739fff3a89176e12894d2",
+  "release_example_configuration_sha256": "0e50177954035a578741140edf0bd68a7ac254e807b739fff3a89176e12894d2",
+  "configuration_sha_matches_release": true,
+  "configuration_deployment_qualified": [
+   false,
+   false
+  ],
+  "configuration_urls": [
+   null,
+   null
+  ],
+  "profile_id": "lab-nine-image-model-v1",
+  "model_api_models": [
+   "rynnbrain-1.1-2b-local"
+  ],
+  "finite_frequency_hz_by_wave": {
+   "wave1": 240.0,
+   "wave2": 120.0
+  }
+ },
+ "verification": {
+  "franka": {
+   "robot": "franka",
+   "problems": [],
+   "canonical_source_sha256": "b6a78c5adfc3e5e891b1f7bcd5d6aba807e80be67f482842c2c0f663bf7246f4",
+   "archives": {
+    "wave1": {
+     "path": "wave1.zip",
+     "archive_sha256": "f4e43152182b4800fea7d52150e0933edc2759d07f6f019bc4886f5d01522ee4",
+     "source_sha256": "851a5da662ebd6941a2038d5ef09cab2924491c1b078db82d81a852e7e1420a2",
+     "size_bytes": 89327,
+     "file_count": 14
+    },
+    "wave2": {
+     "path": "wave2.zip",
+     "archive_sha256": "92323c48abbd32c5161f918cbbb7bd2add3712ba182ee9eb90ef0f9cfc288a35",
+     "source_sha256": "249b5072dfc20bbcedb745de204ad766efb9c5e177a5642c520d4eca82eda805",
+     "size_bytes": 89327,
+     "file_count": 14
+    }
+   },
+   "canonical_files": 6,
+   "source_bytes": 66636
+  },
+  "piper-dual": {
+   "robot": "piper-dual",
+   "problems": [],
+   "canonical_source_sha256": "b6a78c5adfc3e5e891b1f7bcd5d6aba807e80be67f482842c2c0f663bf7246f4",
+   "archives": {
+    "wave1": {
+     "path": "wave1.zip",
+     "archive_sha256": "fc04a286b6cead3bbdbae1271cc98efbde930580703aa2de1c2daba4dbfc2d23",
+     "source_sha256": "219e2f4811b017cba9dec22a9b29ea42d90b9edcdd8c800a6d8fdd5d9215c8c8",
+     "size_bytes": 89335,
+     "file_count": 14
+    },
+    "wave2": {
+     "path": "wave2.zip",
+     "archive_sha256": "d56052c172ad368881be67c0cf6c901e6cc7a44284b4cf2035a78c6330cb2fdb",
+     "source_sha256": "7740338f7385a874527f6d84bd606c44d02624ddaf75b13ae579db015d76f406",
+     "size_bytes": 89335,
+     "file_count": 14
+    }
+   },
+   "canonical_files": 6,
+   "source_bytes": 66636
+  }
+ },
+ "deterministic": {
+  "franka": true,
+  "piper-dual": true
+ }
+}
+

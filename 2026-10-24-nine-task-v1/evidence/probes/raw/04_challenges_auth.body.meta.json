@@ -1,0 +1,31 @@
+{
+  "seq": 4,
+  "label": "challenges_auth",
+  "utc_started": "2026-10-24T09:29:20.065Z",
+  "utc_finished": "2026-10-24T09:29:20.393Z",
+  "method": "GET",
+  "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/challenges",
+  "auth": "bearer_token_from_file",
+  "request_headers_redacted": {
+    "User-Agent": "lab-nine-entry-probe/1.0 (non-destructive GET only)",
+    "Accept": "application/json, text/plain, */*",
+    "Authorization": "<redacted>"
+  },
+  "tls": "default_verified",
+  "status": 404,
+  "reason": "Not Found",
+  "content_type": "application/json",
+  "response_headers_redacted": {
+    "Date": "Sat, 24 Oct 2026 09:29:20 GMT",
+    "Content-Type": "application/json",
+    "Content-Length": "26",
+    "Connection": "close",
+    "cache-control": "no-store",
+    "x-envoy-upstream-service-time": "0"
+  },
+  "body_bytes": 26,
+  "body_sha256": "5e6293a28b9df9bda9e4478001c8839d3673171bdffc5a99950d144111b3343e",
+  "body_file": "raw/04_challenges_auth.body.json",
+  "error": null,
+  "elapsed_ms": 327
+}

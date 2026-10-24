@@ -1,0 +1,365 @@
+{
+  "utc": "2026-10-24T09:29:18.694Z",
+  "purpose": "平台 CLI 入口只读核查（九题正式入口是否存在）",
+  "cli_path": "C:\\Users\\86150\\AppData\\Roaming\\npm\\playground.CMD",
+  "commands": [
+    "playground --help",
+    "playground auth status",
+    "playground submit -h",
+    "playground task list --limit 7000 --json"
+  ],
+  "forbidden_commands_not_executed": [
+    "playground submit（会创建 Attempt=POST）",
+    "playground auth login/register（写凭据/建号）",
+    "playground task download/upload/upload-package（写平台）",
+    "playground status --attempt-id（无 Attempt）"
+  ],
+  "results": {
+    "help": {
+      "returncode": 0,
+      "first_lines": [
+        "Playground CLI 0.1.40",
+        "Usage:",
+        "  playground <command> [options]",
+        "  playground -h | --help",
+        "  playground <command> -h | --help",
+        "Recommended contest flow:",
+        "  # New user (a strong password is generated and saved automatically):",
+        "  playground auth register --name \"YOUR NAME\" --email EMAIL --affiliation ORGANIZATION",
+        "  # Returning user:",
+        "  playground auth login --email EMAIL",
+        "  # Confirm that saved credentials work:",
+        "  playground auth status",
+        "  playground task list --limit 20",
+        "  playground task download --challenge-id ID --out challenge-dir",
+        "  playground submit --challenge-id ID --outputs outputs-dir --trace native-trace --model MODEL --harness HARNESS",
+        "  playground status --attempt-id ID --bundle",
+        "Command groups:",
+        "  config      Write local endpoint and token configuration",
+        "  auth        Login, register, and check saved credentials",
+        "  agent       Register an agent identity and request an operator claim",
+        "  task        Guide, preflight, package, list, download, or upload Playground tasks",
+        "  benchmark   Upload ready challenge packages as one Playground benchmark"
+      ],
+      "error": null
+    },
+    "auth_status": {
+      "returncode": 0,
+      "error": null,
+      "authenticated": true,
+      "api_base": "https://play.bohrium.com/api",
+      "credentials_path": "C:\\Users\\86150\\.config\\playground\\credentials.env",
+      "credentials_file_exists": true
+    },
+    "credentials_file": {
+      "path": "C:\\Users\\86150\\.config\\playground\\credentials.env",
+      "exists": true,
+      "key_names_only": [
+        "PLAYGROUND_TOKEN"
+      ],
+      "values_read_or_written": false
+    },
+    "local_config": {
+      "path": "C:\\Users\\86150\\.playground\\config.json",
+      "exists": false
+    },
+    "submit_help": {
+      "returncode": 0,
+      "contains_create_attempt": true,
+      "usage_line": "playground submit --challenge-id ID --outputs outputs-dir [--trace native-trace] [--raw-messages raw.jsonl] [--model MODEL] [--harness HARNESS] [--bundle-out playground-arm.zip] [--dry-run]",
+      "error": null
+    },
+    "task_list": {
+      "returncode": 0,
+      "elapsed_s": 37.7,
+      "error": null,
+      "schema_version": "playground-task-list/v0",
+      "api_base": "https://play.bohrium.com/api",
+      "total_visible": 6932,
+      "returned": 6932,
+      "keyword_strong": "nine|九题|embodied|具身|franka|piper|manipulat|自主实验|isaac|grasp|bottle_transfer|beaker_place|balance_load|stirrer_knob|tube_insert|lab-nine|robot arm",
+      "keyword_weak": "robot|机器人|实验室|vla",
+      "strong_match_count": 24,
+      "strong_matches": [
+        {
+          "id": "tcp-http-eb4cb29a",
+          "title": "电解液自主实验闭环：模拟工站接入（TCP/HTTP）、数据采集与基于文献描述符的约束配方优化",
+          "status": "open",
+          "tags": [
+            "追光者计划·招募赛",
+            "岗位·AI4S 智能大装置工程开发实习生",
+            "community"
+          ],
+          "attempts": 293
+        },
+        {
+          "id": "hierarchical-clustering-and-gene-signature-discove-132bc797",
+          "title": "Hierarchical Clustering and Gene Signature Discovery in Canine Osteosarcoma Cell Lines",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "wang-2020-prx-symplectic",
+          "title": "Symplectic neural networks for Hamiltonian systems",
+          "status": "open",
+          "tags": [
+            "normalizing flow",
+            "symplectic",
+            "Hamiltonian",
+            "alanine dipeptide",
+            "hackathon"
+          ],
+          "attempts": 72
+        },
+        {
+          "id": "hybrid-dft-reproduction-of-h-and-o-impurity-deep-t-ac42735b",
+          "title": "Hybrid DFT reproduction of H and O₂ impurity deep trap states in metal phthalocyanine crystals",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "two-step-multiscale-free-energy-calculation-on-ala-dc2e74ac",
+          "title": "Two-Step Multiscale Free Energy Calculation on Alanine Dipeptide using VESΔF",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "quantum-chemical-conformational-analysis-of-alkali-f8ba7d13",
+          "title": "Quantum chemical conformational analysis of alkali-metal cation threonine complexes",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "scef-conformational-search-on-polyalanine-3929b4d6",
+          "title": "SCEF Conformational Search on Polyalanine",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "dft-frontier-molecular-orbital-analysis-compute-ho-b3c91a35",
+          "title": "DFT Frontier Molecular Orbital Analysis: compute HOMO-LUMO gaps for nine pyrrole-based molecules in singlet ground state and two in triplet state",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "adiabatic-electron-affinity-of-adenine-water-compl-084fe5f9",
+          "title": "Adiabatic Electron Affinity of Adenine-Water Complex C via Ab Initio Calculations",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "spin-wave-polarization-manipulation-via-synthetic-a3f0be81",
+          "title": "Spin Wave Polarization Manipulation via Synthetic Antiferromagnet Sublayer Engineering",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "compute-bond-length-alternation-vertical-excitatio-ba5f6cc1",
+          "title": "Compute bond-length alternation, vertical excitation energies, dipole moments, and first hyperpolarizability for four merocyanine dyes using DFT/TD-DFT at the B3LYP/6-311G(d) and CAM-B3LYP/6-311G(d) level with PCM chloroform solvent.",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "localized-vibrational-mode-frequencies-in-a-nine-a-e945494f",
+          "title": "Localized vibrational mode frequencies in a nine-atom CsCl-type defect cluster",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "cd2-adenine-thymine-interaction-and-base-pair-anal-cb22633a",
+          "title": "Cd2+-Adenine/Thymine Interaction and Base-Pair Analysis via DFT",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "ab-initio-stabilization-energies-of-alanine-oligop-fbf71574",
+          "title": "Ab initio stabilization energies of alanine oligopeptides",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "error-analysis-of-a-nine-point-finite-difference-s-e02c4fa9",
+          "title": "Error analysis of a nine-point finite-difference scheme for the reduced water-wave equation",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "electronic-state-gaps-and-nbo-donor-acceptor-inter-8fff86eb",
+          "title": "Electronic state gaps and NBO donor-acceptor interactions for nine pyridyl radical isomers",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "reaction-mechanism-of-glyoxal-with-guanine-via-ab-87a668a3",
+          "title": "Reaction Mechanism of Glyoxal with Guanine via Ab Initio Calculations",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "evaluating-a-nine-gene-signature-s-prognostic-accu-d0d93dff",
+          "title": "Evaluating a Nine-Gene Signature's Prognostic Accuracy in Pancreatic Cancer",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "fully-cartesian-path-planning-for-a-planar-2r-mani-16a66511",
+          "title": "Fully Cartesian path planning for a planar 2R manipulator",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 1
+        },
+        {
+          "id": "compute-peak-daily-biologically-effective-uv-b-irr-3e104bbb",
+          "title": "Compute peak daily biologically effective UV-B irradiance for nine Asian rice-growing stations",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "scef-convergence-to-helix-for-poly-l-alanine-729f296f",
+          "title": "SCEF Convergence to α-Helix for Poly-L-Alanine",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "scaling-heteroatomic-lennard-jones-epsilon-in-a-me-74115503",
+          "title": "Scaling Heteroatomic Lennard-Jones Epsilon in a Metal–Organic Force Field: Metadynamics Free-Energy Profiles for Phenylalanine at Au(111)",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "dft-spin-densities-and-magnetic-coupling-in-copper-ee5e14ba",
+          "title": "DFT Spin Densities and Magnetic Coupling in Copper Phthalocyanine Complexes",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "serine-threonine-kinase-and-e2-domain-scan-in-prok-020eb35e",
+          "title": "Serine/Threonine Kinase and E2 Domain Scan in Prokaryotic Genomes with Statistical Comparison",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        }
+      ],
+      "weak_match_count": 3,
+      "weak_matches": [
+        {
+          "id": "idc-semi-lagrangian-weno-convergence-for-vlasov-po-cedfcc22",
+          "title": "IDC Semi-Lagrangian WENO Convergence for Vlasov-Poisson",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 0
+        },
+        {
+          "id": "asymptotic-preserving-scheme-for-vlasov-fokker-pla-0e0d2f7b",
+          "title": "Asymptotic-preserving scheme for Vlasov-Fokker-Planck and variable-density Navier-Stokes system",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 1
+        },
+        {
+          "id": "minimum-time-robot-trajectory-planning-under-torqu-db650bcd",
+          "title": "Minimum-time robot trajectory planning under torque, velocity and jerk constraints",
+          "status": "open",
+          "tags": [
+            "Agentic Science Challenge",
+            "community"
+          ],
+          "attempts": 1
+        }
+      ],
+      "nine_task_challenge_visible": false
+    }
+  }
+}

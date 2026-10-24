@@ -1,0 +1,30 @@
+{
+  "seq": 7,
+  "label": "root_noauth",
+  "utc_started": "2026-10-24T09:29:21.119Z",
+  "utc_finished": "2026-10-24T09:29:21.439Z",
+  "method": "GET",
+  "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/",
+  "auth": "none",
+  "request_headers_redacted": {
+    "User-Agent": "lab-nine-entry-probe/1.0 (non-destructive GET only)",
+    "Accept": "application/json, text/plain, */*"
+  },
+  "tls": "default_verified",
+  "status": 401,
+  "reason": "Unauthorized",
+  "content_type": "application/json",
+  "response_headers_redacted": {
+    "Date": "Sat, 24 Oct 2026 09:29:21 GMT",
+    "Content-Type": "application/json",
+    "Content-Length": "29",
+    "Connection": "close",
+    "cache-control": "no-store",
+    "x-envoy-upstream-service-time": "2"
+  },
+  "body_bytes": 29,
+  "body_sha256": "55a8d8e7d1df1868bd1b97e3ad3a4f7a76e13e7270f481db4775640691c07dc0",
+  "body_file": "raw/07_root_noauth.body.json",
+  "error": null,
+  "elapsed_ms": 319
+}

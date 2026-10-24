@@ -1,3 +1,7 @@
+> **2026-10-24 新增：九题包 `lab-nine-20261024-v1` 参评记录** —— [2026-10-24-nine-task-v1/README.md](2026-10-24-nine-task-v1/README.md)：策略实现 + 官方 `lab_sdk.packaging` 冻结产物完成（两赛道、确定性、身份复核通过）；**本轮九题正式入口不存在**（`competition_ready=false`、`live_nine_task_service_deployed=false`、配置 `url=null/deployment_qualified=false`；唯一可达服务是旧五题联调，缺 `nine_task_binding`，`/v1/challenges`、`/v1/attempts` 均 404）；**未产生 Attempt ID / 36 槽结果 / 最终分，不伪造**。
+
+---
+
 ﻿# 实验室具身操作邀请联调 · 选手侧评测报告
 
 > **2026-10-24 新增：真实策略联调结果** —— [2026-10-24-real-policy/README.md](2026-10-24-real-policy/README.md)：dual_piper 赛道 score_100=40.0（bottle_transfer 4/4 + stirrer_knob 4/4）、franka 赛道 score_100=20.0（stirrer_knob 4/4）；franka bottle_transfer 触发可复现的服务端原生复核错误（NATIVE_REQUIRES_REVIEW），详见该报告。

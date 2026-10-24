@@ -1,0 +1,10 @@
+=== Lead dev record 2026-10-24T17:29:11.824443+08:00 ===
+--- fixture protocol smoke (exit 0) ---
+{"wave": "wave1", "robot": "franka", "task": "bottle_transfer", "finished": true, "calls": 32, "policy_steps": 260, "dt": 0.004166666666666667, "extra": 720, "joint_counts": {"arm": 7}, "deterministic": true}
+{"wave": "wave1", "robot": "piper-dual", "task": "bottle_transfer", "finished": true, "calls": 32, "policy_steps": 260, "dt": 0.004166666666666667, "extra": 720, "joint_counts": {"left": 6, "right": 6}, "deterministic": true}
+{"wave": "wave2", "robot": "piper-dual", "task": "C07", "finished": true, "calls": 54, "policy_steps": 1010, "dt": 0.008333333333333333, "extra": 0, "joint_counts": {"left": 6, "right": 6}, "deterministic": true}
+{"wave": "wave2", "robot": "franka", "task": "C02", "finished": true, "calls": 34, "policy_steps": 410, "dt": 0.008333333333333333, "extra": 0, "joint_counts": {"arm": 7}, "deterministic": true}
+SMOKE: PASS
+--- C07 state machine (kinematic mock, NON-physical) (exit 0) ---
+{"finished": true, "steps": 2448, "tare_calls": 1, "reads": 19, "net_g": 10.4, "first_tare_at_step": 496, "perception_kinds": ["cup_receiving", "cup_source", "pan"], "ok": true}
+EVENTS tail: [('read', 1594, 8.266666666666667), ('read', 1654, 8.766666666666667), ('read', 1714, 9.266666666666667), ('read', 1774, 9.766666666666667), ('read', 2154, 10.4), ('finish', 2448)]

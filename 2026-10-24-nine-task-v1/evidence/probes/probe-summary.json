@@ -1,0 +1,2575 @@
+{
+  "schema": "lab-nine-entry-probe/v1",
+  "rules_id": "lab-nine-20261024-v1",
+  "purpose": "核实 lab-nine-20261024-v1 九题正式入口是否存在且可用（非破坏性 GET；禁止伪造 Attempt）",
+  "generated_utc": "2026-10-24T09:29:51.727Z",
+  "generated_local": "2026-10-24T17:29:51+08:00",
+  "started_utc": "2026-10-24T09:28:34.314Z",
+  "host": "CATBOOK",
+  "workspace": "E:\\dev\\agents\\lark-working",
+  "output_dir": "deliverables/2026-10-24-nine-task/evidence/probes",
+  "method_policy": {
+    "http_methods_issued": [
+      "GET"
+    ],
+    "mutation_requests": "none",
+    "created_evaluations_or_attempts": 0,
+    "cli_commands_issued": [
+      "playground --help",
+      "playground auth status",
+      "playground submit -h",
+      "playground status -h",
+      "playground task list --limit 7000 --json"
+    ],
+    "cli_mutations": "none（未 submit、未 auth login/register、未 upload/download）",
+    "note": "本脚本只实现 GET；未上传、未创建评测、未提交策略。"
+  },
+  "token_handling": {
+    "token_file": "inbox/colleague-test-01.token",
+    "token_present": true,
+    "token_length_chars": 43,
+    "token_used": false,
+    "token_exposure": "只用于 Authorization 请求头；不写入任何输出文件/日志/stdout/URL，输出后做泄漏扫描"
+  },
+  "static_search": {
+    "workspace_root": "E:\\dev\\agents\\lark-working",
+    "scan_scope": "递归扫描工作区（文本文件，单文件<=2MiB）；排除 .git/.lark-cli/__pycache__/node_modules 与本次 probes 输出目录",
+    "files_scanned": 756,
+    "scan_errors": [],
+    "markers": {
+      "nine_task_binding": [
+        {
+          "path": "deliverables/2026-10-24-nine-task/REPORT.md",
+          "hits": [
+            {
+              "line": 15,
+              "text": "4. **正式提交判定（关键）**：本轮公开包与唯一可达服务都**没有** `lab-nine-20261024-v1` 的正式入口：`release.json` 明确 `playground_integrated=false`、`official_score_writeback_verified=false`、`competition_ready=false`、`live_nine_task_service_deployed=f..."
+            },
+            {
+              "line": 149,
+              "text": "   | `nine_task_binding` 等四字段 | **全部缺失**（false/false/false/false） |"
+            },
+            {
+              "line": 154,
+              "text": "3. **静态搜索**：工作区检索 `nine_task_binding`/`deployment_qualified=true`/Challenge/Attempt/正式 URL/CLI：`deployment_qualified=true` **0 命中**；`nine_task_binding` 只出现在文档/规则描述里，无已部署后端响应；`python -m organizer` 未安装（公开包不含组织者部署代码）；本机 ..."
+            }
+          ]
+        },
+        {
+          "path": "deliverables/2026-10-24-nine-task/publish.py",
+          "hits": [
+            {
+              "line": 75,
+              "text": "            \"配置 `url=null/deployment_qualified=false`；唯一可达服务是旧五题联调，缺 `nine_task_binding`，\""
+            }
+          ]
+        },
+        {
+          "path": "deliverables/2026-10-24-nine-task/evidence/contracts/contract-verification.json",
+          "hits": [
+            {
+              "line": 11635,
+              "text": "      \"detail\": \"docs/平台接口.md 包含 'nine_task_binding'（L59）\","
+            },
+            {
+              "line": 11636,
+              "text": "      \"expected\": \"nine_task_binding\","
+            }
+          ]
+        },
+        {
+          "path": "deliverables/2026-10-24-nine-task/evidence/contracts/verify_contracts.py",
+          "hits": [
+            {
+              "line": 1856,
+              "text": "    doc_has(\"docs/平台接口.md\", \"nine_binding\", \"nine_task_binding\")"
+            }
+          ]
+        },
+        {
+          "path": "inbox/1024-test/自主实验赛道选手公开包/docs/平台接口.md",
+          "hits": [
+            {
+              "line": 59,
+              "text": "  \"nine_task_binding\": {"
+            },
+            {
+              "line": 74,
+              "text": "新后端接受状态、轮询状态和结果同样须携带 `nine_task_binding`、从实际提交 manifest 核得的 `canonical_source_sha256`。已有两种 result schema 的其他字段保持其波次语义。这些字段需要安装、连接新 worker runtime 后由服务端绑定；本包没有偷偷修改或启用旧生产服务。`runtime.worker_hooks.TrialRuntime` 是新回合 runti..."
+            }
+          ]
+        },
+        {
+          "path": "inbox/1024-test/自主实验赛道选手公开包/docs/运行档.md",
+          "hits": [
+            {
+              "line": 89,
+              "text": "必须同时替换 worker 的三处 hook：用 `runtime.prepare.prepare` 构建图像模板，再经 `runtime.policy_jail.prepare_jail` 复制；给原 gateway 包装 `TrialRuntime`；聚合前读取其设施资格。构造 `TrialRuntime` 会先核组织方配置绑定的 manifest SHA、全部模板成员 SHA、Python/bootstrap、wheel 锁..."
+            }
+          ]
+        }
+      ],
+      "nine_organizer_config_schema": [
+        {
+          "path": "deliverables/2026-10-24-nine-task/evidence/contracts/contract-verification.json",
+          "hits": [
+            {
+              "line": 5574,
+              "text": "      \"actual\": \"lab-nine-organizer-config/v1\","
+            },
+            {
+              "line": 5576,
+              "text": "      \"detail\": \"configuration schema='lab-nine-organizer-config/v1'\","
+            },
+            {
+              "line": 5577,
+              "text": "      \"expected\": \"lab-nine-organizer-config/v1\","
+            }
+          ]
+        },
+        {
+          "path": "deliverables/2026-10-24-nine-task/evidence/contracts/verify_contracts.py",
+          "hits": [
+            {
+              "line": 912,
+              "text": "    v.check(\"D\", \"D.config.schema\", config.get(\"schema\") == \"lab-nine-organizer-config/v1\","
+            },
+            {
+              "line": 913,
+              "text": "            \"configuration schema=%r\" % (config.get(\"schema\"),), \"lab-nine-organizer-config/v1\","
+            }
+          ]
+        },
+        {
+          "path": "inbox/1024-test/自主实验赛道选手公开包/contracts/configuration-template.json",
+          "hits": [
+            {
+              "line": 2,
+              "text": "  \"schema\": \"lab-nine-organizer-config/v1\","
+            }
+          ]
+        },
+        {
+          "path": "inbox/1024-test/自主实验赛道选手公开包/docs/平台接口.md",
+          "hits": [
+            {
+              "line": 37,
+              "text": "部署配置 schema 为 `lab-nine-organizer-config/v1`，包含："
+            }
+          ]
+        }
+      ],
+      "deployment_qualified_true": [],
+      "nine_service_deployed_flag": [
+        {
+          "path": "deliverables/2026-10-24-nine-task/REPORT.md",
+          "hits": [
+            {
+              "line": 15,
+              "text": "4. **正式提交判定（关键）**：本轮公开包与唯一可达服务都**没有** `lab-nine-20261024-v1` 的正式入口：`release.json` 明确 `playground_integrated=false`、`official_score_writeback_verified=false`、`competition_ready=false`、`live_nine_task_service_deployed=f..."
+            },
+            {
+              "line": 38,
+              "text": "| release 补充 | `live_nine_task_service_deployed=false`、`new_runtime_native_full36_verified=false`、`external_model_api_qualified=false` |"
+            },
+            {
+              "line": 143,
+              "text": "1. **公开包自身声明**（最高优先级）：`release.json` 第 42–46 行 `live_nine_task_service_deployed=false`、`playground_integrated=false`、`official_score_writeback_verified=false`、`competition_ready=false`；`contracts/rules-v1.json` 第 589–..."
+            }
+          ]
+        },
+        {
+          "path": "deliverables/2026-10-24-nine-task/publish.py",
+          "hits": [
+            {
+              "line": 74,
+              "text": "            \"**本轮九题正式入口不存在**（`competition_ready=false`、`live_nine_task_service_deployed=false`、\""
+            }
+          ]
+        },
+        {
+          "path": "deliverables/2026-10-24-nine-task/evidence/contracts/contract-verification.json",
+          "hits": [
+            {
+              "line": 3617,
+              "text": "      \"detail\": \"live_nine_task_service_deployed=False（发布声明应为 false）\","
+            },
+            {
+              "line": 3619,
+              "text": "      \"id\": \"B.release.false_flag:live_nine_task_service_deployed\","
+            },
+            {
+              "line": 5557,
+              "text": "          \"live_nine_task_service_deployed\": false,"
+            }
+          ]
+        },
+        {
+          "path": "deliverables/2026-10-24-nine-task/evidence/contracts/contract-verification.md",
+          "hits": [
+            {
+              "line": 45,
+              "text": "| release 补充 | live_nine_task_service_deployed=False / new_runtime_native_full36_verified=False / external_model_api_qualified=False |"
+            }
+          ]
+        },
+        {
+          "path": "deliverables/2026-10-24-nine-task/evidence/contracts/verify_contracts.py",
+          "hits": [
+            {
+              "line": 503,
+              "text": "    for flag in (\"new_runtime_native_full36_verified\", \"live_nine_task_service_deployed\","
+            },
+            {
+              "line": 909,
+              "text": "                                            \"competition_ready\", \"live_nine_task_service_deployed\","
+            },
+            {
+              "line": 1068,
+              "text": "                              \"live_nine_task_service_deployed\", \"new_runtime_native_full36_verified\","
+            }
+          ]
+        },
+        {
+          "path": "inbox/1024-test/自主实验赛道选手公开包/release.json",
+          "hits": [
+            {
+              "line": 42,
+              "text": "  \"live_nine_task_service_deployed\": false,"
+            }
+          ]
+        }
+      ],
+      "challenge_ids_null": [
+        {
+          "path": "deliverables/2026-10-24-nine-task/evidence/contracts/contract-verification.json",
+          "hits": [
+            {
+              "line": 5564,
+              "text": "          \"challenge_ids\": null,"
+            },
+            {
+              "line": 11909,
+              "text": "      \"challenge_ids\": null,"
+            }
+          ]
+        },
+        {
+          "path": "inbox/1024-test/自主实验赛道选手公开包/contracts/rules-v1.json",
+          "hits": [
+            {
+              "line": 593,
+              "text": "    \"challenge_ids\": null,"
+            }
+          ]
+        }
+      ],
+      "challenge_id_assignment": [
+        {
+          "path": "work-context/maps/embodied-competition-hosting.md",
+          "hits": [
+            {
+              "line": 105,
+              "text": "  \"challenge_id\": \"assigned-by-platform\","
+            }
+          ]
+        }
+      ],
+      "attempt_id_assignment": [
+        {
+          "path": "deliverables/2026-10-22-challenge-spec-v3.md",
+          "hits": [
+            {
+              "line": 162,
+              "text": "  \"attempt_id\": \"plat-attempt-0001\","
+            }
+          ]
+        },
+        {
+          "path": "deliverables/2026-10-22-grader-interface-card.md",
+          "hits": [
+            {
+              "line": 44,
+              "text": "  \"attempt_id\": \"plat-attempt-0001\","
+            }
+          ]
+        },
+        {
+          "path": "work-context/maps/embodied-competition-hosting.md",
+          "hits": [
+            {
+              "line": 104,
+              "text": "  \"attempt_id\": \"plat-attempt-0001\","
+            },
+            {
+              "line": 122,
+              "text": "{ \"schema\": \"lab-eval-accepted/v1\", \"attempt_id\": \"…\", \"trial_id\": \"trial-…\", \"status\": \"queued\" }"
+            }
+          ]
+        }
+      ],
+      "organizer_cli_invocation": [
+        {
+          "path": "deliverables/2026-10-24-nine-task/REPORT.md",
+          "hits": [
+            {
+              "line": 154,
+              "text": "3. **静态搜索**：工作区检索 `nine_task_binding`/`deployment_qualified=true`/Challenge/Attempt/正式 URL/CLI：`deployment_qualified=true` **0 命中**；`nine_task_binding` 只出现在文档/规则描述里，无已部署后端响应；`python -m organizer` 未安装（公开包不含组织者部署代码）；本机 ..."
+            }
+          ]
+        },
+        {
+          "path": "inbox/1024-test/自主实验赛道选手公开包/docs/平台接口.md",
+          "hits": [
+            {
+              "line": 81,
+              "text": "python -m organizer --root STATE --config DEPLOYED_CONFIG \\"
+            },
+            {
+              "line": 84,
+              "text": "python -m organizer --root STATE --config DEPLOYED_CONFIG \\"
+            },
+            {
+              "line": 88,
+              "text": "python -m organizer --root STATE --config DEPLOYED_CONFIG \\"
+            }
+          ]
+        }
+      ],
+      "playground_submit_invocation": [
+        {
+          "path": ".tmp/threshold_why.out",
+          "hits": [
+            {
+              "line": 97,
+              "text": "/home/tyzuo/Lab-OS-Testbed/repos/lab-agent-submission-20261022/docs/HARBOR_INTEGRATION.md:12:B 是与平台公开 `harbor_external_verifier` 路径对应的方案。平台文档要求通过 `playground submit --challenge-id ... --outputs ... --trace ...` 上传产物及真..."
+            }
+          ]
+        },
+        {
+          "path": ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl",
+          "hits": [
+            {
+              "line": 66,
+              "text": "{\"type\":\"tool/result\",\"seq\":64,\"time\":1792657164507,\"data\":{\"turn\":1,\"step\":5,\"message\":{\"role\":\"tool\",\"source\":{\"kind\":\"tool\",\"callId\":\"call_00_MevVsVLJTg8F6AHYKkXd6511\"},\"toolCallId\":\"call_00_MevVsVLJTg8F6AHYKkXd651..."
+            }
+          ]
+        },
+        {
+          "path": ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl",
+          "hits": [
+            {
+              "line": 32,
+              "text": "{\"type\":\"tool/result\",\"seq\":30,\"time\":1792654725915,\"data\":{\"turn\":1,\"step\":2,\"message\":{\"role\":\"tool\",\"source\":{\"kind\":\"tool\",\"callId\":\"call_00_AkFeLqLk9TBWhRoDDuKf9548\"},\"toolCallId\":\"call_00_AkFeLqLk9TBWhRoDDuKf954..."
+            },
+            {
+              "line": 41,
+              "text": "{\"type\":\"tool/result\",\"seq\":39,\"time\":1792654727560,\"data\":{\"turn\":1,\"step\":3,\"message\":{\"role\":\"tool\",\"source\":{\"kind\":\"tool\",\"callId\":\"call_00_xwOpADmImSiD6ItjLOFW8272\"},\"toolCallId\":\"call_00_xwOpADmImSiD6ItjLOFW827..."
+            },
+            {
+              "line": 42,
+              "text": "{\"type\":\"tool/result\",\"seq\":40,\"time\":1792654727562,\"data\":{\"turn\":1,\"step\":3,\"message\":{\"role\":\"tool\",\"source\":{\"kind\":\"tool\",\"callId\":\"call_01_Q4KApjHqHYJzC1lBUX1H0105\"},\"toolCallId\":\"call_01_Q4KApjHqHYJzC1lBUX1H010..."
+            }
+          ]
+        },
+        {
+          "path": "deliverables/2026-10-22-challenge-statement-v3.md",
+          "hits": [
+            {
+              "line": 180,
+              "text": "**提交入口**：本赛题是 `organizer_normalized_reward`，**不要走 Harbor worker 通道**（`playground submit` 只把 bundle 送到 Harbor worker，平台侧 grader 看不到）。请按平台公布的提交入口提交 `outputs/` 与**真实 Agent 会话 trace**（一行一事件的 `.jsonl`）；没有 trace 平台会拒收。提交次数：..."
+            },
+            {
+              "line": 282,
+              "text": "| 4 | 提交走 `playground submit`（Harbor 通道） | 走平台提交入口（本赛题不走 Harbor worker） |"
+            }
+          ]
+        },
+        {
+          "path": "deliverables/2026-10-22-challenge-statement.md",
+          "hits": [
+            {
+              "line": 22,
+              "text": "**提交方式**：`playground submit --challenge-id <ID> --outputs <DIR> --trace <SESSION.jsonl>`。"
+            }
+          ]
+        },
+        {
+          "path": "deliverables/2026-10-22-group-message.md",
+          "hits": [
+            {
+              "line": 6,
+              "text": "平台侧先做三件小事就行：① 给一个测试用的 challenge 和 challenge ID；② 告诉我们 `playground submit` 之后从哪里拿 `outputs/` 和 trace；③ 约一个最小成绩回传格式（JSON 字段我们出，你们确认）。并发、对象存储、计费、赛道划分这些都先不用做。"
+            }
+          ]
+        },
+        {
+          "path": "deliverables/2026-10-22-platform-briefing.md",
+          "hits": [
+            {
+              "line": 63,
+              "text": "| 2 | **提交包与 trace 的获取方式**（`playground submit` 之后我们怎么拿到 `outputs/` 和 trace） | 外部 grader 的输入 |"
+            },
+            {
+              "line": 109,
+              "text": "5. **提交包怎么取？** `playground submit` 之后，产物与 trace 我们通过什么接口拿到？需要我们自己提供下载端吗？"
+            }
+          ]
+        },
+        {
+          "path": "inbox/2026-10-22-lab-agent-platform/platform/BOHRIUM_HANDOFF.md",
+          "hits": [
+            {
+              "line": 18,
+              "text": "playground submit --challenge-id ASSIGNED_CHALLENGE_ID \\"
+            },
+            {
+              "line": 20,
+              "text": "playground submit --challenge-id ASSIGNED_CHALLENGE_ID \\"
+            }
+          ]
+        },
+        {
+          "path": "work-context/maps/glossary.md",
+          "hits": [
+            {
+              "line": 91,
+              "text": "| **playground submit** | 官方 CLI：`--outputs` + `--trace` 打包并上传到 Harbor worker；`--dry-run --bundle-out` 可本地先看 manifest 与派生 trace | Harbor 题用它；平台评分的题**不能用**（CLI 只传 worker，平台会按无 bundle 记 0） |"
+            },
+            {
+              "line": 125,
+              "text": "| 2026-10-22 | v0.4 | 新增「Bohrium Playground 平台」术语段 5 条：ARM bundle / challenge·attempt / scoring.strategy / trace gate / playground submit | 左天佑交付包 `inbox/2026-10-22-lab-agent-platform/` + 官方文档 arm-bundles 实时核对 |"
+            }
+          ]
+        },
+        {
+          "path": "work-context/sources/2026-10-22/lab-agent-platform-handoff.md",
+          "hits": [
+            {
+              "line": 111,
+              "text": "- **Science Knights Masters 系列默认用 `harbor_external_verifier`**；CLI `playground submit` 会把 bundle 直接上传到该 worker。普通平台 bundle 上传到不了 worker，attempt 会卡在 scoring 无结果。"
+            }
+          ]
+        }
+      ],
+      "challenge_id_cli_flag": [
+        {
+          "path": ".tmp/threshold_why.out",
+          "hits": [
+            {
+              "line": 97,
+              "text": "/home/tyzuo/Lab-OS-Testbed/repos/lab-agent-submission-20261022/docs/HARBOR_INTEGRATION.md:12:B 是与平台公开 `harbor_external_verifier` 路径对应的方案。平台文档要求通过 `playground submit --challenge-id ... --outputs ... --trace ...` 上传产物及真..."
+            }
+          ]
+        },
+        {
+          "path": ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl",
+          "hits": [
+            {
+              "line": 42,
+              "text": "{\"type\":\"tool/result\",\"seq\":40,\"time\":1792654727562,\"data\":{\"turn\":1,\"step\":3,\"message\":{\"role\":\"tool\",\"source\":{\"kind\":\"tool\",\"callId\":\"call_01_Q4KApjHqHYJzC1lBUX1H0105\"},\"toolCallId\":\"call_01_Q4KApjHqHYJzC1lBUX1H010..."
+            },
+            {
+              "line": 57,
+              "text": "{\"type\":\"tool/result\",\"seq\":55,\"time\":1792654731004,\"data\":{\"turn\":1,\"step\":5,\"message\":{\"role\":\"tool\",\"source\":{\"kind\":\"tool\",\"callId\":\"call_00_RfdPgYj0VJRu2VHhMKMj9858\"},\"toolCallId\":\"call_00_RfdPgYj0VJRu2VHhMKMj985..."
+            },
+            {
+              "line": 58,
+              "text": "{\"type\":\"tool/result\",\"seq\":56,\"time\":1792654731005,\"data\":{\"turn\":1,\"step\":5,\"message\":{\"role\":\"tool\",\"source\":{\"kind\":\"tool\",\"callId\":\"call_01_WAiMQgmIqfNkUIko4s843570\"},\"toolCallId\":\"call_01_WAiMQgmIqfNkUIko4s84357..."
+            }
+          ]
+        },
+        {
+          "path": "deliverables/2026-10-22-challenge-statement.md",
+          "hits": [
+            {
+              "line": 22,
+              "text": "**提交方式**：`playground submit --challenge-id <ID> --outputs <DIR> --trace <SESSION.jsonl>`。"
+            }
+          ]
+        },
+        {
+          "path": "inbox/2026-10-22-lab-agent-platform/platform/BOHRIUM_HANDOFF.md",
+          "hits": [
+            {
+              "line": 16,
+              "text": "playground task download --challenge-id ASSIGNED_CHALLENGE_ID --out challenge"
+            },
+            {
+              "line": 18,
+              "text": "playground submit --challenge-id ASSIGNED_CHALLENGE_ID \\"
+            },
+            {
+              "line": 20,
+              "text": "playground submit --challenge-id ASSIGNED_CHALLENGE_ID \\"
+            }
+          ]
+        }
+      ],
+      "playground_token_env": [
+        {
+          "path": ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl",
+          "hits": [
+            {
+              "line": 58,
+              "text": "{\"type\":\"tool/result\",\"seq\":56,\"time\":1792654731005,\"data\":{\"turn\":1,\"step\":5,\"message\":{\"role\":\"tool\",\"source\":{\"kind\":\"tool\",\"callId\":\"call_01_WAiMQgmIqfNkUIko4s843570\"},\"toolCallId\":\"call_01_WAiMQgmIqfNkUIko4s84357..."
+            }
+          ]
+        }
+      ]
+    },
+    "url_total_matches": 2872,
+    "candidate_service_urls": [
+      {
+        "url": "http://127.0.0.1:8090",
+        "sources": [
+          ".tmp/eval_inspect.out:116",
+          ".tmp/eval_logs.out:7",
+          ".tmp/eval_stage.out:25",
+          ".tmp/eval_start.out:33",
+          ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:403"
+        ]
+      },
+      {
+        "url": "https://play.bohrium.com/api/docs/agent-workflow",
+        "sources": [
+          ".tmp/threshold_why.out:97",
+          ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:66",
+          ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:66",
+          ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl:32",
+          ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl:32"
+        ]
+      },
+      {
+        "url": "https://play.bohrium.com/api/docs/compete-and-submit",
+        "sources": [
+          ".tmp/threshold_why.out:97",
+          ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:66",
+          ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:66",
+          ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl:32",
+          ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl:32"
+        ]
+      },
+      {
+        "url": "https://play.bohrium.com/api/docs/arm-bundles",
+        "sources": [
+          ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:66",
+          ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:66",
+          ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl:32",
+          ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl:32",
+          ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl:32"
+        ]
+      },
+      {
+        "url": "http://127.0.0.1:8090/v1/evaluations?task_id=basket_place&robot=dual_piper&seed=0",
+        "sources": [
+          ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:403",
+          ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:403",
+          "inbox/LOCAL_EVALUATION.md:76"
+        ]
+      },
+      {
+        "url": "https://play.bohrium.com/competition/pku",
+        "sources": [
+          ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl:42",
+          ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl:42",
+          "inbox/2026-10-22-lab-agent-platform/platform/BOHRIUM_HANDOFF.md:3"
+        ]
+      },
+      {
+        "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com",
+        "sources": [
+          "inbox/lab-embodied-pilot-20261023/participant-kit/AGENT_GUIDE.md:12",
+          "inbox/lab-embodied-pilot-20261023/participant-kit/service.json:3",
+          "work-context/sources/2026-10-23/lab-embodied-pilot-participant-run.md:12"
+        ]
+      }
+    ],
+    "filename_candidates": [
+      ".tmp/eval_submit.out",
+      ".tmp/eval_submit.sh",
+      ".tmp/e2e-evidence/budget/verifier/organizer-receipt.json",
+      ".tmp/e2e-evidence/completed/verifier/organizer-receipt.json",
+      "deliverables/2026-10-22-challenge-spec-v3.md",
+      "deliverables/2026-10-22-challenge-statement-v2.md",
+      "deliverables/2026-10-22-challenge-statement-v3.md",
+      "deliverables/2026-10-22-challenge-statement.md",
+      "deliverables/2026-10-22-lark-resubmit-package.md",
+      "deliverables/2026-10-22-platform-briefing.md",
+      "deliverables/evaluation/isaac-attempt/ISAAC_ATTEMPT_REPORT.md",
+      "deliverables/evaluation/isaac-solve/SOLVE_ATTEMPT_REPORT.md",
+      "deliverables/evaluation/isaac-solve/attempt2-2of3/result/organizer-receipt.json",
+      "deliverables/evaluation/isaac-success/run1-timeout/raw/result/organizer-receipt.json",
+      "deliverables/evaluation/isaac-success/run2-complete/raw/result/organizer-receipt.json",
+      "deliverables/evaluation/raw/api-transcript/00-submit-command-output.txt",
+      "deliverables/evaluation/raw/api-transcript/02-submit.json",
+      "inbox/2026-10-22-lab-agent-platform/platform/PLATFORM_CONTRACT.md",
+      "work-context/sources/2026-10-22/lab-agent-platform-handoff.md",
+      "work-context/sources/2026-10-22/lab-agent-platform-submission-interface-check.md",
+      "work-context/sources/2026-10-22/platform-integration-thread.md"
+    ],
+    "known_cli_and_config": {
+      "organizer_module": null,
+      "candidate_paths": {
+        "inbox/1024-test/自主实验赛道选手公开包/lab_sdk/packaging.py": {
+          "exists": true
+        },
+        "inbox/lab-embodied-pilot-20261023/participant-kit/lab_eval.py": {
+          "exists": true
+        },
+        "inbox/lab-embodied-pilot-20261023/participant-kit/submission_bundle.py": {
+          "exists": true
+        }
+      }
+    },
+    "external_scope_note": "未递归扫描工作区之外的主机目录。理由：九题组织者部署代码按公开包声明另包交付（docs/发布接入清单.md：公开包不含服务器管理脚本，组织者部署代码另包），工作区即本次任务共享文件系统范围。仅列出一层父目录名作为边界记录。",
+    "parent_dir_listing": {
+      "workspace_root": [
+        ".lark-cli",
+        ".tmp",
+        ".tmp-sftp.py",
+        ".tmp-ssh.py",
+        "AGENTS.md",
+        "deliverables",
+        "inbox",
+        "minutes",
+        "work-context"
+      ],
+      "E:/dev/agents": [
+        "_acl-recovery-lark-working",
+        "lark-working"
+      ],
+      "E:/dev": [
+        "_substance",
+        "agents",
+        "dsh-acl-recovery",
+        "learning",
+        "music",
+        "notes",
+        "projects",
+        "sandbox",
+        "tools",
+        "works"
+      ]
+    }
+  },
+  "environment": {
+    "python": "3.10.11",
+    "platform": "win32",
+    "cwd": "E:\\dev\\agents\\lark-working",
+    "env_vars_matching_lab_token_challenge_attempt_nine_bohr": [],
+    "python_modules": {
+      "organizer": false,
+      "lab_sdk": false,
+      "lab_platform": false,
+      "lab_nine": false,
+      "lab_nine_sdk": false
+    },
+    "path_executables": {
+      "organizer": null,
+      "lab_eval": null,
+      "lab_nine": null,
+      "nine": null,
+      "upload": null,
+      "bohrium": null,
+      "playground": "C:\\Users\\86150\\AppData\\Roaming\\npm\\playground.CMD"
+    },
+    "local_tcp_127.0.0.1": {
+      "8090": "closed",
+      "8787": "closed",
+      "8888": "closed",
+      "8890": "closed",
+      "9000": "closed"
+    },
+    "note": "env 只记录变量名与长度，不记录值；PATH 只记录解析结果路径。"
+  },
+  "platform_cli": {
+    "cli_path": "C:\\Users\\86150\\AppData\\Roaming\\npm\\playground.CMD",
+    "detected": true,
+    "non_destructive_commands": [
+      [
+        "playground",
+        "--help"
+      ],
+      [
+        "playground",
+        "auth",
+        "status"
+      ],
+      [
+        "playground",
+        "submit",
+        "-h"
+      ],
+      [
+        "playground",
+        "status",
+        "-h"
+      ],
+      [
+        "playground",
+        "task",
+        "list",
+        "--limit",
+        "7000",
+        "--json"
+      ]
+    ],
+    "forbidden_commands_not_executed": [
+      "playground submit（会创建 Attempt=POST）",
+      "playground auth login/register（写凭据/建号）",
+      "playground task download/upload/upload-package（写平台）",
+      "playground status --attempt-id（无 Attempt）"
+    ],
+    "results": {
+      "help": {
+        "returncode": 0,
+        "first_lines": [
+          "Playground CLI 0.1.40",
+          "Usage:",
+          "  playground <command> [options]",
+          "  playground -h | --help",
+          "  playground <command> -h | --help",
+          "Recommended contest flow:",
+          "  # New user (a strong password is generated and saved automatically):",
+          "  playground auth register --name \"YOUR NAME\" --email EMAIL --affiliation ORGANIZATION",
+          "  # Returning user:",
+          "  playground auth login --email EMAIL",
+          "  # Confirm that saved credentials work:",
+          "  playground auth status",
+          "  playground task list --limit 20",
+          "  playground task download --challenge-id ID --out challenge-dir",
+          "  playground submit --challenge-id ID --outputs outputs-dir --trace native-trace --model MODEL --harness HARNESS",
+          "  playground status --attempt-id ID --bundle",
+          "Command groups:",
+          "  config      Write local endpoint and token configuration",
+          "  auth        Login, register, and check saved credentials",
+          "  agent       Register an agent identity and request an operator claim",
+          "  task        Guide, preflight, package, list, download, or upload Playground tasks",
+          "  benchmark   Upload ready challenge packages as one Playground benchmark"
+        ],
+        "error": null
+      },
+      "auth_status": {
+        "returncode": 0,
+        "error": null,
+        "authenticated": true,
+        "api_base": "https://play.bohrium.com/api",
+        "credentials_path": "C:\\Users\\86150\\.config\\playground\\credentials.env",
+        "credentials_file_exists": true
+      },
+      "credentials_file": {
+        "path": "C:\\Users\\86150\\.config\\playground\\credentials.env",
+        "exists": true,
+        "key_names_only": [
+          "PLAYGROUND_TOKEN"
+        ],
+        "values_read_or_written": false
+      },
+      "local_config": {
+        "path": "C:\\Users\\86150\\.playground\\config.json",
+        "exists": false
+      },
+      "submit_help": {
+        "returncode": 0,
+        "contains_create_attempt": true,
+        "usage_line": "playground submit --challenge-id ID --outputs outputs-dir [--trace native-trace] [--raw-messages raw.jsonl] [--model MODEL] [--harness HARNESS] [--bundle-out playground-arm.zip] [--dry-run]",
+        "error": null
+      },
+      "task_list": {
+        "returncode": 0,
+        "elapsed_s": 37.7,
+        "error": null,
+        "schema_version": "playground-task-list/v0",
+        "api_base": "https://play.bohrium.com/api",
+        "total_visible": 6932,
+        "returned": 6932,
+        "keyword_strong": "nine|九题|embodied|具身|franka|piper|manipulat|自主实验|isaac|grasp|bottle_transfer|beaker_place|balance_load|stirrer_knob|tube_insert|lab-nine|robot arm",
+        "keyword_weak": "robot|机器人|实验室|vla",
+        "strong_match_count": 24,
+        "strong_matches": [
+          {
+            "id": "tcp-http-eb4cb29a",
+            "title": "电解液自主实验闭环：模拟工站接入（TCP/HTTP）、数据采集与基于文献描述符的约束配方优化",
+            "status": "open",
+            "tags": [
+              "追光者计划·招募赛",
+              "岗位·AI4S 智能大装置工程开发实习生",
+              "community"
+            ],
+            "attempts": 293
+          },
+          {
+            "id": "hierarchical-clustering-and-gene-signature-discove-132bc797",
+            "title": "Hierarchical Clustering and Gene Signature Discovery in Canine Osteosarcoma Cell Lines",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "wang-2020-prx-symplectic",
+            "title": "Symplectic neural networks for Hamiltonian systems",
+            "status": "open",
+            "tags": [
+              "normalizing flow",
+              "symplectic",
+              "Hamiltonian",
+              "alanine dipeptide",
+              "hackathon"
+            ],
+            "attempts": 72
+          },
+          {
+            "id": "hybrid-dft-reproduction-of-h-and-o-impurity-deep-t-ac42735b",
+            "title": "Hybrid DFT reproduction of H and O₂ impurity deep trap states in metal phthalocyanine crystals",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "two-step-multiscale-free-energy-calculation-on-ala-dc2e74ac",
+            "title": "Two-Step Multiscale Free Energy Calculation on Alanine Dipeptide using VESΔF",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "quantum-chemical-conformational-analysis-of-alkali-f8ba7d13",
+            "title": "Quantum chemical conformational analysis of alkali-metal cation threonine complexes",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "scef-conformational-search-on-polyalanine-3929b4d6",
+            "title": "SCEF Conformational Search on Polyalanine",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "dft-frontier-molecular-orbital-analysis-compute-ho-b3c91a35",
+            "title": "DFT Frontier Molecular Orbital Analysis: compute HOMO-LUMO gaps for nine pyrrole-based molecules in singlet ground state and two in triplet state",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "adiabatic-electron-affinity-of-adenine-water-compl-084fe5f9",
+            "title": "Adiabatic Electron Affinity of Adenine-Water Complex C via Ab Initio Calculations",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "spin-wave-polarization-manipulation-via-synthetic-a3f0be81",
+            "title": "Spin Wave Polarization Manipulation via Synthetic Antiferromagnet Sublayer Engineering",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "compute-bond-length-alternation-vertical-excitatio-ba5f6cc1",
+            "title": "Compute bond-length alternation, vertical excitation energies, dipole moments, and first hyperpolarizability for four merocyanine dyes using DFT/TD-DFT at the B3LYP/6-311G(d) and CAM-B3LYP/6-311G(d) level with PCM chloroform solvent.",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "localized-vibrational-mode-frequencies-in-a-nine-a-e945494f",
+            "title": "Localized vibrational mode frequencies in a nine-atom CsCl-type defect cluster",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "cd2-adenine-thymine-interaction-and-base-pair-anal-cb22633a",
+            "title": "Cd2+-Adenine/Thymine Interaction and Base-Pair Analysis via DFT",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "ab-initio-stabilization-energies-of-alanine-oligop-fbf71574",
+            "title": "Ab initio stabilization energies of alanine oligopeptides",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "error-analysis-of-a-nine-point-finite-difference-s-e02c4fa9",
+            "title": "Error analysis of a nine-point finite-difference scheme for the reduced water-wave equation",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "electronic-state-gaps-and-nbo-donor-acceptor-inter-8fff86eb",
+            "title": "Electronic state gaps and NBO donor-acceptor interactions for nine pyridyl radical isomers",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "reaction-mechanism-of-glyoxal-with-guanine-via-ab-87a668a3",
+            "title": "Reaction Mechanism of Glyoxal with Guanine via Ab Initio Calculations",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "evaluating-a-nine-gene-signature-s-prognostic-accu-d0d93dff",
+            "title": "Evaluating a Nine-Gene Signature's Prognostic Accuracy in Pancreatic Cancer",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "fully-cartesian-path-planning-for-a-planar-2r-mani-16a66511",
+            "title": "Fully Cartesian path planning for a planar 2R manipulator",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 1
+          },
+          {
+            "id": "compute-peak-daily-biologically-effective-uv-b-irr-3e104bbb",
+            "title": "Compute peak daily biologically effective UV-B irradiance for nine Asian rice-growing stations",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "scef-convergence-to-helix-for-poly-l-alanine-729f296f",
+            "title": "SCEF Convergence to α-Helix for Poly-L-Alanine",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "scaling-heteroatomic-lennard-jones-epsilon-in-a-me-74115503",
+            "title": "Scaling Heteroatomic Lennard-Jones Epsilon in a Metal–Organic Force Field: Metadynamics Free-Energy Profiles for Phenylalanine at Au(111)",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "dft-spin-densities-and-magnetic-coupling-in-copper-ee5e14ba",
+            "title": "DFT Spin Densities and Magnetic Coupling in Copper Phthalocyanine Complexes",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "serine-threonine-kinase-and-e2-domain-scan-in-prok-020eb35e",
+            "title": "Serine/Threonine Kinase and E2 Domain Scan in Prokaryotic Genomes with Statistical Comparison",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          }
+        ],
+        "weak_match_count": 3,
+        "weak_matches": [
+          {
+            "id": "idc-semi-lagrangian-weno-convergence-for-vlasov-po-cedfcc22",
+            "title": "IDC Semi-Lagrangian WENO Convergence for Vlasov-Poisson",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 0
+          },
+          {
+            "id": "asymptotic-preserving-scheme-for-vlasov-fokker-pla-0e0d2f7b",
+            "title": "Asymptotic-preserving scheme for Vlasov-Fokker-Planck and variable-density Navier-Stokes system",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 1
+          },
+          {
+            "id": "minimum-time-robot-trajectory-planning-under-torqu-db650bcd",
+            "title": "Minimum-time robot trajectory planning under torque, velocity and jerk constraints",
+            "status": "open",
+            "tags": [
+              "Agentic Science Challenge",
+              "community"
+            ],
+            "attempts": 1
+          }
+        ],
+        "nine_task_challenge_visible": false
+      }
+    },
+    "raw_evidence_file": "raw/cli-playground-entry-evidence.json",
+    "judgment": "官方 Playground CLI 存在且已认证（api_base=https://play.bohrium.com/api）；但全量可见 Challenge 6932 个中未发现本题九题具身实验 Challenge，且工作区无 Challenge ID 配置；submit 会创建 Attempt（POST），按约束未执行。"
+  },
+  "citations": {
+    "submission_config_template": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/SUBMISSION.md",
+      "needle": "题包的 `contracts/configuration-template.json` 是本地预览配置",
+      "found": true,
+      "lines": [
+        31
+      ],
+      "texts": [
+        "运行档SHA与配置SHA必须取自该比赛实际发布的配置；不要自己填64个零，也不要沿用旧五题/四题服务的配置。题包的 `contracts/configuration-template.json` 是本地预览配置，地址为空且部署资格为false，可用于本地打包检查；它不能启动正式评测。统一配置绑定九题规则、运行档、两组后端和资格身份。尚未激活的新配置只能用于本地检查，不能向旧服务提交模型运行档。"
+      ]
+    },
+    "submission_old_five_task": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/SUBMISSION.md",
+      "needle": "旧标准库五题服务的full=20",
+      "found": true,
+      "lines": [
+        65
+      ],
+      "texts": [
+        "开发可先使用公开instruction/observation样例验证策略。只有明确登记为兼容本版模型/图像运行档的开发入口，才接受新派生包。旧标准库五题服务的full=20、四题服务的full=16，不是统一九题服务。"
+      ]
+    },
+    "submission_formal_entry": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/SUBMISSION.md",
+      "needle": "正式Playground登录、Challenge ID、产物上传命令与会话trace位置由该题实际平台配置提供",
+      "found": true,
+      "lines": [
+        67
+      ],
+      "texts": [
+        "正式Playground登录、Challenge ID、产物上传命令与会话trace位置由该题实际平台配置提供。当前打包工具不执行正式提交、不读平台凭证。平台接入后提交一次，保存Attempt ID；组织方将它可信绑定到九题evaluation ID，保留两组child evaluation身份。"
+      ]
+    },
+    "submission_no_formal_submit": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/SUBMISSION.md",
+      "needle": "当前打包工具不执行正式提交、不读平台凭证",
+      "found": true,
+      "lines": [
+        67
+      ],
+      "texts": [
+        "正式Playground登录、Challenge ID、产物上传命令与会话trace位置由该题实际平台配置提供。当前打包工具不执行正式提交、不读平台凭证。平台接入后提交一次，保存Attempt ID；组织方将它可信绑定到九题evaluation ID，保留两组child evaluation身份。"
+      ]
+    },
+    "submission_local_unified": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/SUBMISSION.md",
+      "needle": "本地统一服务的组织者注册/dispatch/refresh示例在组织者包",
+      "found": true,
+      "lines": [
+        69
+      ],
+      "texts": [
+        "本地统一服务的组织者注册/dispatch/refresh示例在组织者包 `docs/平台接口.md`。其 `/v1/evaluations` JSON协议属于可信适配器，不与旧child服务的 `application/zip` 上传混用。选手提供的Attempt ID不会被视为平台授权。"
+      ]
+    },
+    "submission_attempt_id": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/SUBMISSION.md",
+      "needle": "平台接入后提交一次，保存Attempt ID",
+      "found": true,
+      "lines": [
+        67
+      ],
+      "texts": [
+        "正式Playground登录、Challenge ID、产物上传命令与会话trace位置由该题实际平台配置提供。当前打包工具不执行正式提交、不读平台凭证。平台接入后提交一次，保存Attempt ID；组织方将它可信绑定到九题evaluation ID，保留两组child evaluation身份。"
+      ]
+    },
+    "api_no_playground_credentials": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/docs/平台接口.md",
+      "needle": "本模块没有 Playground Challenge／Attempt／官方回调凭据",
+      "found": true,
+      "lines": [
+        5
+      ],
+      "texts": [
+        "**本地 HTTP 与真实 loopback 合同测试不等于正式平台接入或新运行档的 36 回合原生验收。** 本模块没有 Playground Challenge／Attempt／官方回调凭据，没有榜单写入。所有结果保持 `playground_integrated=false`、`official_score_writeback_verified=false`、`competition_ready=false`。`scoreIsFinal` 只表示本地完整物理分聚合。"
+      ]
+    },
+    "api_template_cannot_submit": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/docs/平台接口.md",
+      "needle": "该模板**不能提交到旧线上服务**",
+      "found": true,
+      "lines": [
+        35
+      ],
+      "texts": [
+        "`contracts/configuration-template.json` 是可打包的真实本地预览锁：规则和模型／图像 profile 的摘要来自本版文件。它保留已知原后端身份，两个 `url=null`、`deployment_qualified=false`。第一波旧公开服务没有资产／profile 身份字段，模板明确为 null；没有用虚构 SHA 补齐。该模板**不能提交到旧线上服务**。"
+      ]
+    },
+    "api_new_backend_catalog": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/docs/平台接口.md",
+      "needle": "新后端 `GET /v1/tasks` 在原目录之外必须提供",
+      "found": true,
+      "lines": [
+        52
+      ],
+      "texts": [
+        "新后端 `GET /v1/tasks` 在原目录之外必须提供："
+      ]
+    },
+    "api_binding_needs_worker": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/docs/平台接口.md",
+      "needle": "需要安装、连接新 worker runtime 后由服务端绑定",
+      "found": true,
+      "lines": [
+        74
+      ],
+      "texts": [
+        "新后端接受状态、轮询状态和结果同样须携带 `nine_task_binding`、从实际提交 manifest 核得的 `canonical_source_sha256`。已有两种 result schema 的其他字段保持其波次语义。这些字段需要安装、连接新 worker runtime 后由服务端绑定；本包没有偷偷修改或启用旧生产服务。`runtime.worker_hooks.TrialRuntime` 是新回合 runtime 接入点，不能仅因它存在就将服务资格设为 true。"
+      ]
+    },
+    "api_local_loopback_only": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/docs/平台接口.md",
+      "needle": "仅绑定 `127.0.0.1`",
+      "found": true,
+      "lines": [
+        114
+      ],
+      "texts": [
+        "仅绑定 `127.0.0.1`。可信平台桥可在同机调用，外部反向代理、TLS、平台身份认证属于部署工作；此模块不公开开放给任意参赛者。适配器 token 与后端 team token 分离。"
+      ]
+    },
+    "api_no_official_callback": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/docs/平台接口.md",
+      "needle": "当前没有可执行的官方回调命令",
+      "found": true,
+      "lines": [
+        166
+      ],
+      "texts": [
+        "正式Playground再完成可信Attempt产物接入、官方回写schema／鉴权／幂等、分数量纲与trace规则、非零非满分回写及榜单读回。当前没有可执行的官方回调命令，也不需要为未知平台ID暂停本地公开包冻结。"
+      ]
+    },
+    "api_deployment_qualified": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/docs/平台接口.md",
+      "needle": "`deployment_qualified=true` 时所有三个后端摘要、资格ID和HTTPS地址必须有效",
+      "found": true,
+      "lines": [
+        50
+      ],
+      "texts": [
+        "启用时应创建新配置、新状态目录并重新打包；不得覆盖旧预览包或历史服务。`deployment_qualified=true` 时所有三个后端摘要、资格ID和HTTPS地址必须有效。HTTP仅允许本机 loopback 测试例外。后端令牌置于另一份私有 credentials JSON，不纳入公开配置、包或日志。"
+      ]
+    },
+    "checklist_playground_not_configured": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/docs/发布接入清单.md",
+      "needle": "Playground目前未配置",
+      "found": true,
+      "lines": [
+        3
+      ],
+      "texts": [
+        "本地冻结版本 `lab-nine-20261024-v1`。参与者题面在 `自主实验赛道PLAYGROUND题面.md`；本页为组织者交接，不复制为选手操作步骤。用户已确认本轮包括模型和图像依赖运行档；Playground目前未配置，由用户与平台同事沟通，不重复索要Challenge。"
+      ]
+    },
+    "checklist_platform_status_false": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/docs/发布接入清单.md",
+      "needle": "`playground_integrated=false`",
+      "found": true,
+      "lines": [
+        19
+      ],
+      "texts": [
+        "`playground_integrated=false`、`official_score_writeback_verified=false`、`competition_ready=false` 保持至实际接入验收。规则/SDK/运行档的本地冻结与模型依赖资格分别有证据字段；不以本地测试声称正式上线。现有开发服务10月26日12:00接单截止与订单租期是旧联调窗口，不能照抄为新比赛赛期。"
+      ]
+    },
+    "checklist_playground_contract": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/docs/发布接入清单.md",
+      "needle": "一个Attempt映射一个机器人完整36槽",
+      "found": true,
+      "lines": [
+        10
+      ],
+      "texts": [
+        "| Playground | 一个Attempt映射一个机器人完整36槽，物理分0–100直接作为显示分，无额外trace倍率 | 两赛道Challenge ID、可信user/Attempt/artifact输入、回调鉴权/schema、幂等重放/乱序/错误处理及榜单读回 |"
+      ]
+    },
+    "checklist_old_window": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/docs/发布接入清单.md",
+      "needle": "现有开发服务10月26日12:00接单截止",
+      "found": true,
+      "lines": [
+        19
+      ],
+      "texts": [
+        "`playground_integrated=false`、`official_score_writeback_verified=false`、`competition_ready=false` 保持至实际接入验收。规则/SDK/运行档的本地冻结与模型依赖资格分别有证据字段；不以本地测试声称正式上线。现有开发服务10月26日12:00接单截止与订单租期是旧联调窗口，不能照抄为新比赛赛期。"
+      ]
+    },
+    "readme_no_challenge_needed": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/README.md",
+      "needle": "无需发布或创建Challenge",
+      "found": true,
+      "lines": [
+        15
+      ],
+      "texts": [
+        "发布文件身份和证据范围见 `release.json`、`PUBLIC-MANIFEST.json`。规则、SDK、依赖运行档的冻结与云端统一36槽部署、Playground正式接入分别记录；正式平台未完成绑定前，`competition_ready=false`。无需发布或创建Challenge即可在本地复核这些产物。"
+      ]
+    },
+    "release_live_nine_false": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/release.json",
+      "needle": "\"live_nine_task_service_deployed\": false",
+      "found": true,
+      "lines": [
+        42
+      ],
+      "texts": [
+        "  \"live_nine_task_service_deployed\": false,"
+      ]
+    },
+    "release_native36_false": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/release.json",
+      "needle": "\"new_runtime_native_full36_verified\": false",
+      "found": true,
+      "lines": [
+        41
+      ],
+      "texts": [
+        "  \"new_runtime_native_full36_verified\": false,"
+      ]
+    },
+    "release_playground_false": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/release.json",
+      "needle": "\"playground_integrated\": false",
+      "found": true,
+      "lines": [
+        44
+      ],
+      "texts": [
+        "  \"playground_integrated\": false,"
+      ]
+    },
+    "release_competition_false": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/release.json",
+      "needle": "\"competition_ready\": false",
+      "found": true,
+      "lines": [
+        46
+      ],
+      "texts": [
+        "  \"competition_ready\": false,"
+      ]
+    },
+    "release_activation_required": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/release.json",
+      "needle": "\"activation_required\"",
+      "found": true,
+      "lines": [
+        47
+      ],
+      "texts": [
+        "  \"activation_required\": ["
+      ]
+    },
+    "rules_platform_block": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/contracts/rules-v1.json",
+      "needle": "\"platform\"",
+      "found": true,
+      "lines": [
+        589
+      ],
+      "texts": [
+        "  \"platform\": {"
+      ]
+    },
+    "rules_challenge_ids_null": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/contracts/rules-v1.json",
+      "needle": "\"challenge_ids\": null",
+      "found": true,
+      "lines": [
+        593
+      ],
+      "texts": [
+        "    \"challenge_ids\": null,"
+      ]
+    },
+    "config_status_preview": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/contracts/configuration-template.json",
+      "needle": "\"deployment_status\": \"local_preview_only_not_a_live_evaluation_service\"",
+      "found": true,
+      "lines": [
+        29
+      ],
+      "texts": [
+        "  \"deployment_status\": \"local_preview_only_not_a_live_evaluation_service\","
+      ]
+    },
+    "config_url_null": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/contracts/configuration-template.json",
+      "needle": "\"url\": null",
+      "found": true,
+      "lines": [
+        32,
+        42
+      ],
+      "texts": [
+        "      \"url\": null,",
+        "      \"url\": null,"
+      ]
+    },
+    "config_not_qualified": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/contracts/configuration-template.json",
+      "needle": "\"deployment_qualified\": false",
+      "found": true,
+      "lines": [
+        37,
+        47
+      ],
+      "texts": [
+        "      \"deployment_qualified\": false,",
+        "      \"deployment_qualified\": false,"
+      ]
+    },
+    "statement_formal_entry": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/docs/自主实验赛道PLAYGROUND题面.md",
+      "needle": "通过当前题目页的正式入口提交这些产物",
+      "found": true,
+      "lines": [
+        72
+      ],
+      "texts": [
+        "4. 通过当前题目页的正式入口提交这些产物及平台要求的真实开发轨迹，保存返回的 Attempt ID，查询这一次提交。"
+      ]
+    },
+    "statement_challenge_from_page": {
+      "file": "inbox/1024-test/自主实验赛道选手公开包/docs/自主实验赛道PLAYGROUND题面.md",
+      "needle": "正式 Challenge 与登录命令由本页面实际接入配置提供",
+      "found": true,
+      "lines": [
+        76
+      ],
+      "texts": [
+        "策略的自报分数、演示视频和本地结果不能代替官方复测。公开包和平台正式接入清单分别提供下载；题包中的检查、打包、开发取分与正式 Playground 提交是不同操作。准确命令见 `SUBMISSION.md`，正式 Challenge 与登录命令由本页面实际接入配置提供。"
+      ]
+    },
+    "old_service_url": {
+      "file": "inbox/lab-embodied-pilot-20261023/participant-kit/service.json",
+      "needle": "\"url\":",
+      "found": true,
+      "lines": [
+        3
+      ],
+      "texts": [
+        "  \"url\": \"https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com\","
+      ]
+    },
+    "old_service_benchmark": {
+      "file": "inbox/lab-embodied-pilot-20261023/participant-kit/service.json",
+      "needle": "\"benchmark_id\":",
+      "found": true,
+      "lines": [
+        4
+      ],
+      "texts": [
+        "  \"benchmark_id\": \"lab-agent-v0.4-five-tasks-dev\","
+      ]
+    },
+    "old_service_accept_until": {
+      "file": "inbox/lab-embodied-pilot-20261023/participant-kit/service.json",
+      "needle": "\"accept_until\":",
+      "found": true,
+      "lines": [
+        5
+      ],
+      "texts": [
+        "  \"accept_until\": \"2026-10-26T04:00:00+00:00\","
+      ]
+    },
+    "old_service_expires_at": {
+      "file": "inbox/lab-embodied-pilot-20261023/participant-kit/service.json",
+      "needle": "\"expires_at\":",
+      "found": true,
+      "lines": [
+        6
+      ],
+      "texts": [
+        "  \"expires_at\": \"2026-10-26T10:20:46+00:00\","
+      ]
+    },
+    "old_agent_invite_not_official": {
+      "file": "inbox/lab-embodied-pilot-20261023/participant-kit/AGENT_GUIDE.md",
+      "needle": "这是邀请联调服务，不是正式 Playground 榜单页面",
+      "found": true,
+      "lines": [
+        15
+      ],
+      "texts": [
+        "这是邀请联调服务，不是正式 Playground 榜单页面。当前接单截止为北京时间 2026 年 10 月 26 日 12:00，资源最早到期为 18:20:46。每次先调用 `tasks`，读取服务实际窗口和对应 worker 的 `online` 状态。"
+      ]
+    },
+    "old_agent_tasks_api": {
+      "file": "inbox/lab-embodied-pilot-20261023/participant-kit/AGENT_GUIDE.md",
+      "needle": "| `GET /v1/tasks` | 任务、资源、窗口、worker 状态 |",
+      "found": true,
+      "lines": [
+        164
+      ],
+      "texts": [
+        "| `GET /v1/tasks` | 任务、资源、窗口、worker 状态 |"
+      ]
+    },
+    "old_readme_invite": {
+      "file": "inbox/lab-embodied-pilot-20261023/README.md",
+      "needle": "这是固定布局、标准库Python策略的邀请联调服务",
+      "found": true,
+      "lines": [
+        5
+      ],
+      "texts": [
+        "组织者另行发放队伍 token。包内含 CLI、示例提交 ZIP、公开观测、评分合同及真实回执；不含凭证。两条赛道各20回合完整实测已经返回有效最终开发分，空策略预期均为0。本服务接单截止北京时间2026-10-26 12:00，资源最早18:20:46到期。这是固定布局、标准库Python策略的邀请联调服务；正式隐藏集、模型代理和Playground榜单仍待接入。"
+      ]
+    },
+    "old_readme_signup_deadline": {
+      "file": "inbox/lab-embodied-pilot-20261023/README.md",
+      "needle": "接单截止北京时间",
+      "found": true,
+      "lines": [
+        5
+      ],
+      "texts": [
+        "组织者另行发放队伍 token。包内含 CLI、示例提交 ZIP、公开观测、评分合同及真实回执；不含凭证。两条赛道各20回合完整实测已经返回有效最终开发分，空策略预期均为0。本服务接单截止北京时间2026-10-26 12:00，资源最早18:20:46到期。这是固定布局、标准库Python策略的邀请联调服务；正式隐藏集、模型代理和Playground榜单仍待接入。"
+      ]
+    },
+    "local_eval_loopback": {
+      "file": "inbox/LOCAL_EVALUATION.md",
+      "needle": "HTTP服务只监听 `127.0.0.1`，没有部署到比赛平台",
+      "found": true,
+      "lines": [
+        3
+      ],
+      "texts": [
+        "本目录补齐“提交代码 → 入库 → 排队 → 隔离运行 → 查结果”的开发闭环。HTTP服务只监听 `127.0.0.1`，没有部署到比赛平台。`fixture` 模式只验证协议和提交流程：即便 `success=true`，仍为 `physical_evaluation=false`、`scored=false`、`reward=null`，不能记作机器人任务成功。"
+      ]
+    },
+    "local_eval_default_url": {
+      "file": "inbox/LOCAL_EVALUATION.md",
+      "needle": "默认URL为 `http://127.0.0.1:8090`",
+      "found": true,
+      "lines": [
+        55
+      ],
+      "texts": [
+        "默认URL为 `http://127.0.0.1:8090`，可用 `--url` 指定本机其他端口。也可通过 `LAB_EVAL_TOKEN` 提供token；CLI不接受外网地址或HTTP重定向。组织者mode、runtime、镜像、GPU与超时是服务启动配置，提交者仅能选择已存在的任务、机器人和seed。"
+      ]
+    }
+  },
+  "public_package_platform_status": {
+    "release_id": "lab-nine-20261024-v1",
+    "release_version": "1.0.0",
+    "release_flags": {
+      "live_nine_task_service_deployed": false,
+      "new_runtime_native_full36_verified": false,
+      "external_model_api_qualified": false,
+      "playground_integrated": false,
+      "official_score_writeback_verified": false,
+      "competition_ready": false
+    },
+    "rules_platform": {
+      "playground_integrated": false,
+      "official_score_writeback_verified": false,
+      "competition_ready": false,
+      "challenge_ids": null,
+      "contest_schedule": "provided by host platform at activation",
+      "attempt_quota": "provided by host platform at activation",
+      "formal_display_score": "physical score 0..100; no additional trace multiplier in this rules version"
+    },
+    "configuration_template": {
+      "schema": "lab-nine-organizer-config/v1",
+      "configuration_id": "lab-nine-local-preview-20261024-v1",
+      "deployment_status": "local_preview_only_not_a_live_evaluation_service",
+      "wave1": {
+        "url": null,
+        "benchmark_id": "lab-agent-v0.4-five-tasks-dev",
+        "deployment_qualified": false
+      },
+      "wave2": {
+        "url": null,
+        "benchmark_id": "liquid-bench-wave2-bohr-20261024-dev",
+        "deployment_qualified": false
+      }
+    },
+    "notes": [
+      "release.json 与 contracts/rules-v1.json 的 platform 块是公开包对平台接入状态的权威自述。",
+      "contracts/configuration-template.json 是本地预览配置，两个后端 url=null 且 deployment_qualified=false。"
+    ]
+  },
+  "known_old_service": {
+    "service_json_path": "inbox/lab-embodied-pilot-20261023/participant-kit/service.json",
+    "schema": "lab-eval-pilot-service/v1",
+    "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com",
+    "benchmark_id": "lab-agent-v0.4-five-tasks-dev",
+    "accept_until": "2026-10-26T04:00:00+00:00",
+    "expires_at": "2026-10-26T10:20:46+00:00",
+    "competition_ready": false,
+    "window_now_utc": "2026-10-24T09:28:34.315Z",
+    "accept_window_open": true,
+    "seconds_until_accept_deadline": 153085
+  },
+  "probes": [
+    {
+      "seq": 1,
+      "label": "health_noauth",
+      "utc_started": "2026-10-24T09:29:18.703Z",
+      "utc_finished": "2026-10-24T09:29:19.213Z",
+      "method": "GET",
+      "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/health",
+      "auth": "none",
+      "request_headers_redacted": {
+        "User-Agent": "lab-nine-entry-probe/1.0 (non-destructive GET only)",
+        "Accept": "application/json, text/plain, */*"
+      },
+      "tls": "default_verified",
+      "status": 200,
+      "reason": "OK",
+      "content_type": "application/json",
+      "response_headers_redacted": {
+        "Date": "Sat, 24 Oct 2026 09:29:19 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "94",
+        "Connection": "close",
+        "cache-control": "no-store",
+        "x-envoy-upstream-service-time": "0"
+      },
+      "body_bytes": 94,
+      "body_sha256": "2eec015560e6f5a0d5993b327cf1dc20c7d8f7952954fa4a382ab27221e5fb1d",
+      "body_file": "raw/01_health_noauth.body.json",
+      "error": null,
+      "elapsed_ms": 509,
+      "analysis": {
+        "body_mentions_nine": false,
+        "body_mentions_challenge": false,
+        "body_mentions_attempt": false,
+        "body_mentions_36": false,
+        "top_level_keys": [
+          "accept_until",
+          "schema",
+          "status"
+        ]
+      },
+      "judgment": "旧联调服务存活；/health 未鉴权 200（返回旧服务健康 schema：lab-eval-pilot-health/v1）"
+    },
+    {
+      "seq": 2,
+      "label": "tasks_noauth",
+      "utc_started": "2026-10-24T09:29:19.218Z",
+      "utc_finished": "2026-10-24T09:29:19.648Z",
+      "method": "GET",
+      "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/tasks",
+      "auth": "none",
+      "request_headers_redacted": {
+        "User-Agent": "lab-nine-entry-probe/1.0 (non-destructive GET only)",
+        "Accept": "application/json, text/plain, */*"
+      },
+      "tls": "default_verified",
+      "status": 401,
+      "reason": "Unauthorized",
+      "content_type": "application/json",
+      "response_headers_redacted": {
+        "Date": "Sat, 24 Oct 2026 09:29:19 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "29",
+        "Connection": "close",
+        "cache-control": "no-store",
+        "x-envoy-upstream-service-time": "0"
+      },
+      "body_bytes": 29,
+      "body_sha256": "55a8d8e7d1df1868bd1b97e3ad3a4f7a76e13e7270f481db4775640691c07dc0",
+      "body_file": "raw/02_tasks_noauth.body.json",
+      "error": null,
+      "elapsed_ms": 429,
+      "analysis": {
+        "top_level_keys": [
+          "error_code"
+        ],
+        "service_catalog_schema": null,
+        "catalog_schema": null,
+        "benchmark_id_declared_in_service_json": null,
+        "benchmark_id_in_catalog": null,
+        "qualification_scope": null,
+        "task_ids": [],
+        "basic_task_ids": null,
+        "task_count": null,
+        "tasks": {},
+        "replicas": null,
+        "scopes": null,
+        "workers_online": {},
+        "accept_until": null,
+        "expires_at": null,
+        "limits": {
+          "policy_cpu_seconds": null,
+          "policy_wall_seconds": null,
+          "policy_memory_bytes": null,
+          "policy_network": null,
+          "policy_runtime": null
+        },
+        "nine_task_fields_present_in_body": {
+          "nine_task_binding": false,
+          "runtime_profile_sha256": false,
+          "configuration_sha256": false,
+          "runtime_capabilities": false
+        },
+        "has_challenge_field": false,
+        "has_attempt_field": false,
+        "body_mentions_challenge": false,
+        "body_mentions_attempt": false
+      },
+      "judgment": "catalog 需鉴权（401 UNAUTHORIZED），未鉴权不泄露内容"
+    },
+    {
+      "seq": 3,
+      "label": "tasks_auth",
+      "utc_started": "2026-10-24T09:29:19.652Z",
+      "utc_finished": "2026-10-24T09:29:20.060Z",
+      "method": "GET",
+      "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/tasks",
+      "auth": "bearer_token_from_file",
+      "request_headers_redacted": {
+        "User-Agent": "lab-nine-entry-probe/1.0 (non-destructive GET only)",
+        "Accept": "application/json, text/plain, */*",
+        "Authorization": "<redacted>"
+      },
+      "tls": "default_verified",
+      "status": 200,
+      "reason": "OK",
+      "content_type": "application/json",
+      "response_headers_redacted": {
+        "Date": "Sat, 24 Oct 2026 09:29:20 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "2444",
+        "Connection": "close",
+        "Vary": "Accept-Encoding",
+        "cache-control": "no-store",
+        "x-envoy-upstream-service-time": "2"
+      },
+      "body_bytes": 2444,
+      "body_sha256": "0f6a8ead3d5c83641c95c334f8895e89b3af38997ff58104c22807c1f6f05219",
+      "body_file": "raw/03_tasks_auth.body.json",
+      "error": null,
+      "elapsed_ms": 407,
+      "analysis": {
+        "top_level_keys": [
+          "accept_until",
+          "catalog",
+          "expires_at",
+          "policy_cpu_seconds",
+          "policy_memory_bytes",
+          "policy_network",
+          "policy_runtime",
+          "policy_wall_seconds",
+          "replicas",
+          "schema",
+          "scopes",
+          "workers"
+        ],
+        "service_catalog_schema": "lab-eval-pilot-catalog/v1",
+        "catalog_schema": "lab-task-catalog/v1",
+        "benchmark_id_declared_in_service_json": null,
+        "benchmark_id_in_catalog": "lab-agent-v0.4-five-tasks-dev",
+        "qualification_scope": "New five-task scene requires its own native validation; historical source and results are retained in the previous package.",
+        "task_ids": [
+          "bottle_transfer",
+          "beaker_place",
+          "balance_load",
+          "stirrer_knob",
+          "tube_insert"
+        ],
+        "basic_task_ids": [
+          "bottle_transfer",
+          "beaker_place",
+          "balance_load",
+          "stirrer_knob",
+          "tube_insert"
+        ],
+        "task_count": 5,
+        "tasks": {
+          "balance_load": {
+            "tier": "development",
+            "role": "basic",
+            "competition_ready": false,
+            "layout": "five-task-scene-v0.4-fixed",
+            "robots": [
+              "franka",
+              "dual_piper"
+            ],
+            "seed_randomizes_layout": false
+          },
+          "beaker_place": {
+            "tier": "development",
+            "role": "basic",
+            "competition_ready": false,
+            "layout": "five-task-scene-v0.4-fixed",
+            "robots": [
+              "franka",
+              "dual_piper"
+            ],
+            "seed_randomizes_layout": false
+          },
+          "bottle_transfer": {
+            "tier": "development",
+            "role": "basic",
+            "competition_ready": false,
+            "layout": "five-task-scene-v0.4-fixed",
+            "robots": [
+              "franka",
+              "dual_piper"
+            ],
+            "seed_randomizes_layout": false
+          },
+          "stirrer_knob": {
+            "tier": "development",
+            "role": "basic",
+            "competition_ready": false,
+            "layout": "five-task-scene-v0.4-fixed",
+            "robots": [
+              "franka",
+              "dual_piper"
+            ],
+            "seed_randomizes_layout": false
+          },
+          "tube_insert": {
+            "tier": "development",
+            "role": "basic",
+            "competition_ready": false,
+            "layout": "five-task-scene-v0.4-fixed",
+            "robots": [
+              "franka",
+              "dual_piper"
+            ],
+            "seed_randomizes_layout": false
+          }
+        },
+        "replicas": 4,
+        "scopes": {
+          "full": 20,
+          "smoke": 4
+        },
+        "workers_online": {
+          "dual_piper": true,
+          "franka": true
+        },
+        "accept_until": "2026-10-26T04:00:00+00:00",
+        "expires_at": "2026-10-26T10:20:46+00:00",
+        "limits": {
+          "policy_cpu_seconds": 120,
+          "policy_wall_seconds": 600,
+          "policy_memory_bytes": 2147483648,
+          "policy_network": "none",
+          "policy_runtime": "python-stdlib-chroot-seccomp"
+        },
+        "nine_task_fields_present_in_body": {
+          "nine_task_binding": false,
+          "runtime_profile_sha256": false,
+          "configuration_sha256": false,
+          "runtime_capabilities": false
+        },
+        "has_challenge_field": false,
+        "has_attempt_field": false,
+        "body_mentions_challenge": false,
+        "body_mentions_attempt": false
+      },
+      "judgment": "可读旧五题 catalog：benchmark_id=lab-agent-v0.4-five-tasks-dev，task_count=5，scopes={\"full\": 20, \"smoke\": 4}；缺失九题绑定字段 ['nine_task_binding', 'runtime_profile_sha256', 'configuration_sha256', 'runtime_capabilities']"
+    },
+    {
+      "seq": 4,
+      "label": "challenges_auth",
+      "utc_started": "2026-10-24T09:29:20.065Z",
+      "utc_finished": "2026-10-24T09:29:20.393Z",
+      "method": "GET",
+      "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/challenges",
+      "auth": "bearer_token_from_file",
+      "request_headers_redacted": {
+        "User-Agent": "lab-nine-entry-probe/1.0 (non-destructive GET only)",
+        "Accept": "application/json, text/plain, */*",
+        "Authorization": "<redacted>"
+      },
+      "tls": "default_verified",
+      "status": 404,
+      "reason": "Not Found",
+      "content_type": "application/json",
+      "response_headers_redacted": {
+        "Date": "Sat, 24 Oct 2026 09:29:20 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "26",
+        "Connection": "close",
+        "cache-control": "no-store",
+        "x-envoy-upstream-service-time": "0"
+      },
+      "body_bytes": 26,
+      "body_sha256": "5e6293a28b9df9bda9e4478001c8839d3673171bdffc5a99950d144111b3343e",
+      "body_file": "raw/04_challenges_auth.body.json",
+      "error": null,
+      "elapsed_ms": 327,
+      "analysis": {
+        "body_mentions_nine": false,
+        "body_mentions_challenge": false,
+        "body_mentions_attempt": false,
+        "body_mentions_36": false,
+        "top_level_keys": [
+          "error_code"
+        ]
+      },
+      "judgment": "旧服务无 /v1/challenges 路由（404），不存在 Challenge 列表接口"
+    },
+    {
+      "seq": 5,
+      "label": "attempts_auth",
+      "utc_started": "2026-10-24T09:29:20.396Z",
+      "utc_finished": "2026-10-24T09:29:20.747Z",
+      "method": "GET",
+      "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/attempts",
+      "auth": "bearer_token_from_file",
+      "request_headers_redacted": {
+        "User-Agent": "lab-nine-entry-probe/1.0 (non-destructive GET only)",
+        "Accept": "application/json, text/plain, */*",
+        "Authorization": "<redacted>"
+      },
+      "tls": "default_verified",
+      "status": 404,
+      "reason": "Not Found",
+      "content_type": "application/json",
+      "response_headers_redacted": {
+        "Date": "Sat, 24 Oct 2026 09:29:20 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "26",
+        "Connection": "close",
+        "cache-control": "no-store",
+        "x-envoy-upstream-service-time": "2"
+      },
+      "body_bytes": 26,
+      "body_sha256": "5e6293a28b9df9bda9e4478001c8839d3673171bdffc5a99950d144111b3343e",
+      "body_file": "raw/05_attempts_auth.body.json",
+      "error": null,
+      "elapsed_ms": 351,
+      "analysis": {
+        "body_mentions_nine": false,
+        "body_mentions_challenge": false,
+        "body_mentions_attempt": false,
+        "body_mentions_36": false,
+        "top_level_keys": [
+          "error_code"
+        ]
+      },
+      "judgment": "旧服务无 /v1/attempts 路由（404），不存在 Attempt 查询接口"
+    },
+    {
+      "seq": 6,
+      "label": "evaluations_list_auth",
+      "utc_started": "2026-10-24T09:29:20.751Z",
+      "utc_finished": "2026-10-24T09:29:21.115Z",
+      "method": "GET",
+      "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/evaluations",
+      "auth": "bearer_token_from_file",
+      "request_headers_redacted": {
+        "User-Agent": "lab-nine-entry-probe/1.0 (non-destructive GET only)",
+        "Accept": "application/json, text/plain, */*",
+        "Authorization": "<redacted>"
+      },
+      "tls": "default_verified",
+      "status": 404,
+      "reason": "Not Found",
+      "content_type": "application/json",
+      "response_headers_redacted": {
+        "Date": "Sat, 24 Oct 2026 09:29:21 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "26",
+        "Connection": "close",
+        "cache-control": "no-store",
+        "x-envoy-upstream-service-time": "0"
+      },
+      "body_bytes": 26,
+      "body_sha256": "5e6293a28b9df9bda9e4478001c8839d3673171bdffc5a99950d144111b3343e",
+      "body_file": "raw/06_evaluations_list_auth.body.json",
+      "error": null,
+      "elapsed_ms": 363,
+      "analysis": {
+        "body_mentions_nine": false,
+        "body_mentions_challenge": false,
+        "body_mentions_attempt": false,
+        "body_mentions_36": false,
+        "top_level_keys": [
+          "error_code"
+        ]
+      },
+      "judgment": "旧服务不支持评测列表（HTTP 404）；九题平台也不存在公开 list 路由"
+    },
+    {
+      "seq": 7,
+      "label": "root_noauth",
+      "utc_started": "2026-10-24T09:29:21.119Z",
+      "utc_finished": "2026-10-24T09:29:21.439Z",
+      "method": "GET",
+      "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/",
+      "auth": "none",
+      "request_headers_redacted": {
+        "User-Agent": "lab-nine-entry-probe/1.0 (non-destructive GET only)",
+        "Accept": "application/json, text/plain, */*"
+      },
+      "tls": "default_verified",
+      "status": 401,
+      "reason": "Unauthorized",
+      "content_type": "application/json",
+      "response_headers_redacted": {
+        "Date": "Sat, 24 Oct 2026 09:29:21 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "29",
+        "Connection": "close",
+        "cache-control": "no-store",
+        "x-envoy-upstream-service-time": "2"
+      },
+      "body_bytes": 29,
+      "body_sha256": "55a8d8e7d1df1868bd1b97e3ad3a4f7a76e13e7270f481db4775640691c07dc0",
+      "body_file": "raw/07_root_noauth.body.json",
+      "error": null,
+      "elapsed_ms": 319,
+      "analysis": {
+        "body_mentions_nine": false,
+        "body_mentions_challenge": false,
+        "body_mentions_attempt": false,
+        "body_mentions_36": false,
+        "top_level_keys": [
+          "error_code"
+        ]
+      },
+      "judgment": "根路径 HTTP 401"
+    },
+    {
+      "seq": 8,
+      "label": "port8787_health_noauth",
+      "utc_started": "2026-10-24T09:29:21.442Z",
+      "utc_finished": "2026-10-24T09:29:31.526Z",
+      "method": "GET",
+      "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com:8787/health",
+      "auth": "none",
+      "request_headers_redacted": {
+        "User-Agent": "lab-nine-entry-probe/1.0 (non-destructive GET only)",
+        "Accept": "application/json, text/plain, */*"
+      },
+      "tls": "default_verified",
+      "status": null,
+      "reason": null,
+      "content_type": null,
+      "response_headers_redacted": {},
+      "body_bytes": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "body_file": "raw/08_port8787_health_noauth.body.bin",
+      "error": "URLError: timed out",
+      "elapsed_ms": 10083,
+      "analysis": {
+        "body_mentions_nine": false,
+        "body_mentions_challenge": false,
+        "body_mentions_attempt": false,
+        "body_mentions_36": false
+      },
+      "judgment": "请求失败（URLError: timed out）；无法据此判断入口"
+    },
+    {
+      "seq": 9,
+      "label": "port8090_health_noauth",
+      "utc_started": "2026-10-24T09:29:31.530Z",
+      "utc_finished": "2026-10-24T09:29:41.649Z",
+      "method": "GET",
+      "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com:8090/health",
+      "auth": "none",
+      "request_headers_redacted": {
+        "User-Agent": "lab-nine-entry-probe/1.0 (non-destructive GET only)",
+        "Accept": "application/json, text/plain, */*"
+      },
+      "tls": "default_verified",
+      "status": null,
+      "reason": null,
+      "content_type": null,
+      "response_headers_redacted": {},
+      "body_bytes": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "body_file": "raw/09_port8090_health_noauth.body.bin",
+      "error": "URLError: timed out",
+      "elapsed_ms": 10119,
+      "analysis": {
+        "body_mentions_nine": false,
+        "body_mentions_challenge": false,
+        "body_mentions_attempt": false,
+        "body_mentions_36": false
+      },
+      "judgment": "请求失败（URLError: timed out）；无法据此判断入口"
+    },
+    {
+      "seq": 10,
+      "label": "port8890_health_noauth",
+      "utc_started": "2026-10-24T09:29:41.651Z",
+      "utc_finished": "2026-10-24T09:29:51.724Z",
+      "method": "GET",
+      "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com:8890/health",
+      "auth": "none",
+      "request_headers_redacted": {
+        "User-Agent": "lab-nine-entry-probe/1.0 (non-destructive GET only)",
+        "Accept": "application/json, text/plain, */*"
+      },
+      "tls": "default_verified",
+      "status": null,
+      "reason": null,
+      "content_type": null,
+      "response_headers_redacted": {},
+      "body_bytes": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "body_file": "raw/10_port8890_health_noauth.body.bin",
+      "error": "URLError: timed out",
+      "elapsed_ms": 10072,
+      "analysis": {
+        "body_mentions_nine": false,
+        "body_mentions_challenge": false,
+        "body_mentions_attempt": false,
+        "body_mentions_36": false
+      },
+      "judgment": "请求失败（URLError: timed out）；无法据此判断入口"
+    }
+  ],
+  "conclusion": {
+    "formal_entry_found": false,
+    "formal_submission_executable": false,
+    "attempt_id_obtainable_without_fabrication": false,
+    "statement": "正式提交不可执行、Attempt ID 无法在不伪造的前提下取得",
+    "reasons": [
+      "公开包 / release.json / rules-v1.json 自述 Playground 未接入：challenge_ids=null、playground_integrated=false、official_score_writeback_verified=false、competition_ready=false、live_nine_task_service_deployed=false。",
+      "工作区与环境中未发现本题的 Challenge ID、正式提交地址或平台上传命令配置；唯一在配置里出现的评测服务地址是旧五题邀请联调服务（service.json）。",
+      "环境中确有官方 Playground CLI（playground 0.1.40，@paper2arm/playground-cli）且已认证（api_base=https://play.bohrium.com/api），但平台可见的 6932 个 Challenge 中没有本题九题具身实验题目，也没有任何配置给出本题 Challenge ID；playground submit 会创建 Attempt（POST），按本任务约束未执行。",
+      "旧服务 GET /v1/tasks 返回的 benchmark_id 不是 lab-nine-20261024-v1，且 catalog 不含 nine_task_binding / runtime_profile_sha256 / configuration_sha256 等九题新后端必备字段，按 docs/平台接口.md 不能作为统一九题正式入口。",
+      "公开包 contracts/configuration-template.json 两个后端 url=null 且 deployment_qualified=false；按 docs/平台接口.md，本地组织者 HTTP 仅绑定 127.0.0.1 且需要另建部署配置，本机也无对应监听。",
+      "Attempt 属于平台侧对象；没有平台认证与 Challenge 路由时，任何“生成的 Attempt ID”都会是伪造值。"
+    ],
+    "static_entry_markers": {
+      "candidate_nine_service_urls": [
+        "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com"
+      ],
+      "deployment_qualified_true_hits": 0,
+      "challenge_id_config_hits": [
+        "work-context/maps/embodied-competition-hosting.md"
+      ],
+      "organizer_module_installed": false,
+      "local_loopback_candidate_listeners": {
+        "8090": "closed",
+        "8787": "closed",
+        "8888": "closed",
+        "8890": "closed",
+        "9000": "closed"
+      }
+    },
+    "platform_cli_entry": {
+      "cli_present": true,
+      "cli_path": "C:\\Users\\86150\\AppData\\Roaming\\npm\\playground.CMD",
+      "authenticated": true,
+      "api_base": "https://play.bohrium.com/api",
+      "visible_challenges_total": 6932,
+      "nine_task_challenge_visible": false,
+      "challenge_id_configured": false,
+      "submit_command_template": "playground submit --challenge-id <本题ChallengeID> --outputs <outputs> --trace <session.jsonl>",
+      "submit_executed": false,
+      "submit_would_create_attempt_and_upload": true,
+      "judgment": "官方 Playground CLI 存在且已认证（api_base=https://play.bohrium.com/api）；但全量可见 Challenge 6932 个中未发现本题九题具身实验 Challenge，且工作区无 Challenge ID 配置；submit 会创建 Attempt（POST），按约束未执行。"
+    },
+    "old_service_identity": {
+      "probe_status": 200,
+      "service_json_benchmark_id": "lab-agent-v0.4-five-tasks-dev",
+      "benchmark_id_in_catalog": "lab-agent-v0.4-five-tasks-dev",
+      "benchmark_id": "lab-agent-v0.4-five-tasks-dev",
+      "service_catalog_schema": "lab-eval-pilot-catalog/v1",
+      "catalog_schema": "lab-task-catalog/v1",
+      "qualification_scope": "New five-task scene requires its own native validation; historical source and results are retained in the previous package.",
+      "task_count": 5,
+      "task_ids": [
+        "bottle_transfer",
+        "beaker_place",
+        "balance_load",
+        "stirrer_knob",
+        "tube_insert"
+      ],
+      "tasks": {
+        "balance_load": {
+          "tier": "development",
+          "role": "basic",
+          "competition_ready": false,
+          "layout": "five-task-scene-v0.4-fixed",
+          "robots": [
+            "franka",
+            "dual_piper"
+          ],
+          "seed_randomizes_layout": false
+        },
+        "beaker_place": {
+          "tier": "development",
+          "role": "basic",
+          "competition_ready": false,
+          "layout": "five-task-scene-v0.4-fixed",
+          "robots": [
+            "franka",
+            "dual_piper"
+          ],
+          "seed_randomizes_layout": false
+        },
+        "bottle_transfer": {
+          "tier": "development",
+          "role": "basic",
+          "competition_ready": false,
+          "layout": "five-task-scene-v0.4-fixed",
+          "robots": [
+            "franka",
+            "dual_piper"
+          ],
+          "seed_randomizes_layout": false
+        },
+        "stirrer_knob": {
+          "tier": "development",
+          "role": "basic",
+          "competition_ready": false,
+          "layout": "five-task-scene-v0.4-fixed",
+          "robots": [
+            "franka",
+            "dual_piper"
+          ],
+          "seed_randomizes_layout": false
+        },
+        "tube_insert": {
+          "tier": "development",
+          "role": "basic",
+          "competition_ready": false,
+          "layout": "five-task-scene-v0.4-fixed",
+          "robots": [
+            "franka",
+            "dual_piper"
+          ],
+          "seed_randomizes_layout": false
+        }
+      },
+      "replicas": 4,
+      "scopes": {
+        "full": 20,
+        "smoke": 4
+      },
+      "workers_online": {
+        "dual_piper": true,
+        "franka": true
+      },
+      "limits": {
+        "policy_cpu_seconds": 120,
+        "policy_wall_seconds": 600,
+        "policy_memory_bytes": 2147483648,
+        "policy_network": "none",
+        "policy_runtime": "python-stdlib-chroot-seccomp"
+      },
+      "accept_until": "2026-10-26T04:00:00+00:00",
+      "expires_at": "2026-10-26T10:20:46+00:00",
+      "competition_ready": false,
+      "nine_task_fields": {
+        "nine_task_binding": false,
+        "runtime_profile_sha256": false,
+        "configuration_sha256": false,
+        "runtime_capabilities": false
+      },
+      "has_challenge_field": false,
+      "has_attempt_field": false,
+      "benchmark_id_matches_nine_rules_id": false
+    },
+    "old_service_live": true,
+    "nine_task_fields_missing": true,
+    "evidence": {
+      "static": "static_search",
+      "probes": [
+        "health_noauth",
+        "tasks_noauth",
+        "tasks_auth",
+        "challenges_auth",
+        "attempts_auth",
+        "evaluations_list_auth",
+        "root_noauth",
+        "port8787_health_noauth",
+        "port8090_health_noauth",
+        "port8890_health_noauth"
+      ],
+      "citations": {
+        "submission_config_template": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/SUBMISSION.md",
+          "lines": [
+            31
+          ],
+          "found": true
+        },
+        "submission_old_five_task": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/SUBMISSION.md",
+          "lines": [
+            65
+          ],
+          "found": true
+        },
+        "submission_formal_entry": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/SUBMISSION.md",
+          "lines": [
+            67
+          ],
+          "found": true
+        },
+        "submission_no_formal_submit": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/SUBMISSION.md",
+          "lines": [
+            67
+          ],
+          "found": true
+        },
+        "submission_local_unified": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/SUBMISSION.md",
+          "lines": [
+            69
+          ],
+          "found": true
+        },
+        "submission_attempt_id": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/SUBMISSION.md",
+          "lines": [
+            67
+          ],
+          "found": true
+        },
+        "api_no_playground_credentials": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/docs/平台接口.md",
+          "lines": [
+            5
+          ],
+          "found": true
+        },
+        "api_template_cannot_submit": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/docs/平台接口.md",
+          "lines": [
+            35
+          ],
+          "found": true
+        },
+        "api_new_backend_catalog": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/docs/平台接口.md",
+          "lines": [
+            52
+          ],
+          "found": true
+        },
+        "api_binding_needs_worker": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/docs/平台接口.md",
+          "lines": [
+            74
+          ],
+          "found": true
+        },
+        "api_local_loopback_only": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/docs/平台接口.md",
+          "lines": [
+            114
+          ],
+          "found": true
+        },
+        "api_no_official_callback": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/docs/平台接口.md",
+          "lines": [
+            166
+          ],
+          "found": true
+        },
+        "api_deployment_qualified": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/docs/平台接口.md",
+          "lines": [
+            50
+          ],
+          "found": true
+        },
+        "checklist_playground_not_configured": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/docs/发布接入清单.md",
+          "lines": [
+            3
+          ],
+          "found": true
+        },
+        "checklist_platform_status_false": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/docs/发布接入清单.md",
+          "lines": [
+            19
+          ],
+          "found": true
+        },
+        "checklist_playground_contract": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/docs/发布接入清单.md",
+          "lines": [
+            10
+          ],
+          "found": true
+        },
+        "checklist_old_window": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/docs/发布接入清单.md",
+          "lines": [
+            19
+          ],
+          "found": true
+        },
+        "readme_no_challenge_needed": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/README.md",
+          "lines": [
+            15
+          ],
+          "found": true
+        },
+        "release_live_nine_false": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/release.json",
+          "lines": [
+            42
+          ],
+          "found": true
+        },
+        "release_native36_false": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/release.json",
+          "lines": [
+            41
+          ],
+          "found": true
+        },
+        "release_playground_false": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/release.json",
+          "lines": [
+            44
+          ],
+          "found": true
+        },
+        "release_competition_false": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/release.json",
+          "lines": [
+            46
+          ],
+          "found": true
+        },
+        "release_activation_required": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/release.json",
+          "lines": [
+            47
+          ],
+          "found": true
+        },
+        "rules_platform_block": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/contracts/rules-v1.json",
+          "lines": [
+            589
+          ],
+          "found": true
+        },
+        "rules_challenge_ids_null": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/contracts/rules-v1.json",
+          "lines": [
+            593
+          ],
+          "found": true
+        },
+        "config_status_preview": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/contracts/configuration-template.json",
+          "lines": [
+            29
+          ],
+          "found": true
+        },
+        "config_url_null": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/contracts/configuration-template.json",
+          "lines": [
+            32,
+            42
+          ],
+          "found": true
+        },
+        "config_not_qualified": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/contracts/configuration-template.json",
+          "lines": [
+            37,
+            47
+          ],
+          "found": true
+        },
+        "statement_formal_entry": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/docs/自主实验赛道PLAYGROUND题面.md",
+          "lines": [
+            72
+          ],
+          "found": true
+        },
+        "statement_challenge_from_page": {
+          "file": "inbox/1024-test/自主实验赛道选手公开包/docs/自主实验赛道PLAYGROUND题面.md",
+          "lines": [
+            76
+          ],
+          "found": true
+        },
+        "old_service_url": {
+          "file": "inbox/lab-embodied-pilot-20261023/participant-kit/service.json",
+          "lines": [
+            3
+          ],
+          "found": true
+        },
+        "old_service_benchmark": {
+          "file": "inbox/lab-embodied-pilot-20261023/participant-kit/service.json",
+          "lines": [
+            4
+          ],
+          "found": true
+        },
+        "old_service_accept_until": {
+          "file": "inbox/lab-embodied-pilot-20261023/participant-kit/service.json",
+          "lines": [
+            5
+          ],
+          "found": true
+        },
+        "old_service_expires_at": {
+          "file": "inbox/lab-embodied-pilot-20261023/participant-kit/service.json",
+          "lines": [
+            6
+          ],
+          "found": true
+        },
+        "old_agent_invite_not_official": {
+          "file": "inbox/lab-embodied-pilot-20261023/participant-kit/AGENT_GUIDE.md",
+          "lines": [
+            15
+          ],
+          "found": true
+        },
+        "old_agent_tasks_api": {
+          "file": "inbox/lab-embodied-pilot-20261023/participant-kit/AGENT_GUIDE.md",
+          "lines": [
+            164
+          ],
+          "found": true
+        },
+        "old_readme_invite": {
+          "file": "inbox/lab-embodied-pilot-20261023/README.md",
+          "lines": [
+            5
+          ],
+          "found": true
+        },
+        "old_readme_signup_deadline": {
+          "file": "inbox/lab-embodied-pilot-20261023/README.md",
+          "lines": [
+            5
+          ],
+          "found": true
+        },
+        "local_eval_loopback": {
+          "file": "inbox/LOCAL_EVALUATION.md",
+          "lines": [
+            3
+          ],
+          "found": true
+        },
+        "local_eval_default_url": {
+          "file": "inbox/LOCAL_EVALUATION.md",
+          "lines": [
+            55
+          ],
+          "found": true
+        }
+      }
+    }
+  },
+  "artifacts": {
+    "script": "probe_entry.py",
+    "report": "probe-report.md",
+    "summary": "probe-summary.json",
+    "raw_dir": "raw/",
+    "raw_files": [
+      "01_health_noauth.body.json",
+      "01_health_noauth.body.meta.json",
+      "02_tasks_noauth.body.json",
+      "02_tasks_noauth.body.meta.json",
+      "03_tasks_auth.body.json",
+      "03_tasks_auth.body.meta.json",
+      "04_challenges_auth.body.json",
+      "04_challenges_auth.body.meta.json",
+      "05_attempts_auth.body.json",
+      "05_attempts_auth.body.meta.json",
+      "06_evaluations_list_auth.body.json",
+      "06_evaluations_list_auth.body.meta.json",
+      "07_root_noauth.body.json",
+      "07_root_noauth.body.meta.json",
+      "08_port8787_health_noauth.body.bin",
+      "08_port8787_health_noauth.body.meta.json",
+      "09_port8090_health_noauth.body.bin",
+      "09_port8090_health_noauth.body.meta.json",
+      "10_port8890_health_noauth.body.bin",
+      "10_port8890_health_noauth.body.meta.json",
+      "cli-playground-entry-evidence.json"
+    ]
+  },
+  "leak_scan": {
+    "token_value_never_written": true,
+    "checked_files": 23,
+    "leaked_files": [],
+    "final_checked_files": 24,
+    "final_leaked_files": [],
+    "passed": true
+  }
+}

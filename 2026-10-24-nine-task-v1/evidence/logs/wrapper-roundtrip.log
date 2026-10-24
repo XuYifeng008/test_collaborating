@@ -1,0 +1,41 @@
+﻿{
+ "schema": "nine-task-wrapper-evidence/v1",
+ "ok": true,
+ "results": [
+  {
+   "check": "wave1 wrapper refuses missing runtime identity",
+   "passed": true
+  },
+  {
+   "check": "wave1 wrapper refuses missing model api",
+   "passed": true
+  },
+  {
+   "check": "wave1 wrapper refuses missing image deps",
+   "passed": true
+  },
+  {
+   "check": "wave1 wrapper refuses wrong profile sha",
+   "passed": true
+  },
+  {
+   "check": "wave1 franka wrapper legal actions + finish",
+   "passed": true,
+   "actions": 32
+  },
+  {
+   "check": "franka package rejects piper instruction",
+   "passed": true
+  },
+  {
+   "check": "wave2 piper wrapper legal actions + finish",
+   "passed": true,
+   "instrument_actions_seen_without_images": 0
+  },
+  {
+   "check": "canonical bytes identical across robot packages",
+   "passed": true
+  }
+ ]
+}
+
