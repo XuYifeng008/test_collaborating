@@ -1,0 +1,9 @@
+﻿schema: None
+decoded: (600, 800, 3) uint8 mean: [72.37, 82.64, 95.67]
+camera_ids: ['public'] picked: public
+detect_frames: dict_keys(['green', 'blue'])
+white_cap_blobs: 4
+bright: 2000
+dark: 128700
+liquid_line: {'camera': 'public', 'level_row': 295, 'fill_fraction': 0.5720250521920668, 'contrast': 23.993053436279297, 'image_h': 600}
+PERCEPTION SMOKE: PASS

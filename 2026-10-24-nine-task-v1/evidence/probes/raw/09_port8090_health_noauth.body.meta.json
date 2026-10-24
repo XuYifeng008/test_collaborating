@@ -1,8 +1,8 @@
 {
   "seq": 9,
   "label": "port8090_health_noauth",
-  "utc_started": "2026-10-24T09:29:31.530Z",
-  "utc_finished": "2026-10-24T09:29:41.649Z",
+  "utc_started": "2026-10-24T09:31:13.151Z",
+  "utc_finished": "2026-10-24T09:31:23.326Z",
   "method": "GET",
   "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com:8090/health",
   "auth": "none",
@@ -19,5 +19,5 @@
   "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "body_file": "raw/09_port8090_health_noauth.body.bin",
   "error": "URLError: timed out",
-  "elapsed_ms": 10119
+  "elapsed_ms": 10174
 }

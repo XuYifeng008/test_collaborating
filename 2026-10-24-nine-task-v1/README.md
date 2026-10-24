@@ -12,7 +12,7 @@
 1. **身份确认**：本轮开放两机器人赛道 `franka`（臂 `arm`，7 关节）与 `piper-dual`（`left`/`right`，各 6 关节），二者分别计分；唯一开放模型为 `rynnbrain-1.1-2b-local`（`Alibaba-DAMO-Academy/RynnBrain1.1-2B`@`36069aa8…`，权重 SHA256 `2819d84441c27…`）；运行档 `lab-nine-image-model-v1`（NumPy 1.26.4 / Pillow 11.3.0 / opencv-python-headless 4.11.0.86）。规则身份 `lab-nine-20261024-v1`，九题 × 4 重复 = 36 槽、九题等权。
 2. 已实现一份**仅使用公开观测**的 `lab-policy-v2` 策略（协议、公开运动学 FK/IK、公开 RGB 感知、九题状态机、C07 去皮/定量流程、两波频率与 finish 语义均按合同读取），并用官方 `lab_sdk.packaging` **冻结**成两个赛道的 `outputs`（各 `canonical.zip` + `wave1.zip` + `wave2.zip` + `package-receipt.json`），逐字节确定性、全部限额与回执哈希复核通过。
 3. 本地真实证据：公开包身份/合同核验 **930 项检查、0 项不符**；4 份真实公开指令/观测样例经官方 `Adapter` 与策略回归全部通过（确定性）；冻结派生包的 wrapper 运行时身份绑定/机器人绑定/协议合法性 **8 项检查全部通过**；C07 去皮-定量状态机用「运动学 mock + 合成感知 + 合成天平回执」跑通（**明确标注非物理**）。
-4. **正式提交判定（关键）**：本轮公开包与唯一可达服务都**没有** `lab-nine-20261024-v1` 的正式入口：`release.json` 明确 `playground_integrated=false`、`official_score_writeback_verified=false`、`competition_ready=false`、`live_nine_task_service_deployed=false`；`contracts/rules-v1.json` 的 `platform.challenge_ids=null`；`contracts/configuration-template.json` 两个后端 `url=null`、`deployment_qualified=false`；唯一可达服务实测是旧 **五题** 联调服务（`benchmark_id=lab-agent-v0.4-five-tasks-dev`，`/v1/tasks` 缺 `nine_task_binding`/`runtime_profile_sha256`/`configuration_sha256`/`runtime_capabilities`，`/v1/challenges`、`/v1/attempts` 均 404）。
+4. **正式提交判定（关键）**：本轮公开包与平台当前状态都**没有** `lab-nine-20261024-v1` 的可用正式入口：`release.json` 明确 `playground_integrated=false`、`official_score_writeback_verified=false`、`competition_ready=false`、`live_nine_task_service_deployed=false`；`contracts/rules-v1.json` 的 `platform.challenge_ids=null`；`contracts/configuration-template.json` 两个后端 `url=null`、`deployment_qualified=false`；唯一可达 HTTP 服务实测是旧 **五题** 联调服务（`benchmark_id=lab-agent-v0.4-five-tasks-dev`，`/v1/tasks` 缺 `nine_task_binding`/`runtime_profile_sha256`/`configuration_sha256`/`runtime_capabilities`，`/v1/challenges`、`/v1/attempts` 均 404）；平台官方 `playground` CLI 虽已认证（`api_base=https://play.bohrium.com/api`），但 **6932 个可见 Challenge 中无本题、工作区无本题 Challenge ID**，无法创建正确 Attempt。
 5. 因此：**未执行任何 POST/上传/创建评测**（避免产生错误评测记录）；**没有 Attempt ID 可保存**，也没有 `state=scored`、`scoreIsFinal=true`、`planned_count=scored_count=36` 可查询——这些字段本轮客观不存在。把上传成功或空策略 0 分当作任务成功是明确禁止的，本报告不这样做。
 6. 正式入口要可用，还差：平台 Challenge/Attempt 接入（Host 服务 ↔ Playground 转发/回写，M5）、`deployment_qualified=true` 的部署配置与两后端真实 URL/资格 ID、九题新运行档的双后端资格与 36 槽独立归档。见 §6。
 7. 本地实现**不代表物理可用**：公开包不含九题仿真器/裁判/资格服务，策略从未在本轮九题物理环境中执行过，本报告不声明任何任务成功、分数或排名。
@@ -124,7 +124,7 @@ python -m lab_sdk.packaging deliverables/2026-10-24-nine-task/src/my-policy \
   - Lead smoke（策略自身发出的动作）：wave1 franka/piper 各 32 calls / 260 steps（`step_seconds=1/240`、`finish.extra_physics_steps=720`、关节 7/6+6）；wave2 piper C07 54 calls / 1010 steps（含 finish 前 150 步保持 = 1.25 s，`1/120`、`extra=0`）；wave2 franka C02 34 calls / 410 steps。
   - 测试夹具（按后端 finish 语义记账）：wave1 franka 26 calls / 930 steps（含后端追加 720 步）、piper 32 / 980；wave2 C02 23 / 314、C07 31 / 396（二者均含 finish 前 150 步保持）。
 - 冻结派生包 wrapper 往返：见 §3 最后一条（8/8 通过）。
-- 公开图片解码与 RGB 感知函数在公开 `examples/sdk-public-image.json` 上冒烟（纯 NumPy/Pillow）。
+- 公开图片解码与 RGB 感知函数在公开 `examples/sdk-public-image.json` 上冒烟（`evidence/perception/`、`evidence/logs/perception-smoke.log`）：PNG 解码为 800×600×3 RGB，颜色框检测到 green/blue，白帽 blobs=4，亮/暗目标与量筒液面（fill≈0.57）均可计算。只解码公开 PNG，不含私有数据/网络。
 - **独立测试夹具**（`tests/`，队友构建；运动学 mock + 合成感知/天平桩仅用于状态机，不冒充物理）最终结果：**17 个测试 17 PASS / 0 FAIL / 0 ERROR**（34.59 s），见 `tests/TEST_RESULTS.md`、`tests/test-results.json`。覆盖：4 份真实样例协议回归、频率/关节顺序/finish 语义、14 份协议合成用例 smoke、驱动器 11 个故意违规 stub 全部拒绝、C07 nominal/异常/持续异常四组去皮状态机。
   - 该套件在开发中发现并驱动修复了一个真实缺陷（已复测）：wave2 `finish` 前保持步数曾被截断为 120 步（1.0 s < 1.2 s），修复后 real:C07/real:C02 均 `terminal_hold_steps=150`（1.25 s），两次运行 action digest 一致。
   - C07 nominal（合成感知+脚本化天平桩）：150 calls / 1848 steps；tare 尝试 1 次且有效 1 次；tare 前有 168 步 hold + 2 次有效 stable read；tare 后 9 次 read，净质量 4.53→10.10 g 均在容差；最终 10.10 g；无二次 tare；instrument 从不与 arms 混合同一动作；finish 前保持 450 步；两次运行 digest 相同。
@@ -152,14 +152,15 @@ python -m lab_sdk.packaging deliverables/2026-10-24-nine-task/src/my-policy \
    | 同域 :8787/:8090/:8890 直连 | 无响应（该域名只经 443 反代到旧服务） |
    | catalog `native_qualification` | 新旧五题均为 `not_qualified_in_current_delivery`（当前交付未取得原生资格） |
    - 结论：该服务既没有九题的 Challenge/Attempt 概念，也没有九题新后端绑定字段，按 `docs/SUBMISSION.md` 第 65–69 行与 `docs/平台接口.md` 第 52–74 行**不能冒充**统一九题正式入口。
-3. **静态搜索**：工作区检索 `nine_task_binding`/`deployment_qualified=true`/Challenge/Attempt/正式 URL/CLI：`deployment_qualified=true` **0 命中**；`nine_task_binding` 只出现在文档/规则描述里，无已部署后端响应；`python -m organizer` 未安装（公开包不含组织者部署代码）；本机 8090/8787/8890 无监听；环境变量无平台注入。
-4. **组织者侧当前状态佐证**（本机工作上下文，非公开包证据）：`work-context/maps/embodied-competition-hosting.md` 与 `map/embodied-competition-ledger.md` 记录“Playground 转发/回写（M5）”仍为 ❌、“Host 服务 ↔ Playground 转发协议未定/待平台确认”，与公开包 `competition_ready=false` 一致。
+3. **平台官方 CLI 通道存在，但本题未上架**（只读核查，未 submit）：PATH 中存在官方 `playground` CLI 0.1.40（npm `@paper2arm/playground-cli`），`playground auth status` 显示**已认证**（`api_base=https://play.bohrium.com/api`）；但全量可见 Challenge **6932 个中没有任何本题九题具身实验题目**（强匹配 24 条经人工核对均为 `nine-gene`/`nine-point`/`manipulator` 等子串或无关化学题），且工作区没有任何本题 Challenge ID 配置（`C:\Users\86150\.playground\config.json` 不存在）。`playground submit` 会创建 Attempt（POST），**按约束未执行**。→ “有 CLI”≠“本题正式入口可用”：没有 Challenge ID 就无法创建正确的 Attempt。
+4. **静态搜索**：工作区检索 `nine_task_binding`/`deployment_qualified=true`/Challenge/Attempt/正式 URL/CLI：`deployment_qualified=true` **0 命中**；`nine_task_binding` 只出现在文档/规则描述里，无已部署后端响应；`python -m organizer` 未安装（公开包不含组织者部署代码）；本机 8090/8787/8890 无监听；环境变量无平台注入。
+5. **组织者侧当前状态佐证**（本机工作上下文，非公开包证据）：`work-context/maps/embodied-competition-hosting.md` 与 `map/embodied-competition-ledger.md` 记录“Playground 转发/回写（M5）”仍为 ❌、“Host 服务 ↔ Playground 转发协议未定/待平台确认”，与公开包 `competition_ready=false` 一致。
 
 ### 5.2 因此本轮能/不能做什么
 
 | 用户要求 | 本轮实际 |
 |---|---|
-| 通过本题实际入口正式提交一次 | **无法执行**：没有可用的九题 Challenge/Attempt 入口；唯一旧服务明确是五题开发联调且当前交付未资格，提交它属于“旧五题接口伪装九题正式评测”，被 `AGENT_GUIDE.md` 第 9 行与 `SUBMISSION.md` 第 65–69 行禁止。为避免制造错误评测记录，**未 POST、未上传、未创建任何 evaluation**。 |
+| 通过本题实际入口正式提交一次 | **无法执行**：官方 `playground` CLI 已认证，但本题 Challenge 未上架、无 Challenge ID（6932 个可见 Challenge 中无本题），无 ID 无法创建正确 Attempt；旧服务明确是五题开发联调且当前交付未资格，提交它属于“旧五题接口伪装九题正式评测”，被 `AGENT_GUIDE.md` 第 9 行与 `SUBMISSION.md` 第 65–69 行禁止。为避免制造错误评测记录，**未 POST、未上传、未创建任何 evaluation**（含未执行 `playground submit`）。 |
 | 保存 Attempt ID | **没有**：不伪造。旧服务的 `eval-…` ID 不是九题 Attempt；本报告与证据目录中不含任何 Attempt/评测 ID/分数。 |
 | 持续查询同一提交、核对 36 槽位及最终分 | **无法执行**：无提交可查。36 槽完整分的判据（`state=scored`、`scoreIsFinal=true`、`planned_count=scored_count=36`）本轮客观无法取得；`scoreIsFinal=true` 只在本地聚合语义下才可能，不能当正式分。 |
 | 上传成功≠成功、空策略 0 分≠成功 | 严格遵守：本轮既没有上传成功，也没有任何 0 分/满分记录；不把“无入口”包装成“已提交”。 |
@@ -178,7 +179,7 @@ python -m lab_sdk.packaging deliverables/2026-10-24-nine-task/src/my-policy \
 
 | # | 类别 | 现象 | 原因 | 处理/建议 | 证据 |
 |---|---|---|---|---|---|
-| 1 ★ | 正式入口 | 没有九题 Challenge/Attempt/上传入口，无法正式提交 | 本版 `competition_ready=false`、`playground_integrated=false`、`live_nine_task_service_deployed=false`；平台转发协议（M5）未落地 | 不伪造；把本页 §5 作为阻塞证据报给组织者/平台；正式入口就绪后再按 §5.3 提交 | `release.json`、`contracts/rules-v1.json`、`configuration-template.json`、`evidence/probes/` |
+| 1 ★ | 正式入口 | 没有本题九题的 Challenge ID / 提交入口，无法正式提交 | 本版 `competition_ready=false`、`playground_integrated=false`、`live_nine_task_service_deployed=false`；平台转发协议（M5）未落地；官方 `playground` CLI 虽已认证，但本题 Challenge 未上架（6932 个可见 Challenge 中无本题）、工作区无 Challenge ID | 不伪造；把本页 §5 作为阻塞证据报给组织者/平台；拿到 Challenge ID 后可执行 `playground submit --challenge-id <ID> --outputs <dir> --trace <session.jsonl>` 并按 §5.3 核对 36 槽；在此之前不 POST | `release.json`、`contracts/rules-v1.json`、`configuration-template.json`、`evidence/probes/`（含 `raw/cli-playground-entry-evidence.json`） |
 | 2 ★ | 旧服务 | 唯一可达服务是旧五题联调（v0.4），且 `native_qualification=not_qualified_in_current_delivery` | 旧服务无九题绑定字段/无 Challenge/Attempt 路由；本交付未取得五题原生资格 | 只做非破坏性 GET 取证；**未 POST**；不得用其 `eval-…` 冒充九题 Attempt | `evidence/probes/probe-report.md` |
 | 3 ★ | 可评测性 | 公开包不含九题仿真器/裁判/资格服务，策略无法做物理闭环验证 | 公开包定位为编写/检查/冻结选手策略；物理资格在组织者侧 | 只用真实 public fixtures 做协议级回归 + 运动学 mock 做状态机测试，全程标注“非物理”；不声明任务成功 | §4、`tests/` |
 | 4 ★ | 公开数据 | 4 份公开样例无图像；只有 3/9 题有真实协议样例 | 样例投影移除了平台身份与图像 payload | 策略对无图像输入安全收尾；其余 6 题只用合成协议用例（明确标注 synthetic） | `contracts/contract-verification.md` §6、`tests/` |
@@ -216,8 +217,11 @@ python deliverables\2026-10-24-nine-task\evidence\wrapper\wrapper_roundtrip.py
 # 4) 官方测试夹具（队友构建的 tests/）
 python deliverables\2026-10-24-nine-task\tests\run_tests.py
 
-# 5) 正式入口非破坏性探测（只 GET、token 不落盘）
+# 5) 正式入口非破坏性探测（只 GET、token 不落盘；含官方 playground CLI 只读核查）
 python deliverables\2026-10-24-nine-task\evidence\probes\probe_entry.py
+
+# 6) 公开 PNG 感知冒烟（只解码公开 examples/sdk-public-image.json）
+python deliverables\2026-10-24-nine-task\evidence\perception\perception_smoke.py
 ```
 
 ## 8. 文件清单（本目录）
@@ -225,15 +229,16 @@ python deliverables\2026-10-24-nine-task\evidence\probes\probe_entry.py
 ```text
 deliverables/2026-10-24-nine-task/
 ├─ REPORT.md                          ← 本报告
-├─ src/my-policy/                     ← 策略源码（6 文件，66,335 B）
+├─ src/my-policy/                     ← 策略源码（6 文件，66,636 B）
 ├─ outputs/                           ← 官方冻结产物（franka：canonical/wave1/wave2/receipt）
 ├─ outputs-piper-dual/                ← 官方冻结产物（piper-dual）
 ├─ tests/                             ← 独立协议测试夹具与结果（TEST_RESULTS.md / test-results.json）
 └─ evidence/
    ├─ contracts/                      ← 公开包身份/合同核验（930 项，0 不符）
-   ├─ probes/                         ← 正式入口探测（只读 GET，含原始响应+sha256）
+   ├─ probes/                         ← 正式入口探测（只读 GET + playground CLI 只读核查，含原始响应+sha256）
    ├─ packaging/                      ← 冻结摘要、两赛道回执、确定性验证
    ├─ wrapper/                        ← 冻结派生包 wrapper 身份/协议往返
+   ├─ perception/                     ← 公开 PNG 感知冒烟
    └─ logs/                           ← Lead 真实开发/测试日志
 ```
 

@@ -2,9 +2,9 @@
   "schema": "lab-nine-entry-probe/v1",
   "rules_id": "lab-nine-20261024-v1",
   "purpose": "核实 lab-nine-20261024-v1 九题正式入口是否存在且可用（非破坏性 GET；禁止伪造 Attempt）",
-  "generated_utc": "2026-10-24T09:29:51.727Z",
-  "generated_local": "2026-10-24T17:29:51+08:00",
-  "started_utc": "2026-10-24T09:28:34.314Z",
+  "generated_utc": "2026-10-24T09:31:33.415Z",
+  "generated_local": "2026-10-24T17:31:33+08:00",
+  "started_utc": "2026-10-24T09:30:13.540Z",
   "host": "CATBOOK",
   "workspace": "E:\\dev\\agents\\lark-working",
   "output_dir": "deliverables/2026-10-24-nine-task/evidence/probes",
@@ -34,10 +34,109 @@
   "static_search": {
     "workspace_root": "E:\\dev\\agents\\lark-working",
     "scan_scope": "递归扫描工作区（文本文件，单文件<=2MiB）；排除 .git/.lark-cli/__pycache__/node_modules 与本次 probes 输出目录",
-    "files_scanned": 756,
+    "files_scanned": 808,
     "scan_errors": [],
     "markers": {
       "nine_task_binding": [
+        {
+          "path": ".tmp/github/test_collaborating/README.md",
+          "hits": [
+            {
+              "line": 1,
+              "text": "> **2026-10-24 新增：九题包 `lab-nine-20261024-v1` 参评记录** —— [2026-10-24-nine-task-v1/README.md](2026-10-24-nine-task-v1/README.md)：策略实现 + 官方 `lab_sdk.packaging` 冻结产物完成（两赛道、确定性、身份复核通过）；**本轮九题正式入口不存在**（`competition_ready=fal..."
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/README.md",
+          "hits": [
+            {
+              "line": 15,
+              "text": "4. **正式提交判定（关键）**：本轮公开包与唯一可达服务都**没有** `lab-nine-20261024-v1` 的正式入口：`release.json` 明确 `playground_integrated=false`、`official_score_writeback_verified=false`、`competition_ready=false`、`live_nine_task_service_deployed=f..."
+            },
+            {
+              "line": 150,
+              "text": "   | `nine_task_binding` 等四字段 | **全部缺失**（false/false/false/false） |"
+            },
+            {
+              "line": 155,
+              "text": "3. **静态搜索**：工作区检索 `nine_task_binding`/`deployment_qualified=true`/Challenge/Attempt/正式 URL/CLI：`deployment_qualified=true` **0 命中**；`nine_task_binding` 只出现在文档/规则描述里，无已部署后端响应；`python -m organizer` 未安装（公开包不含组织者部署代码）；本机 ..."
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/contracts/contract-verification.json",
+          "hits": [
+            {
+              "line": 11635,
+              "text": "      \"detail\": \"docs/平台接口.md 包含 'nine_task_binding'（L59）\","
+            },
+            {
+              "line": 11636,
+              "text": "      \"expected\": \"nine_task_binding\","
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/contracts/verify_contracts.py",
+          "hits": [
+            {
+              "line": 1856,
+              "text": "    doc_has(\"docs/平台接口.md\", \"nine_binding\", \"nine_task_binding\")"
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-report.md",
+          "hits": [
+            {
+              "line": 15,
+              "text": "- 网络探测：旧包 `service.json` 声明的唯一评测后端是“五题邀请联调服务”，catalog 的 `benchmark_id` 与九题规则身份不一致，且**缺少九题新后端的全部绑定字段**（`nine_task_binding` / `runtime_profile_sha256` / `configuration_sha256` / `runtime_capabilities`），按合同不能当正式入口。"
+            },
+            {
+              "line": 37,
+              "text": "- `nine_task_binding`：命中 6 个文件 —— `deliverables/2026-10-24-nine-task/REPORT.md`（行15,149,154）、`deliverables/2026-10-24-nine-task/publish.py`（行75）、`deliverables/2026-10-24-nine-task/evidence/contracts/contract-verificat..."
+            },
+            {
+              "line": 49,
+              "text": "- 这说明 `nine_task_binding` 只出现在**文档/规则/同任务核验产物**中（`docs/平台接口.md`、`docs/运行档.md` 等），没有任何一条是“已部署服务配置”；`deployment_qualified=true` 在工作区**0 命中**（部署配置不存在）。"
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json",
+          "hits": [
+            {
+              "line": 40,
+              "text": "      \"nine_task_binding\": ["
+            },
+            {
+              "line": 50,
+              "text": "              \"text\": \"   | `nine_task_binding` 等四字段 | **全部缺失**（false/false/false/false） |\""
+            },
+            {
+              "line": 54,
+              "text": "              \"text\": \"3. **静态搜索**：工作区检索 `nine_task_binding`/`deployment_qualified=true`/Challenge/Attempt/正式 URL/CLI：`deployment_qualified=true` **0 命中**；`nine_task_binding` 只出现在文档/规则描述里，无已部署后端响应；`python -m organizer..."
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe_entry.py",
+          "hits": [
+            {
+              "line": 116,
+              "text": "    (\"nine_task_binding\", \"nine_task_binding\"),"
+            },
+            {
+              "line": 827,
+              "text": "            \"nine_task_binding\": \"nine_task_binding\" in body_text,"
+            },
+            {
+              "line": 1074,
+              "text": "    # c) 在线 catalog 确实带有九题绑定字段（nine_task_binding / profile / config 摘要）。"
+            }
+          ]
+        },
         {
           "path": "deliverables/2026-10-24-nine-task/REPORT.md",
           "hits": [
@@ -46,11 +145,11 @@
               "text": "4. **正式提交判定（关键）**：本轮公开包与唯一可达服务都**没有** `lab-nine-20261024-v1` 的正式入口：`release.json` 明确 `playground_integrated=false`、`official_score_writeback_verified=false`、`competition_ready=false`、`live_nine_task_service_deployed=f..."
             },
             {
-              "line": 149,
+              "line": 150,
               "text": "   | `nine_task_binding` 等四字段 | **全部缺失**（false/false/false/false） |"
             },
             {
-              "line": 154,
+              "line": 155,
               "text": "3. **静态搜索**：工作区检索 `nine_task_binding`/`deployment_qualified=true`/Challenge/Attempt/正式 URL/CLI：`deployment_qualified=true` **0 命中**；`nine_task_binding` 只出现在文档/规则描述里，无已部署后端响应；`python -m organizer` 未安装（公开包不含组织者部署代码）；本机 ..."
             }
           ]
@@ -111,6 +210,62 @@
       ],
       "nine_organizer_config_schema": [
         {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/contracts/contract-verification.json",
+          "hits": [
+            {
+              "line": 5574,
+              "text": "      \"actual\": \"lab-nine-organizer-config/v1\","
+            },
+            {
+              "line": 5576,
+              "text": "      \"detail\": \"configuration schema='lab-nine-organizer-config/v1'\","
+            },
+            {
+              "line": 5577,
+              "text": "      \"expected\": \"lab-nine-organizer-config/v1\","
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/contracts/verify_contracts.py",
+          "hits": [
+            {
+              "line": 912,
+              "text": "    v.check(\"D\", \"D.config.schema\", config.get(\"schema\") == \"lab-nine-organizer-config/v1\","
+            },
+            {
+              "line": 913,
+              "text": "            \"configuration schema=%r\" % (config.get(\"schema\"),), \"lab-nine-organizer-config/v1\","
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json",
+          "hits": [
+            {
+              "line": 118,
+              "text": "              \"text\": \"      \\\"actual\\\": \\\"lab-nine-organizer-config/v1\\\",\""
+            },
+            {
+              "line": 122,
+              "text": "              \"text\": \"      \\\"detail\\\": \\\"configuration schema='lab-nine-organizer-config/v1'\\\",\""
+            },
+            {
+              "line": 126,
+              "text": "              \"text\": \"      \\\"expected\\\": \\\"lab-nine-organizer-config/v1\\\",\""
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe_entry.py",
+          "hits": [
+            {
+              "line": 117,
+              "text": "    (\"nine_organizer_config_schema\", r\"lab-nine-organizer-config/v1\"),"
+            }
+          ]
+        },
+        {
           "path": "deliverables/2026-10-24-nine-task/evidence/contracts/contract-verification.json",
           "hits": [
             {
@@ -162,6 +317,122 @@
       "deployment_qualified_true": [],
       "nine_service_deployed_flag": [
         {
+          "path": ".tmp/github/test_collaborating/README.md",
+          "hits": [
+            {
+              "line": 1,
+              "text": "> **2026-10-24 新增：九题包 `lab-nine-20261024-v1` 参评记录** —— [2026-10-24-nine-task-v1/README.md](2026-10-24-nine-task-v1/README.md)：策略实现 + 官方 `lab_sdk.packaging` 冻结产物完成（两赛道、确定性、身份复核通过）；**本轮九题正式入口不存在**（`competition_ready=fal..."
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/README.md",
+          "hits": [
+            {
+              "line": 15,
+              "text": "4. **正式提交判定（关键）**：本轮公开包与唯一可达服务都**没有** `lab-nine-20261024-v1` 的正式入口：`release.json` 明确 `playground_integrated=false`、`official_score_writeback_verified=false`、`competition_ready=false`、`live_nine_task_service_deployed=f..."
+            },
+            {
+              "line": 38,
+              "text": "| release 补充 | `live_nine_task_service_deployed=false`、`new_runtime_native_full36_verified=false`、`external_model_api_qualified=false` |"
+            },
+            {
+              "line": 144,
+              "text": "1. **公开包自身声明**（最高优先级）：`release.json` 第 42–46 行 `live_nine_task_service_deployed=false`、`playground_integrated=false`、`official_score_writeback_verified=false`、`competition_ready=false`；`contracts/rules-v1.json` 第 589–..."
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/contracts/contract-verification.json",
+          "hits": [
+            {
+              "line": 3617,
+              "text": "      \"detail\": \"live_nine_task_service_deployed=False（发布声明应为 false）\","
+            },
+            {
+              "line": 3619,
+              "text": "      \"id\": \"B.release.false_flag:live_nine_task_service_deployed\","
+            },
+            {
+              "line": 5557,
+              "text": "          \"live_nine_task_service_deployed\": false,"
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/contracts/contract-verification.md",
+          "hits": [
+            {
+              "line": 45,
+              "text": "| release 补充 | live_nine_task_service_deployed=False / new_runtime_native_full36_verified=False / external_model_api_qualified=False |"
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/contracts/verify_contracts.py",
+          "hits": [
+            {
+              "line": 503,
+              "text": "    for flag in (\"new_runtime_native_full36_verified\", \"live_nine_task_service_deployed\","
+            },
+            {
+              "line": 909,
+              "text": "                                            \"competition_ready\", \"live_nine_task_service_deployed\","
+            },
+            {
+              "line": 1068,
+              "text": "                              \"live_nine_task_service_deployed\", \"new_runtime_native_full36_verified\","
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-report.md",
+          "hits": [
+            {
+              "line": 16,
+              "text": "- 公开包自身声明：`challenge_ids=null`、`playground_integrated=false`、`official_score_writeback_verified=false`、`competition_ready=false`、`live_nine_task_service_deployed=false`，部署模板两个后端 `url=null` 且 `deployment_qualified=false`。"
+            },
+            {
+              "line": 163,
+              "text": "- `release.json`：`live_nine_task_service_deployed=false`、"
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json",
+          "hits": [
+            {
+              "line": 46,
+              "text": "              \"text\": \"4. **正式提交判定（关键）**：本轮公开包与唯一可达服务都**没有** `lab-nine-20261024-v1` 的正式入口：`release.json` 明确 `playground_integrated=false`、`official_score_writeback_verified=false`、`competition_ready=false`、`live_nine_..."
+            },
+            {
+              "line": 169,
+              "text": "              \"text\": \"4. **正式提交判定（关键）**：本轮公开包与唯一可达服务都**没有** `lab-nine-20261024-v1` 的正式入口：`release.json` 明确 `playground_integrated=false`、`official_score_writeback_verified=false`、`competition_ready=false`、`live_nine_..."
+            },
+            {
+              "line": 173,
+              "text": "              \"text\": \"| release 补充 | `live_nine_task_service_deployed=false`、`new_runtime_native_full36_verified=false`、`external_model_api_qualified=false` |\""
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe_entry.py",
+          "hits": [
+            {
+              "line": 119,
+              "text": "    (\"nine_service_deployed_flag\", r\"live_nine_task_service_deployed\"),"
+            },
+            {
+              "line": 564,
+              "text": "     '\"live_nine_task_service_deployed\": false'),"
+            },
+            {
+              "line": 890,
+              "text": "                \"live_nine_task_service_deployed\","
+            }
+          ]
+        },
+        {
           "path": "deliverables/2026-10-24-nine-task/REPORT.md",
           "hits": [
             {
@@ -173,7 +444,7 @@
               "text": "| release 补充 | `live_nine_task_service_deployed=false`、`new_runtime_native_full36_verified=false`、`external_model_api_qualified=false` |"
             },
             {
-              "line": 143,
+              "line": 144,
               "text": "1. **公开包自身声明**（最高优先级）：`release.json` 第 42–46 行 `live_nine_task_service_deployed=false`、`playground_integrated=false`、`official_score_writeback_verified=false`、`competition_ready=false`；`contracts/rules-v1.json` 第 589–..."
             }
           ]
@@ -242,6 +513,37 @@
       ],
       "challenge_ids_null": [
         {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/contracts/contract-verification.json",
+          "hits": [
+            {
+              "line": 5564,
+              "text": "          \"challenge_ids\": null,"
+            },
+            {
+              "line": 11909,
+              "text": "      \"challenge_ids\": null,"
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json",
+          "hits": [
+            {
+              "line": 1536,
+              "text": "      \"challenge_ids\": null,"
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe_entry.py",
+          "hits": [
+            {
+              "line": 576,
+              "text": "     '\"challenge_ids\": null'),"
+            }
+          ]
+        },
+        {
           "path": "deliverables/2026-10-24-nine-task/evidence/contracts/contract-verification.json",
           "hits": [
             {
@@ -277,6 +579,19 @@
       ],
       "attempt_id_assignment": [
         {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json",
+          "hits": [
+            {
+              "line": 1131,
+              "text": "    \"submission_attempt_id\": {"
+            },
+            {
+              "line": 2288,
+              "text": "        \"submission_attempt_id\": {"
+            }
+          ]
+        },
+        {
           "path": "deliverables/2026-10-22-challenge-spec-v3.md",
           "hits": [
             {
@@ -310,10 +625,58 @@
       ],
       "organizer_cli_invocation": [
         {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/README.md",
+          "hits": [
+            {
+              "line": 155,
+              "text": "3. **静态搜索**：工作区检索 `nine_task_binding`/`deployment_qualified=true`/Challenge/Attempt/正式 URL/CLI：`deployment_qualified=true` **0 命中**；`nine_task_binding` 只出现在文档/规则描述里，无已部署后端响应；`python -m organizer` 未安装（公开包不含组织者部署代码）；本机 ..."
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-report.md",
+          "hits": [
+            {
+              "line": 64,
+              "text": "- `python -m organizer`：**未安装**（`organizer` 模块不存在，公开包只含 `lab_sdk` 打包工具，见 `inbox/1024-test/自主实验赛道选手公开包/SUBMISSION.md:67`）"
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json",
+          "hits": [
+            {
+              "line": 54,
+              "text": "              \"text\": \"3. **静态搜索**：工作区检索 `nine_task_binding`/`deployment_qualified=true`/Challenge/Attempt/正式 URL/CLI：`deployment_qualified=true` **0 命中**；`nine_task_binding` 只出现在文档/规则描述里，无已部署后端响应；`python -m organizer..."
+            },
+            {
+              "line": 317,
+              "text": "              \"text\": \"3. **静态搜索**：工作区检索 `nine_task_binding`/`deployment_qualified=true`/Challenge/Attempt/正式 URL/CLI：`deployment_qualified=true` **0 命中**；`nine_task_binding` 只出现在文档/规则描述里，无已部署后端响应；`python -m organizer..."
+            },
+            {
+              "line": 326,
+              "text": "              \"text\": \"python -m organizer --root STATE --config DEPLOYED_CONFIG \\\\\""
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe_entry.py",
+          "hits": [
+            {
+              "line": 224,
+              "text": "        \" organizer Python 模块（python -m organizer）\": None,"
+            },
+            {
+              "line": 1454,
+              "text": "- `python -m organizer`：{('已安装' if env['python_modules'].get('organizer') else '**未安装**')}（`organizer` 模块不存在，公开包只含 `lab_sdk` 打包工具，见 {c('submission_no_formal_submit')}）"
+            }
+          ]
+        },
+        {
           "path": "deliverables/2026-10-24-nine-task/REPORT.md",
           "hits": [
             {
-              "line": 154,
+              "line": 155,
               "text": "3. **静态搜索**：工作区检索 `nine_task_binding`/`deployment_qualified=true`/Challenge/Attempt/正式 URL/CLI：`deployment_qualified=true` **0 命中**；`nine_task_binding` 只出现在文档/规则描述里，无已部署后端响应；`python -m organizer` 未安装（公开包不含组织者部署代码）；本机 ..."
             }
           ]
@@ -343,6 +706,74 @@
             {
               "line": 97,
               "text": "/home/tyzuo/Lab-OS-Testbed/repos/lab-agent-submission-20261022/docs/HARBOR_INTEGRATION.md:12:B 是与平台公开 `harbor_external_verifier` 路径对应的方案。平台文档要求通过 `playground submit --challenge-id ... --outputs ... --trace ...` 上传产物及真..."
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-report.md",
+          "hits": [
+            {
+              "line": 14,
+              "text": "- 平台 CLI 核查：PATH 中确实存在官方 `playground` CLI（@paper2arm/playground-cli，`Playground CLI 0.1.40`），`auth status` 显示**已认证**（`api_base=https://play.bohrium.com/api`）；但**本题 Challenge ID 未配置**，全量可见 Challenge（`6932` 个）中没有本题九题具身实..."
+            },
+            {
+              "line": 50,
+              "text": "- `challenge_id` / `attempt_id` 只出现在旧平台的字段草案文档、术语表和通信记录里（`deliverables/2026-10-22-*`、`work-context`），不是本题平台配置；`playground submit` / `--challenge-id` 的命中也都是旧交接文档里的**示例命令**，没有任何一条绑定本题 Challenge ID。"
+            },
+            {
+              "line": 82,
+              "text": "| `submit` 语义 | `contains_create_attempt=True`；命令模板：`playground submit --challenge-id ID --outputs outputs-dir [--trace native-trace] [--raw-messages raw.jsonl] [--model MODEL] [--harness HARNESS] [--bundle-out playgr..."
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json",
+          "hits": [
+            {
+              "line": 20,
+              "text": "      \"playground submit -h\","
+            },
+            {
+              "line": 345,
+              "text": "              \"text\": \"/home/tyzuo/Lab-OS-Testbed/repos/lab-agent-submission-20261022/docs/HARBOR_INTEGRATION.md:12:B 是与平台公开 `harbor_external_verifier` 路径对应的方案。平台文档要求通过 `playground submit --challenge-id ... --outputs ..."
+            },
+            {
+              "line": 380,
+              "text": "              \"text\": \"**提交入口**：本赛题是 `organizer_normalized_reward`，**不要走 Harbor worker 通道**（`playground submit` 只把 bundle 送到 Harbor worker，平台侧 grader 看不到）。请按平台公布的提交入口提交 `outputs/` 与**真实 Agent 会话 trace**（一行一事件的 `.jsonl..."
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe_entry.py",
+          "hits": [
+            {
+              "line": 375,
+              "text": "            \"playground submit（会创建 Attempt=POST）\","
+            },
+            {
+              "line": 437,
+              "text": "        \"usage_line\": next((ln.strip() for ln in submit_help.splitlines() if \"playground submit --challenge-id\" in ln), None),"
+            },
+            {
+              "line": 498,
+              "text": "                             \"playground submit -h\", \"playground task list --limit 7000 --json\"],"
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/raw/cli-playground-entry-evidence.json",
+          "hits": [
+            {
+              "line": 8,
+              "text": "    \"playground submit -h\","
+            },
+            {
+              "line": 12,
+              "text": "    \"playground submit（会创建 Attempt=POST）\","
+            },
+            {
+              "line": 35,
+              "text": "        \"  playground submit --challenge-id ID --outputs outputs-dir --trace native-trace --model MODEL --harness HARNESS\","
             }
           ]
         },
@@ -463,6 +894,74 @@
           ]
         },
         {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-report.md",
+          "hits": [
+            {
+              "line": 50,
+              "text": "- `challenge_id` / `attempt_id` 只出现在旧平台的字段草案文档、术语表和通信记录里（`deliverables/2026-10-22-*`、`work-context`），不是本题平台配置；`playground submit` / `--challenge-id` 的命中也都是旧交接文档里的**示例命令**，没有任何一条绑定本题 Challenge ID。"
+            },
+            {
+              "line": 82,
+              "text": "| `submit` 语义 | `contains_create_attempt=True`；命令模板：`playground submit --challenge-id ID --outputs outputs-dir [--trace native-trace] [--raw-messages raw.jsonl] [--model MODEL] [--harness HARNESS] [--bundle-out playgr..."
+            },
+            {
+              "line": 93,
+              "text": "- 若平台后续发布本题 Challenge，正式提交命令将是 `playground submit --challenge-id <本题ChallengeID> --outputs <output-dir> --trace <session.jsonl>`；"
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json",
+          "hits": [
+            {
+              "line": 345,
+              "text": "              \"text\": \"/home/tyzuo/Lab-OS-Testbed/repos/lab-agent-submission-20261022/docs/HARBOR_INTEGRATION.md:12:B 是与平台公开 `harbor_external_verifier` 路径对应的方案。平台文档要求通过 `playground submit --challenge-id ... --outputs ..."
+            },
+            {
+              "line": 393,
+              "text": "              \"text\": \"**提交方式**：`playground submit --challenge-id <ID> --outputs <DIR> --trace <SESSION.jsonl>`。\""
+            },
+            {
+              "line": 424,
+              "text": "              \"text\": \"playground submit --challenge-id ASSIGNED_CHALLENGE_ID \\\\\""
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe_entry.py",
+          "hits": [
+            {
+              "line": 125,
+              "text": "    (\"challenge_id_cli_flag\", r\"--challenge-id\"),"
+            },
+            {
+              "line": 437,
+              "text": "        \"usage_line\": next((ln.strip() for ln in submit_help.splitlines() if \"playground submit --challenge-id\" in ln), None),"
+            },
+            {
+              "line": 1125,
+              "text": "            \"submit_command_template\": \"playground submit --challenge-id <本题ChallengeID> --outputs <outputs> --trace <session.jsonl>\","
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/raw/cli-playground-entry-evidence.json",
+          "hits": [
+            {
+              "line": 34,
+              "text": "        \"  playground task download --challenge-id ID --out challenge-dir\","
+            },
+            {
+              "line": 35,
+              "text": "        \"  playground submit --challenge-id ID --outputs outputs-dir --trace native-trace --model MODEL --harness HARNESS\","
+            },
+            {
+              "line": 69,
+              "text": "      \"usage_line\": \"playground submit --challenge-id ID --outputs outputs-dir [--trace native-trace] [--raw-messages raw.jsonl] [--model MODEL] [--harness HARNESS] [--bundle-out playground-arm.zip] [--dry-run]\","
+            }
+          ]
+        },
+        {
           "path": ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl",
           "hits": [
             {
@@ -508,6 +1007,42 @@
       ],
       "playground_token_env": [
         {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-report.md",
+          "hits": [
+            {
+              "line": 80,
+              "text": "| 凭据文件 | `C:\\Users\\86150\\.config\\playground\\credentials.env`（存在：`True`；只记录键名 `['PLAYGROUND_TOKEN']`，**未读取/未输出其值**） |"
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json",
+          "hits": [
+            {
+              "line": 765,
+              "text": "          \"PLAYGROUND_TOKEN\""
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe_entry.py",
+          "hits": [
+            {
+              "line": 126,
+              "text": "    (\"playground_token_env\", r\"PLAYGROUND_TOKEN\"),"
+            }
+          ]
+        },
+        {
+          "path": ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/raw/cli-playground-entry-evidence.json",
+          "hits": [
+            {
+              "line": 58,
+              "text": "        \"PLAYGROUND_TOKEN\""
+            }
+          ]
+        },
+        {
           "path": ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl",
           "hits": [
             {
@@ -518,7 +1053,7 @@
         }
       ]
     },
-    "url_total_matches": 2872,
+    "url_total_matches": 2940,
     "candidate_service_urls": [
       {
         "url": "http://127.0.0.1:8090",
@@ -527,42 +1062,54 @@
           ".tmp/eval_logs.out:7",
           ".tmp/eval_stage.out:25",
           ".tmp/eval_start.out:33",
-          ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:403"
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-report.md:54"
         ]
       },
       {
         "url": "https://play.bohrium.com/api/docs/agent-workflow",
         "sources": [
           ".tmp/threshold_why.out:97",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-report.md:55",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:534",
           ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:66",
-          ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:66",
-          ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl:32",
-          ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl:32"
+          ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:66"
         ]
       },
       {
         "url": "https://play.bohrium.com/api/docs/compete-and-submit",
         "sources": [
           ".tmp/threshold_why.out:97",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-report.md:56",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:544",
           ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:66",
-          ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:66",
-          ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl:32",
-          ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl:32"
+          ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:66"
+        ]
+      },
+      {
+        "url": "https://play.bohrium.com/api",
+        "sources": [
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-report.md:14",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-report.md:79",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-report.md:87",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:757",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:784"
         ]
       },
       {
         "url": "https://play.bohrium.com/api/docs/arm-bundles",
         "sources": [
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-report.md:57",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:554",
           ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:66",
           ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:66",
-          ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl:32",
-          ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl:32",
           ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl:32"
         ]
       },
       {
         "url": "http://127.0.0.1:8090/v1/evaluations?task_id=basket_place&robot=dual_piper&seed=0",
         "sources": [
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-report.md:58",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:564",
           ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:403",
           ".tmp/sessions/10-session-a580aa32-30a9-4f85-94bb-77f33473a469.jsonl:403",
           "inbox/LOCAL_EVALUATION.md:76"
@@ -571,6 +1118,8 @@
       {
         "url": "https://play.bohrium.com/competition/pku",
         "sources": [
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-report.md:59",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:572",
           ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl:42",
           ".tmp/sessions/3-session-138b9575-2926-4bb0-aed6-09dc0813944b.jsonl:42",
           "inbox/2026-10-22-lab-agent-platform/platform/BOHRIUM_HANDOFF.md:3"
@@ -579,9 +1128,76 @@
       {
         "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com",
         "sources": [
-          "inbox/lab-embodied-pilot-20261023/participant-kit/AGENT_GUIDE.md:12",
-          "inbox/lab-embodied-pilot-20261023/participant-kit/service.json:3",
-          "work-context/sources/2026-10-23/lab-embodied-pilot-participant-run.md:12"
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-report.md:60",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-report.md:102",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:580",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:1418",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:1564"
+        ]
+      },
+      {
+        "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/health",
+        "sources": [
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:1580",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/raw/01_health_noauth.body.meta.json:7"
+        ]
+      },
+      {
+        "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/tasks",
+        "sources": [
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:1622",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:1689",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/raw/02_tasks_noauth.body.meta.json:7",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/raw/03_tasks_auth.body.meta.json:7"
+        ]
+      },
+      {
+        "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/challenges",
+        "sources": [
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:1843",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/raw/04_challenges_auth.body.meta.json:7"
+        ]
+      },
+      {
+        "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/attempts",
+        "sources": [
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:1884",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/raw/05_attempts_auth.body.meta.json:7"
+        ]
+      },
+      {
+        "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/evaluations",
+        "sources": [
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:1925",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/raw/06_evaluations_list_auth.body.meta.json:7"
+        ]
+      },
+      {
+        "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/",
+        "sources": [
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:1966",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/raw/07_root_noauth.body.meta.json:7"
+        ]
+      },
+      {
+        "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com:8787/health",
+        "sources": [
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:2006",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/raw/08_port8787_health_noauth.body.meta.json:7"
+        ]
+      },
+      {
+        "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com:8090/health",
+        "sources": [
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:2036",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/raw/09_port8090_health_noauth.body.meta.json:7"
+        ]
+      },
+      {
+        "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com:8890/health",
+        "sources": [
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe-summary.json:2066",
+          ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/raw/10_port8890_health_noauth.body.meta.json:7"
         ]
       }
     ],
@@ -590,6 +1206,12 @@
       ".tmp/eval_submit.sh",
       ".tmp/e2e-evidence/budget/verifier/organizer-receipt.json",
       ".tmp/e2e-evidence/completed/verifier/organizer-receipt.json",
+      ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/probe_entry.py",
+      ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/raw/04_challenges_auth.body.json",
+      ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/raw/04_challenges_auth.body.meta.json",
+      ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/raw/05_attempts_auth.body.json",
+      ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/raw/05_attempts_auth.body.meta.json",
+      ".tmp/github/test_collaborating/2026-10-24-nine-task-v1/evidence/probes/raw/cli-playground-entry-evidence.json",
       "deliverables/2026-10-22-challenge-spec-v3.md",
       "deliverables/2026-10-22-challenge-statement-v2.md",
       "deliverables/2026-10-22-challenge-statement-v3.md",
@@ -778,7 +1400,7 @@
       },
       "task_list": {
         "returncode": 0,
-        "elapsed_s": 37.7,
+        "elapsed_s": 40.4,
         "error": null,
         "schema_version": "playground-task-list/v0",
         "api_base": "https://play.bohrium.com/api",
@@ -1566,16 +2188,16 @@
     "accept_until": "2026-10-26T04:00:00+00:00",
     "expires_at": "2026-10-26T10:20:46+00:00",
     "competition_ready": false,
-    "window_now_utc": "2026-10-24T09:28:34.315Z",
+    "window_now_utc": "2026-10-24T09:30:13.541Z",
     "accept_window_open": true,
-    "seconds_until_accept_deadline": 153085
+    "seconds_until_accept_deadline": 152986
   },
   "probes": [
     {
       "seq": 1,
       "label": "health_noauth",
-      "utc_started": "2026-10-24T09:29:18.703Z",
-      "utc_finished": "2026-10-24T09:29:19.213Z",
+      "utc_started": "2026-10-24T09:31:00.637Z",
+      "utc_finished": "2026-10-24T09:31:01.043Z",
       "method": "GET",
       "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/health",
       "auth": "none",
@@ -1588,7 +2210,7 @@
       "reason": "OK",
       "content_type": "application/json",
       "response_headers_redacted": {
-        "Date": "Sat, 24 Oct 2026 09:29:19 GMT",
+        "Date": "Sat, 24 Oct 2026 09:31:01 GMT",
         "Content-Type": "application/json",
         "Content-Length": "94",
         "Connection": "close",
@@ -1599,7 +2221,7 @@
       "body_sha256": "2eec015560e6f5a0d5993b327cf1dc20c7d8f7952954fa4a382ab27221e5fb1d",
       "body_file": "raw/01_health_noauth.body.json",
       "error": null,
-      "elapsed_ms": 509,
+      "elapsed_ms": 405,
       "analysis": {
         "body_mentions_nine": false,
         "body_mentions_challenge": false,
@@ -1616,8 +2238,8 @@
     {
       "seq": 2,
       "label": "tasks_noauth",
-      "utc_started": "2026-10-24T09:29:19.218Z",
-      "utc_finished": "2026-10-24T09:29:19.648Z",
+      "utc_started": "2026-10-24T09:31:01.046Z",
+      "utc_finished": "2026-10-24T09:31:01.366Z",
       "method": "GET",
       "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/tasks",
       "auth": "none",
@@ -1630,7 +2252,7 @@
       "reason": "Unauthorized",
       "content_type": "application/json",
       "response_headers_redacted": {
-        "Date": "Sat, 24 Oct 2026 09:29:19 GMT",
+        "Date": "Sat, 24 Oct 2026 09:31:01 GMT",
         "Content-Type": "application/json",
         "Content-Length": "29",
         "Connection": "close",
@@ -1641,7 +2263,7 @@
       "body_sha256": "55a8d8e7d1df1868bd1b97e3ad3a4f7a76e13e7270f481db4775640691c07dc0",
       "body_file": "raw/02_tasks_noauth.body.json",
       "error": null,
-      "elapsed_ms": 429,
+      "elapsed_ms": 320,
       "analysis": {
         "top_level_keys": [
           "error_code"
@@ -1683,8 +2305,8 @@
     {
       "seq": 3,
       "label": "tasks_auth",
-      "utc_started": "2026-10-24T09:29:19.652Z",
-      "utc_finished": "2026-10-24T09:29:20.060Z",
+      "utc_started": "2026-10-24T09:31:01.369Z",
+      "utc_finished": "2026-10-24T09:31:01.701Z",
       "method": "GET",
       "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/tasks",
       "auth": "bearer_token_from_file",
@@ -1698,19 +2320,19 @@
       "reason": "OK",
       "content_type": "application/json",
       "response_headers_redacted": {
-        "Date": "Sat, 24 Oct 2026 09:29:20 GMT",
+        "Date": "Sat, 24 Oct 2026 09:31:01 GMT",
         "Content-Type": "application/json",
         "Content-Length": "2444",
         "Connection": "close",
         "Vary": "Accept-Encoding",
         "cache-control": "no-store",
-        "x-envoy-upstream-service-time": "2"
+        "x-envoy-upstream-service-time": "0"
       },
       "body_bytes": 2444,
       "body_sha256": "0f6a8ead3d5c83641c95c334f8895e89b3af38997ff58104c22807c1f6f05219",
       "body_file": "raw/03_tasks_auth.body.json",
       "error": null,
-      "elapsed_ms": 407,
+      "elapsed_ms": 331,
       "analysis": {
         "top_level_keys": [
           "accept_until",
@@ -1837,8 +2459,8 @@
     {
       "seq": 4,
       "label": "challenges_auth",
-      "utc_started": "2026-10-24T09:29:20.065Z",
-      "utc_finished": "2026-10-24T09:29:20.393Z",
+      "utc_started": "2026-10-24T09:31:01.705Z",
+      "utc_finished": "2026-10-24T09:31:02.087Z",
       "method": "GET",
       "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/challenges",
       "auth": "bearer_token_from_file",
@@ -1852,18 +2474,18 @@
       "reason": "Not Found",
       "content_type": "application/json",
       "response_headers_redacted": {
-        "Date": "Sat, 24 Oct 2026 09:29:20 GMT",
+        "Date": "Sat, 24 Oct 2026 09:31:02 GMT",
         "Content-Type": "application/json",
         "Content-Length": "26",
         "Connection": "close",
         "cache-control": "no-store",
-        "x-envoy-upstream-service-time": "0"
+        "x-envoy-upstream-service-time": "1"
       },
       "body_bytes": 26,
       "body_sha256": "5e6293a28b9df9bda9e4478001c8839d3673171bdffc5a99950d144111b3343e",
       "body_file": "raw/04_challenges_auth.body.json",
       "error": null,
-      "elapsed_ms": 327,
+      "elapsed_ms": 381,
       "analysis": {
         "body_mentions_nine": false,
         "body_mentions_challenge": false,
@@ -1878,8 +2500,8 @@
     {
       "seq": 5,
       "label": "attempts_auth",
-      "utc_started": "2026-10-24T09:29:20.396Z",
-      "utc_finished": "2026-10-24T09:29:20.747Z",
+      "utc_started": "2026-10-24T09:31:02.090Z",
+      "utc_finished": "2026-10-24T09:31:02.459Z",
       "method": "GET",
       "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/attempts",
       "auth": "bearer_token_from_file",
@@ -1893,18 +2515,18 @@
       "reason": "Not Found",
       "content_type": "application/json",
       "response_headers_redacted": {
-        "Date": "Sat, 24 Oct 2026 09:29:20 GMT",
+        "Date": "Sat, 24 Oct 2026 09:31:02 GMT",
         "Content-Type": "application/json",
         "Content-Length": "26",
         "Connection": "close",
         "cache-control": "no-store",
-        "x-envoy-upstream-service-time": "2"
+        "x-envoy-upstream-service-time": "1"
       },
       "body_bytes": 26,
       "body_sha256": "5e6293a28b9df9bda9e4478001c8839d3673171bdffc5a99950d144111b3343e",
       "body_file": "raw/05_attempts_auth.body.json",
       "error": null,
-      "elapsed_ms": 351,
+      "elapsed_ms": 368,
       "analysis": {
         "body_mentions_nine": false,
         "body_mentions_challenge": false,
@@ -1919,8 +2541,8 @@
     {
       "seq": 6,
       "label": "evaluations_list_auth",
-      "utc_started": "2026-10-24T09:29:20.751Z",
-      "utc_finished": "2026-10-24T09:29:21.115Z",
+      "utc_started": "2026-10-24T09:31:02.463Z",
+      "utc_finished": "2026-10-24T09:31:02.783Z",
       "method": "GET",
       "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/evaluations",
       "auth": "bearer_token_from_file",
@@ -1934,18 +2556,18 @@
       "reason": "Not Found",
       "content_type": "application/json",
       "response_headers_redacted": {
-        "Date": "Sat, 24 Oct 2026 09:29:21 GMT",
+        "Date": "Sat, 24 Oct 2026 09:31:02 GMT",
         "Content-Type": "application/json",
         "Content-Length": "26",
         "Connection": "close",
         "cache-control": "no-store",
-        "x-envoy-upstream-service-time": "0"
+        "x-envoy-upstream-service-time": "1"
       },
       "body_bytes": 26,
       "body_sha256": "5e6293a28b9df9bda9e4478001c8839d3673171bdffc5a99950d144111b3343e",
       "body_file": "raw/06_evaluations_list_auth.body.json",
       "error": null,
-      "elapsed_ms": 363,
+      "elapsed_ms": 319,
       "analysis": {
         "body_mentions_nine": false,
         "body_mentions_challenge": false,
@@ -1960,8 +2582,8 @@
     {
       "seq": 7,
       "label": "root_noauth",
-      "utc_started": "2026-10-24T09:29:21.119Z",
-      "utc_finished": "2026-10-24T09:29:21.439Z",
+      "utc_started": "2026-10-24T09:31:02.785Z",
+      "utc_finished": "2026-10-24T09:31:03.071Z",
       "method": "GET",
       "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/",
       "auth": "none",
@@ -1974,18 +2596,18 @@
       "reason": "Unauthorized",
       "content_type": "application/json",
       "response_headers_redacted": {
-        "Date": "Sat, 24 Oct 2026 09:29:21 GMT",
+        "Date": "Sat, 24 Oct 2026 09:31:03 GMT",
         "Content-Type": "application/json",
         "Content-Length": "29",
         "Connection": "close",
         "cache-control": "no-store",
-        "x-envoy-upstream-service-time": "2"
+        "x-envoy-upstream-service-time": "0"
       },
       "body_bytes": 29,
       "body_sha256": "55a8d8e7d1df1868bd1b97e3ad3a4f7a76e13e7270f481db4775640691c07dc0",
       "body_file": "raw/07_root_noauth.body.json",
       "error": null,
-      "elapsed_ms": 319,
+      "elapsed_ms": 286,
       "analysis": {
         "body_mentions_nine": false,
         "body_mentions_challenge": false,
@@ -2000,8 +2622,8 @@
     {
       "seq": 8,
       "label": "port8787_health_noauth",
-      "utc_started": "2026-10-24T09:29:21.442Z",
-      "utc_finished": "2026-10-24T09:29:31.526Z",
+      "utc_started": "2026-10-24T09:31:03.075Z",
+      "utc_finished": "2026-10-24T09:31:13.149Z",
       "method": "GET",
       "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com:8787/health",
       "auth": "none",
@@ -2018,7 +2640,7 @@
       "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "body_file": "raw/08_port8787_health_noauth.body.bin",
       "error": "URLError: timed out",
-      "elapsed_ms": 10083,
+      "elapsed_ms": 10074,
       "analysis": {
         "body_mentions_nine": false,
         "body_mentions_challenge": false,
@@ -2030,8 +2652,8 @@
     {
       "seq": 9,
       "label": "port8090_health_noauth",
-      "utc_started": "2026-10-24T09:29:31.530Z",
-      "utc_finished": "2026-10-24T09:29:41.649Z",
+      "utc_started": "2026-10-24T09:31:13.151Z",
+      "utc_finished": "2026-10-24T09:31:23.326Z",
       "method": "GET",
       "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com:8090/health",
       "auth": "none",
@@ -2048,7 +2670,7 @@
       "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "body_file": "raw/09_port8090_health_noauth.body.bin",
       "error": "URLError: timed out",
-      "elapsed_ms": 10119,
+      "elapsed_ms": 10174,
       "analysis": {
         "body_mentions_nine": false,
         "body_mentions_challenge": false,
@@ -2060,8 +2682,8 @@
     {
       "seq": 10,
       "label": "port8890_health_noauth",
-      "utc_started": "2026-10-24T09:29:41.651Z",
-      "utc_finished": "2026-10-24T09:29:51.724Z",
+      "utc_started": "2026-10-24T09:31:23.331Z",
+      "utc_finished": "2026-10-24T09:31:33.409Z",
       "method": "GET",
       "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com:8890/health",
       "auth": "none",
@@ -2078,7 +2700,7 @@
       "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "body_file": "raw/10_port8890_health_noauth.body.bin",
       "error": "URLError: timed out",
-      "elapsed_ms": 10072,
+      "elapsed_ms": 10078,
       "analysis": {
         "body_mentions_nine": false,
         "body_mentions_challenge": false,
@@ -2103,7 +2725,16 @@
     ],
     "static_entry_markers": {
       "candidate_nine_service_urls": [
-        "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com"
+        "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com",
+        "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/health",
+        "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/tasks",
+        "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/challenges",
+        "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/attempts",
+        "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/v1/evaluations",
+        "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/",
+        "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com:8787/health",
+        "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com:8090/health",
+        "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com:8890/health"
       ],
       "deployment_qualified_true_hits": 0,
       "challenge_id_config_hits": [

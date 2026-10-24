@@ -1,5 +1,5 @@
 {
-  "utc": "2026-10-24T09:29:18.694Z",
+  "utc": "2026-10-24T09:31:00.621Z",
   "purpose": "平台 CLI 入口只读核查（九题正式入口是否存在）",
   "cli_path": "C:\\Users\\86150\\AppData\\Roaming\\npm\\playground.CMD",
   "commands": [
@@ -71,7 +71,7 @@
     },
     "task_list": {
       "returncode": 0,
-      "elapsed_s": 37.7,
+      "elapsed_s": 40.4,
       "error": null,
       "schema_version": "playground-task-list/v0",
       "api_base": "https://play.bohrium.com/api",

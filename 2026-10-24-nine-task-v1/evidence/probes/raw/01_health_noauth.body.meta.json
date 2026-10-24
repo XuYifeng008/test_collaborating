@@ -1,8 +1,8 @@
 {
   "seq": 1,
   "label": "health_noauth",
-  "utc_started": "2026-10-24T09:29:18.703Z",
-  "utc_finished": "2026-10-24T09:29:19.213Z",
+  "utc_started": "2026-10-24T09:31:00.637Z",
+  "utc_finished": "2026-10-24T09:31:01.043Z",
   "method": "GET",
   "url": "https://8787-direct-infra-spot--bohr-t238920-r1-lfpf5.ali-bohr-sandbox-a100.bohrium.com/health",
   "auth": "none",
@@ -15,7 +15,7 @@
   "reason": "OK",
   "content_type": "application/json",
   "response_headers_redacted": {
-    "Date": "Sat, 24 Oct 2026 09:29:19 GMT",
+    "Date": "Sat, 24 Oct 2026 09:31:01 GMT",
     "Content-Type": "application/json",
     "Content-Length": "94",
     "Connection": "close",
@@ -26,5 +26,5 @@
   "body_sha256": "2eec015560e6f5a0d5993b327cf1dc20c7d8f7952954fa4a382ab27221e5fb1d",
   "body_file": "raw/01_health_noauth.body.json",
   "error": null,
-  "elapsed_ms": 509
+  "elapsed_ms": 405
 }
