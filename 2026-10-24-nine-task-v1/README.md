@@ -11,7 +11,7 @@
 
 1. **身份确认**：本轮开放两机器人赛道 `franka`（臂 `arm`，7 关节）与 `piper-dual`（`left`/`right`，各 6 关节），二者分别计分；唯一开放模型为 `rynnbrain-1.1-2b-local`（`Alibaba-DAMO-Academy/RynnBrain1.1-2B`@`36069aa8…`，权重 SHA256 `2819d84441c27…`）；运行档 `lab-nine-image-model-v1`（NumPy 1.26.4 / Pillow 11.3.0 / opencv-python-headless 4.11.0.86）。规则身份 `lab-nine-20261024-v1`，九题 × 4 重复 = 36 槽、九题等权。
 2. 已实现一份**仅使用公开观测**的 `lab-policy-v2` 策略（协议、公开运动学 FK/IK、公开 RGB 感知、九题状态机、C07 去皮/定量流程、两波频率与 finish 语义均按合同读取），并用官方 `lab_sdk.packaging` **冻结**成两个赛道的 `outputs`（各 `canonical.zip` + `wave1.zip` + `wave2.zip` + `package-receipt.json`），逐字节确定性、全部限额与回执哈希复核通过。
-3. 本地真实证据：公开包身份/合同核验 **930 项检查、0 项不符**；4 份真实公开指令/观测样例经官方 `Adapter` 与策略回归全部通过（确定性）；冻结派生包的 wrapper 运行时身份绑定/机器人绑定/协议合法性 **8 项检查全部通过**；C07 去皮-定量状态机用「运动学 mock + 合成感知 + 合成天平回执」跑通（**明确标注非物理**）。
+3. 本地真实证据：公开包身份/合同核验 **930 项检查、0 项不符**；4 份真实公开指令/观测样例经官方 `Adapter` 与策略回归全部通过（确定性）；冻结派生包的 wrapper 运行时身份绑定/机器人绑定/协议合法性 **8 项检查全部通过**；C07 去皮-定量状态机用「运动学 mock + 合成感知 + 合成天平回执」跑通（**明确标注非物理**）；离线协议测试 **17/17 PASS**；独立红队审计对最终版（GitHub `a36d439`）复核 **诚实性/产物一致性/测试真实性/GitHub 回读全部 PASS、无伪造**（3 处报告数字笔误已按审计意见修正）。
 4. **正式提交判定（关键）**：本轮公开包与平台当前状态都**没有** `lab-nine-20261024-v1` 的可用正式入口：`release.json` 明确 `playground_integrated=false`、`official_score_writeback_verified=false`、`competition_ready=false`、`live_nine_task_service_deployed=false`；`contracts/rules-v1.json` 的 `platform.challenge_ids=null`；`contracts/configuration-template.json` 两个后端 `url=null`、`deployment_qualified=false`；唯一可达 HTTP 服务实测是旧 **五题** 联调服务（`benchmark_id=lab-agent-v0.4-five-tasks-dev`，`/v1/tasks` 缺 `nine_task_binding`/`runtime_profile_sha256`/`configuration_sha256`/`runtime_capabilities`，`/v1/challenges`、`/v1/attempts` 均 404）；平台官方 `playground` CLI 虽已认证（`api_base=https://play.bohrium.com/api`），但 **6932 个可见 Challenge 中无本题、工作区无本题 Challenge ID**，无法创建正确 Attempt。
 5. 因此：**未执行任何 POST/上传/创建评测**（避免产生错误评测记录）；**没有 Attempt ID 可保存**，也没有 `state=scored`、`scoreIsFinal=true`、`planned_count=scored_count=36` 可查询——这些字段本轮客观不存在。把上传成功或空策略 0 分当作任务成功是明确禁止的，本报告不这样做。
 6. 正式入口要可用，还差：平台 Challenge/Attempt 接入（Host 服务 ↔ Playground 转发/回写，M5）、`deployment_qualified=true` 的部署配置与两后端真实 URL/资格 ID、九题新运行档的双后端资格与 36 槽独立归档。见 §6。
@@ -41,7 +41,7 @@
 
 ---
 
-## 2. 策略实现（`src/my-policy/`，6 个文件，源码 66,335 B）
+## 2. 策略实现（`src/my-policy/`，6 个文件，源码 66,636 B）
 
 | 文件 | 作用 |
 |---|---|
@@ -68,7 +68,7 @@
 3. `tare` **只发一次**；有效去皮后不再改变去皮版本；若回执无效/缺字段 → 不把旧质量当有效、不重复 tare，走安全收尾；
 4. 持源杯、倾角 ≥40° 出液，每 0.5 s 物理步 `read` 净质量，达到 10±0.5 g 回正；
 5. 源杯回位释放撤离、终态保持 ≥1 s 并复读确认；`instrument` 与机械臂动作分开。
-   （该流程用运动学 mock + 合成回执验证：tare 恰 1 次、首 tare 在 496 步、19 次 read、净质量到 10.4 g、finish 于 2418 步——**非物理**，见 §4.3。）
+   （该流程用运动学 mock + 合成回执验证：tare 恰 1 次、首 tare 在 496 步、总 19 次 read、净质量到 10.4 g、finish 于 2448 步（其中 finish 前保持 150 步）——**非物理**，见 §4.3。）
 
 ### 2.3 诚实标注
 
@@ -127,12 +127,12 @@ python -m lab_sdk.packaging deliverables/2026-10-24-nine-task/src/my-policy \
 - 公开图片解码与 RGB 感知函数在公开 `examples/sdk-public-image.json` 上冒烟（`evidence/perception/`、`evidence/logs/perception-smoke.log`）：PNG 解码为 800×600×3 RGB，颜色框检测到 green/blue，白帽 blobs=4，亮/暗目标与量筒液面（fill≈0.57）均可计算。只解码公开 PNG，不含私有数据/网络。
 - **独立测试夹具**（`tests/`，队友构建；运动学 mock + 合成感知/天平桩仅用于状态机，不冒充物理）最终结果：**17 个测试 17 PASS / 0 FAIL / 0 ERROR**（34.59 s），见 `tests/TEST_RESULTS.md`、`tests/test-results.json`。覆盖：4 份真实样例协议回归、频率/关节顺序/finish 语义、14 份协议合成用例 smoke、驱动器 11 个故意违规 stub 全部拒绝、C07 nominal/异常/持续异常四组去皮状态机。
   - 该套件在开发中发现并驱动修复了一个真实缺陷（已复测）：wave2 `finish` 前保持步数曾被截断为 120 步（1.0 s < 1.2 s），修复后 real:C07/real:C02 均 `terminal_hold_steps=150`（1.25 s），两次运行 action digest 一致。
-  - C07 nominal（合成感知+脚本化天平桩）：150 calls / 1848 steps；tare 尝试 1 次且有效 1 次；tare 前有 168 步 hold + 2 次有效 stable read；tare 后 9 次 read，净质量 4.53→10.10 g 均在容差；最终 10.10 g；无二次 tare；instrument 从不与 arms 混合同一动作；finish 前保持 450 步；两次运行 digest 相同。
+  - C07 nominal（合成感知+脚本化天平桩）：150 calls / 1848 steps；tare 尝试 1 次且有效 1 次；tare 前有 168 步 hold + 2 次有效 stable read；tare 后 7 次 read（总 9 次），净质量 4.53→10.10 g，最终 10.10 g 落在 9.5–10.5 g 容差内（中间读数仅用于停倒判断）；无二次 tare；instrument 从不与 arms 混合同一动作；finish 前保持 450 步；两次运行 digest 相同。
 
 ### 4.3 C07 去皮-定量状态机（Lead dev 记录，非物理）
 
 `evidence/logs/`（运动学 mock：命令即测量、夹爪在 <0.055 m 处模拟物体停滞、合成感知与合成天平回执；**不是仿真器/不是物理成绩**）：
-- 有效 read → stable 计数 → 首次 `tare` 恰 1 次（step 496）→ 出液 → read 19 次 → 净质量 10.4 g → 回位释放 → 保持 → finish（step 2448，含 finish 前 150 步保持）。
+- 有效 read → stable 计数 → 首次 `tare` 恰 1 次（step 496）→ 出液 → 总 19 次 read → 净质量 10.4 g → 回位释放 → 保持 → finish（step 2448）。
 - 异常回执路径（unstable/缺字段）不重复 tare、不把异常值当有效质量、不立即 finish 冒充完成（`tests/TEST_RESULTS.md` 中三组异常用例 PASS）。
 
 ---
@@ -233,12 +233,14 @@ deliverables/2026-10-24-nine-task/
 ├─ outputs/                           ← 官方冻结产物（franka：canonical/wave1/wave2/receipt）
 ├─ outputs-piper-dual/                ← 官方冻结产物（piper-dual）
 ├─ tests/                             ← 独立协议测试夹具与结果（TEST_RESULTS.md / test-results.json）
+├─ publish.py                         ← 组装 GitHub campaign 的脚本（本地执行，便于复现）
 └─ evidence/
    ├─ contracts/                      ← 公开包身份/合同核验（930 项，0 不符）
    ├─ probes/                         ← 正式入口探测（只读 GET + playground CLI 只读核查，含原始响应+sha256）
    ├─ packaging/                      ← 冻结摘要、两赛道回执、确定性验证
    ├─ wrapper/                        ← 冻结派生包 wrapper 身份/协议往返
    ├─ perception/                     ← 公开 PNG 感知冒烟
+   ├─ audit/                          ← 独立红队审计（诚实性/产物/测试/GitHub 回读）
    └─ logs/                           ← Lead 真实开发/测试日志
 ```
 

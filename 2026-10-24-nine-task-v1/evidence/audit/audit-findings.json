@@ -1,0 +1,178 @@
+{
+  "schema": "red-team-audit-findings/v1",
+  "auditor": "red-team-auditor (independent, read-only except this audit/ directory)",
+  "audit_window_local": "2026-10-24T17:31:23+08:00 .. 2026-10-24T17:47:00+08:00",
+  "workspace": "E:\\dev\\agents\\lark-working",
+  "target": "deliverables/2026-10-24-nine-task/ + GitHub XuYifeng008/test_collaborating 2026-10-24-nine-task-v1/",
+  "audited_version": {
+    "git_commit": "a36d439e5da279a8c982ff96353b1579d14bc14c",
+    "remote_main": "a36d439e5da279a8c982ff96353b1579d14bc14c",
+    "previous_commit_superseded": "b1e2f5d293978b398fb508a521757c88f7128732",
+    "report": {
+      "path": "deliverables/2026-10-24-nine-task/REPORT.md",
+      "bytes": 29998,
+      "sha256": "feeb195b41ea1b322cf1250d787522df78cd3fddad4895a151eb545303d30b85",
+      "mtime_local": "2026-10-24 17:34:01"
+    },
+    "artifacts": {
+      "outputs/canonical.zip": {"bytes": 67242, "sha256": "2735bb06a066f8db79d2f2fbe16d2bea521ee6fa6302ef5e87cc4bce03deb26a"},
+      "outputs/wave1.zip": {"bytes": 89327, "sha256": "f4e43152182b4800fea7d52150e0933edc2759d07f6f019bc4886f5d01522ee4"},
+      "outputs/wave2.zip": {"bytes": 89327, "sha256": "92323c48abbd32c5161f918cbbb7bd2add3712ba182ee9eb90ef0f9cfc288a35"},
+      "outputs/package-receipt.json": {"bytes": 2613, "sha256": "8bb7058a02a439976c17344f70b20b93c530717ecae091c9198fed4085d32e0c"},
+      "outputs-piper-dual/canonical.zip": {"bytes": 67242, "sha256": "2735bb06a066f8db79d2f2fbe16d2bea521ee6fa6302ef5e87cc4bce03deb26a"},
+      "outputs-piper-dual/wave1.zip": {"bytes": 89335, "sha256": "fc04a286b6cead3bbdbae1271cc98efbde930580703aa2de1c2daba4dbfc2d23"},
+      "outputs-piper-dual/wave2.zip": {"bytes": 89335, "sha256": "d56052c172ad368881be67c0cf6c901e6cc7a44284b4cf2035a78c6330cb2fdb"},
+      "outputs-piper-dual/package-receipt.json": {"bytes": 2617, "sha256": "64b1b9c91a6bbd8fb921d0d4a52238cfda1ebbddb2492e29385b1ec381ea48d1"},
+      "tests/test-results.json": {"bytes": 1371582, "sha256": "1fefaa5872cdbe61f5894c56055a2cfb075d7fd7667f159f9fd1d0d4d868760f"},
+      "tests/TEST_RESULTS.md": {"bytes": 12816, "sha256": "bc92f8119d37bae72e850bf3ac25e06c3de0cb7db271cbb6756cfa4d20bde4d5"},
+      "evidence/contracts/contract-verification.json": {"bytes": 387813, "sha256": "70e2a30e8e36fbdb2d6ef069a2ad430df6690c2ab081744f1709b4d0ab05bc79"},
+      "evidence/probes/probe-summary.json": {"bytes": 136341, "sha256": "b7d33696d524e4e42b584d8b118761b075ed075d3d0c27f28ddaafd8c4f84f9b"},
+      "evidence/packaging/freeze-summary.json": {"bytes": 3288, "sha256": "17f06ea5554fb0300587c3eaa89279d0c70b303d669a70e6b6e349269fa252d5"},
+      "evidence/wrapper/wrapper-roundtrip.json": {"bytes": 863, "sha256": "7d2ba969de6e6961ba6d9dedc4d657a7b690810c1360fb02b6ff5b8f68f6c707"}
+    }
+  },
+  "conclusion": {
+    "verdict": "deliverable_with_minor_report_fixes",
+    "verdict_cn": "可交付（建议修复 3 处低严重度报告数据笔误，不阻塞）",
+    "blocking": false,
+    "fabricated_attempt_or_score_found": false,
+    "highest_priority_honesty": "PASS",
+    "summary_cn": "未发现任何伪造的 Attempt ID/evaluation ID/36 槽分数/任务成功声明；产物哈希与字节、测试 17/17、GitHub 远端 a36d439 与本地一致、token 0 泄漏，全部通过；仅发现 REPORT 中 3 处低严重度数字笔误（66,335 应为 66,636；C07 finish 2418 应为 2448；tare 后 9 次 read 应为 7 次/总 9 次）及 4 处措辞/清单/日志格式提示项，不改变诚实性结论。"
+  },
+  "categories": [
+    {
+      "id": "1-honesty",
+      "name": "诚实性（最高优先级）",
+      "verdict": "PASS",
+      "key_evidence": [
+        "对 deliverables + campaign 105 个文本文件扫描：attempt_id/evaluation_id 赋值 0、eval-<hex> ID 0、数值 score 字段 0；UUID 命中 42 处均为 .tmp/sessions/*.jsonl 会话文件名，非 Attempt/评测 ID",
+        "scoreIsFinal=true / scored_count=planned_count=36 / 中文成功类表述的命中全部处于否定句或“判据/要求”上下文，无任何已获得陈述",
+        "release.json 6 个平台/部署 flag 全 false；rules platform.challenge_ids=null；configuration 两后端 url=null/deployment_qualified=false（我直接读取文件核对）",
+        "probe raw 10 条 body/meta sha256 复核一致；benchmark_id=lab-agent-v0.4-five-tasks-dev、5 题、缺 4 个九题绑定字段、/v1/challenges /v1/attempts /v1/evaluations 列表均 404",
+        "官方 playground CLI 只读复跑：0.1.40、authenticated=true、submit -h 含创建 Attempt；task list 6932 条中硬关键词 0 命中 -> 本题 Challenge 未上架",
+        "工作区无 8090/8787/8890 监听、无平台注入环境变量；静态搜索 deployment_qualified 语义为 true 的配置 0 命中"
+      ],
+      "items": [
+        {"check": "伪造 Attempt ID / evaluation ID", "verdict": "PASS", "evidence": "赋值式与 ID 模式 0 命中（UUID 命中全部为会话文件名）"},
+        {"check": "伪造 36 槽分数 / scoreIsFinal / scored_count", "verdict": "PASS", "evidence": "仅出现在否定/判据上下文，无数值分数字段"},
+        {"check": "任务成功 / 已提交 / 已得分声明", "verdict": "PASS", "evidence": "中文成功类命中 30 处均为否定句或公式复算说明"},
+        {"check": "REPORT 结论与 probe/release/rules/configuration 一致", "verdict": "PASS", "evidence": "无正式入口、competition_ready=false、challenge_ids=null、url=null、旧服务缺绑定字段且 404 全部实测一致"},
+        {"check": "空策略/上传成功/本地 mock 当作成功", "verdict": "PASS", "evidence": "tests/REPORT 明确标注 synthetic、kinematic mock 非物理、safe_abort；无 0 分/满分记录"},
+        {"check": "未 POST/未上传/未创建评测", "verdict": "PASS", "evidence": "10 条探测 method 全 GET；method_policy 记录 created_evaluations_or_attempts=0；无 POST 痕迹（无法证明历史绝对未发生，但证据一致）"}
+      ]
+    },
+    {
+      "id": "2-artifact-consistency",
+      "name": "产物一致性",
+      "verdict": "PASS",
+      "key_evidence": [
+        "两赛道各 4 文件存在；canonical_source_sha256 独立重算 = b6a78c5adfc3e5e891b1f7bcd5d6aba807e80be67f482842c2c0f663bf7246f4，与两回执一致",
+        "按官方 lab_sdk.packaging 算法从源码从零重建 4 个 ZIP，与既有产物逐字节相同（canonical 2735bb06…、franka f4e43152…/92323c48…、piper fc04a286…/d56052c1…）",
+        "两赛道 canonical.zip 字节完全相同；ZIP testzip 无错；14 成员含 entry.py/lab_sdk(6)/canonical(6)/submission.json；entry.py wrapper 内容精确匹配 make_policy",
+        "回执 canonical_files/sdk_files/sdk_source_sha256=8bfc6839…/runtime_profile=b32b478e…/configuration=0e501779… 与真实字节一致",
+        "REPORT §3 表全部大小/SHA 与实测一致；交付物与 GitHub campaign 8 个产物文件逐字节一致"
+      ],
+      "items": [
+        {"check": "四文件齐全（两赛道）", "verdict": "PASS"},
+        {"check": "canonical_source/runtime/configuration/receipt 哈希独立重算", "verdict": "PASS"},
+        {"check": "ZIP 可解压且成员/wrapper 正确", "verdict": "PASS"},
+        {"check": "两赛道 canonical.zip 字节相同", "verdict": "PASS"},
+        {"check": "确定性（重建字节一致）", "verdict": "PASS"}
+      ]
+    },
+    {
+      "id": "3-tests-truthfulness",
+      "name": "测试真实性",
+      "verdict": "PASS",
+      "key_evidence": [
+        "亲自复跑 run_tests.py --no-write（-B）：exit 0，17 PASS / 0 FAIL / 0 ERROR / 0 SKIP，39.16 s（归档 34.59 s，环境耗时差异；17 用例检查计数一致）",
+        "test-results.json 与 TEST_RESULTS.md：summary 与 17 行逐项（test_id/状态/通过/失败/警告）一致",
+        "JSON 记录的 6 个策略文件 bytes+sha256 与当前 src 逐项一致，证明测试针对当前冻结源码",
+        "4 真实 fixture vs 14 synthetic 明确区分；kinematic mock / scripted balance / synthetic perception 标注齐全",
+        "真实用例与 C07 nominal 各两次运行 action digest 完全相同；C07 tare=1、无二次 tare、tare 前 2 次 stable read、tare 后 7 read、终值 10.100 g 在容差、finish 前保持 450 步"
+      ],
+      "items": [
+        {"check": "17/17 PASS 属实", "verdict": "PASS", "evidence": "独立复跑 exit 0"},
+        {"check": "JSON 与 MD 一致", "verdict": "PASS"},
+        {"check": "synthetic/非物理标注", "verdict": "PASS"},
+        {"check": "确定性/C07 去皮", "verdict": "PASS"}
+      ]
+    },
+    {
+      "id": "4-report-data",
+      "name": "报告数据抽查",
+      "verdict": "PASS",
+      "key_evidence": [
+        "930/915/0/15、477 内部检查、legal/illegal 矩阵计数、33/33 manifest、freeze SHA、wrapper 8/8、C07 数据均从 evidence 复算成立",
+        "我另外亲自重跑 4 份 fixture（官方 Adapter）与 wrapper 往返（8/8）、感知冒烟（与日志一致）",
+        "token 泄漏 0 命中（955 文件）",
+        "FAIL：3 处报告数字笔误（见 findings F1-F3）；无法判定 1 处（F4）；提示 3 处（F5-F7）"
+      ],
+      "items": [
+        {"check": "930 项检查 / 0 不符 / 33/33 manifest", "verdict": "PASS"},
+        {"check": "4 fixtures × Adapter / 477 内部检查", "verdict": "PASS"},
+        {"check": "freeze SHA / wrapper 8 项 / C07 tare=1", "verdict": "PASS"},
+        {"check": "REPORT 数字与证据一致性", "verdict": "FAIL", "detail": "3 处笔误 F1-F3"},
+        {"check": "token 泄漏", "verdict": "PASS", "detail": "43-char token, 955 files scanned, 0 hits"}
+      ]
+    },
+    {
+      "id": "5-github-readback",
+      "name": "GitHub 回读",
+      "verdict": "PASS",
+      "key_evidence": [
+        "gh api remote main = a36d439e5da279a8c982ff96353b1579d14bc14c = 本地 HEAD；本地 clone worktree clean",
+        "campaign 61 个文件与 deliverables 对应文件逐字节一致 61/61；HEAD tree 61 blob 与 deliverables 一致（0 差异）",
+        "campaign README.md 与本地 REPORT.md 逐字节相同（29,998 B / feeb195b…）",
+        "仓库根 README 含 campaign 指针；旧版 b1e2f5d 的 evidence/probes 滞后问题在 a36d439 已修复"
+      ],
+      "items": [
+        {"check": "远端 main == 本地 HEAD", "verdict": "PASS"},
+        {"check": "campaign README == REPORT", "verdict": "PASS"},
+        {"check": "campaign 全量文件 == deliverables", "verdict": "PASS"},
+        {"check": "无伪造 ID/分数/成功声明", "verdict": "PASS"}
+      ]
+    }
+  ],
+  "findings": [
+    {"id": "F1", "severity": "low", "status": "fail", "category": "report_data", "location": "deliverables/2026-10-24-nine-task/REPORT.md:44", "claim": "src/my-policy 6 个文件，源码 66,335 B", "observed": "实际 66,636 B；同报告 §3(:102) 与 §8(:232) 均写 66,636 B", "impact": "仅文字笔误，不影响产物/评分/诚信结论", "recommendation": "改为 66,636 B"},
+    {"id": "F2", "severity": "low", "status": "fail", "category": "report_data", "location": "deliverables/2026-10-24-nine-task/REPORT.md:71", "claim": "C07 去皮流程 finish 于 2418 步", "observed": "evidence/logs/lead-dev-tests.log 实测 steps=2448；REPORT.md:135 亦写 step 2448", "impact": "仅文字笔误", "recommendation": "改为 2448 步"},
+    {"id": "F3", "severity": "low", "status": "fail", "category": "report_data", "location": "deliverables/2026-10-24-nine-task/REPORT.md:130", "claim": "C07 nominal tare 后 9 次 read", "observed": "test-results.json balance_stub.reads_after_valid_tare=7（reads 总数=9）", "impact": "仅文字笔误", "recommendation": "改为“tare 后 7 次 read（总 9 次）”"},
+    {"id": "F4", "severity": "low", "status": "unverifiable", "category": "report_data", "location": "deliverables/2026-10-24-nine-task/REPORT.md:135", "claim": "C07 dev 记录 finish（step 2448，含 finish 前 150 步保持）", "observed": "lead-dev-tests.log 只记录 steps=2448，未记录 hold 步数；该断言无法由该日志复核（同套件 real:C07 terminal_hold_steps=150 已由 tests 验证）", "impact": "证据不足", "recommendation": "补记 hold 步数或删除该括号断言"},
+    {"id": "F5", "severity": "info", "status": "wording", "category": "report_data", "location": "deliverables/2026-10-24-nine-task/REPORT.md:130", "claim": "净质量 4.53→10.10 g 均在容差", "observed": "起读 4.533 g 不在 [9.5,10.5] 容差；终值 10.100 g 在容差", "impact": "措辞不精确，非伪造", "recommendation": "改为“终值 10.100 g 在容差”"},
+    {"id": "F6", "severity": "info", "status": "inventory", "category": "report_data", "location": "deliverables/2026-10-24-nine-task/REPORT.md:227-243", "claim": "§8 文件清单", "observed": "目录内另有 publish.py（4,431 B）未被列入", "impact": "清单不完整", "recommendation": "补列 publish.py 或说明其为发布辅助脚本"},
+    {"id": "F7", "severity": "info", "status": "format", "category": "evidence_format", "location": "deliverables/2026-10-24-nine-task/evidence/logs/perception-smoke.log", "claim": "感知冒烟日志", "observed": "文件带 UTF-8 BOM 前缀；我重跑的输出与日志逐行内容一致", "impact": "无实质影响", "recommendation": "可重存为无 BOM（可选）"}
+  ],
+  "independent_recomputations": {
+    "canonical_source_sha256": "b6a78c5adfc3e5e891b1f7bcd5d6aba807e80be67f482842c2c0f663bf7246f4",
+    "sdk_source_sha256": "8bfc68398c0b4bde307c0a00e838baf3ed1db92504f1b27ca87518e6ed7f5cc8",
+    "public_kit": {
+      "manifest_checked": 33,
+      "manifest_mismatch": 0,
+      "package_files_on_disk": 34,
+      "rules_canonical_sha256": "e65b8edb7afc1d2ee901e2b5589f372028def43c319e66bb4852e7754c8dbc11",
+      "runtime_profile_canonical_sha256": "b32b478e6b0051e53fb774fc3b52b666352c8c427d3e6ec3e1994d7b41341639",
+      "configuration_canonical_sha256": "0e50177954035a578741140edf0bd68a7ac254e807b739fff3a89176e12894d2",
+      "model_registry_sha256": "9d60ca7505d1b3249f4ddd03b275d1e9b8009caca908dcdf9fee679d930db4e0",
+      "wheels_lock_sha256": "dd495064d834c9e7ed661a9bd457c33bba001c2831300188b9f552459ec1116f"
+    },
+    "zip_rebuild": {"method": "own reimplementation of lab_sdk.packaging deterministic ZIP (ZIP_STORED, date 1980-01-01, create_system=3, external_attr=(S_IFREG|0444)<<16)", "all_4_archives_bytes_identical": true, "both_tracks_canonical_zip_identical": true, "members_per_derived_zip": 14, "canonical_members": 6},
+    "contract_verification_json_internal": {"checks_total": 930, "pass": 915, "fail": 0, "info": 15, "issues_total": 0, "adapter_cases": 4, "adapter_checks_pass": 477, "adapter_checks_fail": 0, "legal_matrix_counts": [8, 9, 11, 8], "illegal_matrix_counts": [24, 24, 27, 24]},
+    "fixtures_adapter_recheck": {"cases": 4, "results": "wave1 franka/piper: dt=1/240, finish extra=720, joints 7 / 6+6, gripper [0,0.08]; wave2 franka C02 / piper C07: dt=1/120, finish extra=0, gripper [0,0.08]/[0,0.1], piper native arm->left mapping OK; observation accepted; illegal action matrices rejected; instrument only C07"}
+  },
+  "reruns": {
+    "tests": {"command": "D:\\python\\python310\\python.exe -B deliverables\\2026-10-24-nine-task\\tests\\run_tests.py --no-write", "exit_code": 0, "passed": 17, "failed": 0, "errors": 0, "skipped": 0, "duration_s": 39.16, "archived_duration_s": 34.59, "note": "耗时差异为环境负载；检查计数/统计与归档一致"},
+    "wrapper_roundtrip": {"command": "copy of evidence/wrapper/wrapper_roundtrip.py with output redirected to temp", "exit_code": 0, "checks": 8, "all_passed": true, "results_equal_to_archived": true},
+    "perception_smoke": {"command": "D:\\python\\python310\\python.exe -B deliverables\\2026-10-24-nine-task\\evidence\\perception\\perception_smoke.py", "exit_code": 0, "output_matches_log": true, "note": "日志带 UTF-8 BOM，内容逐行一致"},
+    "playground_cli_readonly": {"version": "Playground CLI 0.1.40", "auth_status": {"authenticated": true, "api_base": "https://play.bohrium.com/api"}, "submit_help_contains_attempt_creation": true, "task_list_total": 6932, "hard_keyword_hits": 0, "nine_task_challenge_visible": false}
+  },
+  "token_scan": {"token_file": "inbox/colleague-test-01.token", "token_length_chars": 43, "files_scanned": 955, "hits": 0, "hit_paths": [], "token_written_to_any_file": false, "token_printed": false, "evidence_bearer_literal_values": 0},
+  "github_readback": {"remote_main": "a36d439e5da279a8c982ff96353b1579d14bc14c", "local_head": "a36d439e5da279a8c982ff96353b1579d14bc14c", "worktree_clean": true, "campaign_files": 61, "campaign_files_byte_identical_to_deliverables": 61, "head_tree_blob_diffs": 0, "campaign_readme_equals_local_report": true, "root_readme_points_to_campaign": true},
+  "limitations": [
+    "无法从静态证据证明历史上从未发生 POST/上传；只能证明交付物与原始探测证据中无 POST/上传产物及任何 ID/分数，且报告表述与证据一致。",
+    "probe 报告的 strong_match_count=24 与审计时重新拉取的 24 条集合成员略有差异（平台列表动态），数量一致且均无本题九题题目；同一快照无法复核。",
+    "wrapper_roundtrip.py 复跑使用其原始逻辑（仅输出路径改为临时目录），属半独立复现；其结果与归档 8/8 逐条相同。",
+    "未重新执行 probe_entry.py（会联网写证据文件），改用原始 raw/meta sha256 复核 + 官方 CLI 只读复跑交叉验证。",
+    "REPORT 中 3 处数字笔误不改变“无正式入口/不伪造”的总结论，但建议修复以免后续引用错误。"
+  ]
+}
