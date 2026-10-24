@@ -130,6 +130,9 @@ python -m lab_sdk.packaging deliverables/2026-10-24-nine-task/src/my-policy \
   - C07 nominal（合成感知+脚本化天平桩）：150 calls / 1848 steps；tare 尝试 1 次且有效 1 次；tare 前有 168 步 hold + 2 次有效 stable read；tare 后 7 次 read（总 9 次），净质量 4.53→10.10 g，最终 10.10 g 落在 9.5–10.5 g 容差内（中间读数仅用于停倒判断）；无二次 tare；instrument 从不与 arms 混合同一动作；finish 前保持 450 步；两次运行 digest 相同。
 
 ### 4.3 C07 去皮-定量状态机（Lead dev 记录，非物理）
+
+> 独立红队审计（`evidence/audit/`）针对修复前版本（GitHub `a36d439`，REPORT SHA256 `feeb195b…`）给出“可交付、无伪造”，并指出本报告 3 处数字笔误；已按审计意见修正：源码字节 66,335→66,636、C07 mock finish 步数 2418→2448、C07 nominal “tare 后 9 次 read”改为“tare 后 7 次（总 9 次）”。修正仅涉及报告文字，不涉及策略源码/冻结产物/测试结果（其 SHA 与证据不变）。
+
 `evidence/logs/`（运动学 mock：命令即测量、夹爪在 <0.055 m 处模拟物体停滞、合成感知与合成天平回执；**不是仿真器/不是物理成绩**）：
 - 有效 read → stable 计数 → 首次 `tare` 恰 1 次（step 496）→ 出液 → 总 19 次 read → 净质量 10.4 g → 回位释放 → 保持 → finish（step 2448）。
 - 异常回执路径（unstable/缺字段）不重复 tare、不把异常值当有效质量、不立即 finish 冒充完成（`tests/TEST_RESULTS.md` 中三组异常用例 PASS）。
